@@ -24,7 +24,7 @@ Public Class Iniziale
 
             If Session("Terminale") Is Nothing Then    'primo giro
 
-                Dim str = System.Configuration.ConfigurationManager.ConnectionStrings.Item("ConnectionSam1").ConnectionString  'ConnectionSam1
+                Dim str = System.Configuration.ConfigurationManager.ConnectionStrings.Item("ConnectionSam").ConnectionString  'ConnectionSam1
                 Dim Connection = New SqlConnection(str)
                 Connection.Open()
 

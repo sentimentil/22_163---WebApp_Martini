@@ -28,7 +28,30 @@ Public Class Pallettizzazione
 
             Timer1.Enabled = False
 
-            AggiornaDati()
+
+            LabelCodiceUDS1.Text = "TEST"
+            LabelVolumeUDS1.Text = "TEST"
+            LabelCassettePerUDS1.Text = String.Format("{0} di {1}", 0, 10)
+
+            LabelCodiceUDS2.Text = "TEST"
+            LabelVolumeUDS2.Text = "TEST"
+            LabelCassettePerUDS2.Text = String.Format("{0} di {1}", 4, 15)
+
+            LabelCodiceUDS3.Text = "TEST"
+            LabelVolumeUDS3.Text = "TEST"
+            LabelCassettePerUDS3.Text = String.Format("{0} di {1}", 2, 5)
+
+            LabelCodiceUDS4.Text = "TEST"
+            LabelVolumeUDS4.Text = "TEST"
+            LabelCassettePerUDS4.Text = String.Format("{0} di {1}", 12, 30)
+
+            LabelGiro.Text = "TEST"
+            LabelBatch.Text = "TEST"
+            LabelnUDS.Text = "MULTI-UDS"
+            LabelCodicePallet.Text = "TEST"
+            LabelUltimoBarcode.Text = "123456789123456"
+            LabelMessaggio.Text = "TEST"
+            'AggiornaDati()
 
             Timer1.Enabled = True
 
