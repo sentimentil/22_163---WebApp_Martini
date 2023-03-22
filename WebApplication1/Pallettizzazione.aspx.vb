@@ -52,7 +52,7 @@ Public Class Pallettizzazione
         If Terminale Is Nothing Then Throw New Exception("Terminale non configurato!")
 
 
-        Dim str = System.Configuration.ConfigurationManager.ConnectionStrings.Item("ConnectionSam").ConnectionString  ' & Linea
+        Dim str = System.Configuration.ConfigurationManager.ConnectionStrings.Item("ConnectionSam" & Linea).ConnectionString  ' & Linea
         Dim Connection = New SqlConnection(str)
         Connection.Open()
 

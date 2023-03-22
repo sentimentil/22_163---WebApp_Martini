@@ -54,7 +54,7 @@ Public Class Depallettizzazione
         If Linea Is Nothing Then Throw New Exception("Linea non configurata!")
         If Terminale Is Nothing Then Throw New Exception("Terminale non configurato!")
 
-        Dim str = System.Configuration.ConfigurationManager.ConnectionStrings.Item("ConnectionSam").ConnectionString  ' & Linea
+        Dim str = System.Configuration.ConfigurationManager.ConnectionStrings.Item("ConnectionSam" & Linea).ConnectionString  ' & Linea
         Dim Connection = New SqlConnection(str)
         Connection.Open()
 
