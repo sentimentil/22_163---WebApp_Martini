@@ -28,6 +28,12 @@ Public Class Pallettizzazione
 
             Timer1.Enabled = False
 
+            'PanelMonoUDS.Visible = True
+            'PanelMultiUDS.Visible = False
+
+            LabelCodiceUDS0.Text = "TEST"
+            LabelVolumeUDS0.Text = "TEST"
+            LabelCassettePerUDS0.Text = String.Format("{0} di {1}", 0, 20)
 
             LabelCodiceUDS1.Text = "TEST"
             LabelVolumeUDS1.Text = "TEST"
