@@ -1,0 +1,250 @@
+﻿.Sinistra {
+    position: fixed;
+    width: 40%;
+    height: 100%;
+    top: 0%;
+    left: 2%;
+    background: white;
+    /*border-left: 5px solid black;*/
+    word-wrap: break-word;
+    display: block;
+    image-rendering: optimizeSpeed;
+}
+
+.Destra {
+    position: fixed;
+    width: 54%;
+    height: 55%;
+    top: 15%;
+    left: 45%;
+    background: white;
+    border-left: 2px solid royalblue;
+    border-top: 2px solid royalblue;
+    border-right: 2px solid royalblue;
+    border-bottom: 2px solid royalblue;
+    word-wrap: break-word;
+    text-rendering: optimizeSpeed;
+    /*shape-rendering: optimizeSpeed;*/
+}
+
+#navbar {
+    text-align: right;
+    background-color: transparent;
+    text-rendering: optimizeSpeed;
+    /*top: 90%*/
+}
+
+#navbar1 {
+    background-color: white;
+    display: block;
+    image-rendering: optimizeSpeed;
+}
+
+
+
+.Alto {
+    position: fixed;
+    width: 41%;
+    height: 40%;
+    top: 6%;
+    left: 29%;
+    background: white;
+    word-wrap: break-word;
+    display: block;
+    image-rendering: optimizeSpeed;
+    float:none;
+}
+
+
+.Alto0 {
+    position: fixed;
+    width: 29%;
+    height: 21%;
+    top: 25%;
+    left: 0%;
+    background: white;
+    border-left: 2px solid royalblue;
+    border-top: 2px solid royalblue;
+    border-right: 2px solid royalblue;
+    border-bottom: 2px solid royalblue;
+    word-wrap: break-word;
+    text-rendering: optimizeSpeed;
+}
+
+
+.Alto1 {
+    position: fixed;
+    width: 29%;
+    height: 21%;
+    top: 13%;
+    left: 0%;
+    background: white;
+    border-left: 2px solid royalblue;
+    border-top: 2px solid royalblue;
+    border-right: 2px solid royalblue;
+    border-bottom: 2px solid royalblue;
+    word-wrap: break-word;
+    text-rendering: optimizeSpeed;
+}
+
+
+.Alto2 {
+    position: fixed;
+    width: 29%;
+    height: 21%;
+    top: 13%;
+    left: 70%;
+    background: white;
+    border-left: 2px solid royalblue;
+    border-top: 2px solid royalblue;
+    border-right: 2px solid royalblue;
+    border-bottom: 2px solid royalblue;
+    word-wrap: break-word;
+    text-rendering: optimizeSpeed;
+}
+
+
+.Alto3 {
+    position: fixed;
+    width: 29%;
+    height: 21%;
+    top: 42%;
+    left: 0%;
+    background: white;
+    border-left: 2px solid royalblue;
+    border-top: 2px solid royalblue;
+    border-right: 2px solid royalblue;
+    border-bottom: 2px solid royalblue;
+    word-wrap: break-word;
+    text-rendering: optimizeSpeed;
+}
+
+.Alto4 {
+    position: fixed;
+    width: 29%;
+    height: 21%;
+    top: 42%;
+    left: 70%;
+    background: white;
+    border-left: 2px solid royalblue;
+    border-top: 2px solid royalblue;
+    border-right: 2px solid royalblue;
+    border-bottom: 2px solid royalblue;
+    word-wrap: break-word;
+    text-rendering: optimizeSpeed;
+}
+
+.Centro {
+    position: fixed;
+    width: 100%;
+    height: 10%;
+    top: 66%;
+    left: 0%;
+    background: white;
+    /*border-left: 5px solid black;*/
+    word-wrap: break-word;
+    text-align: center;
+    text-rendering: optimizeSpeed;
+}
+
+
+.Basso {
+    position: fixed;
+    width: 100%;
+    height: 30%;
+    top: 80%;
+    left: 0%;
+    background: white;
+    /*border-left: 5px solid black;*/
+    word-wrap: break-word;
+    text-rendering: optimizeSpeed;
+}
+
+
+.Sinistra1 {
+    position: fixed;
+    width: 50%;
+    height: 30%;
+    top: 75%;
+    left: 3%;
+    background: white;
+    /*border-left: 5px solid black;*/
+    word-wrap: break-word;
+}
+
+.Destra1 {
+    position: fixed;
+    width: 50%;
+    height: 30%;
+    top: 75%;
+    left: 50%;
+    background: white;
+    /*border-left: 5px solid black;*/
+    word-wrap: break-word;
+}
+
+
+
+
+/*.U13 {
+    position: fixed;
+    width: 50%;
+    height: 100%;
+    top: 0;
+    left: 0%;
+    background: white;
+    word-wrap: break-word;
+}
+
+.U14 {
+    position: fixed;
+    width: 50%;
+    height: 100%;
+    top: 0;
+    left: 50%;
+    background: white;
+    border-left: 5px solid black;
+    word-wrap: break-word;
+}
+
+
+
+#navbar11 {
+    text-align: right;
+    background-color: transparent;
+    position: fixed;
+    width: 50%;
+    height: 100%;
+    top: 85%;
+    left: 0%;
+}
+
+#navbar12 {
+    text-align: right;
+    background-color: transparent;
+    position: fixed;
+    width: 50%;
+    height: 100%;
+    top: 85%;
+    left: 50%;
+}
+
+#navbar13 {
+    text-align: right;
+    background-color: transparent;
+    position: fixed;
+    width: 50%;
+    height: 100%;
+    top: 85%;
+    left: 0%;
+}
+
+#navbar14 {
+    text-align: right;
+    background-color: transparent;
+    position: fixed;
+    width: 50%;
+    height: 100%;
+    top: 85%;
+    left: 50%;
+}*/

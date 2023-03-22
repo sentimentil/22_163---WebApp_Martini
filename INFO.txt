@@ -1,0 +1,11 @@
+Scaricare IIS tramite Windows
+Scaricare Web Deploy 3.6
+
+Creare percorso cartella vuota
+Registrare nuovo sito web dentro il manager di IIS con percorso della cartella appena creata
+Pubblica con Distribuzione Web con dati richiesti
+
+APRI I SEGUENTI SITI PER CONFIGURAZIONE SERVER WEB
+https://docs.microsoft.com/it-it/aspnet/web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler
+
+https://docs.microsoft.com/it-it/aspnet/web-forms/overview/deployment/visual-studio-web-deployment/deploying-to-iis
