@@ -26,8 +26,8 @@
     <asp:Timer ID="Timer1" runat="server" Interval="500" />
 
     <%--<link href="~/Content/Visualizzazione.css" rel="stylesheet" />--%>
-    <link href="http://UTC-PRG01:85/Content/Visualizzazione.css" rel="stylesheet" />
-    <%--    <link href="http://192.168.0.97:80/Content/Visualizzazione.css" rel="stylesheet"/>--%>
+<%--    <link href="http://UTC-PRG01:85/Content/Visualizzazione.css" rel="stylesheet" />--%>
+        <link href="http://192.168.0.97:80/Content/Visualizzazione.css" rel="stylesheet"/>
 
 
 
