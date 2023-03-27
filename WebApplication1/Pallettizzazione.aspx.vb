@@ -57,6 +57,8 @@ Public Class Pallettizzazione
             LabelCodicePallet.Text = "TEST"
             LabelUltimoBarcode.Text = "123456789123456"
             LabelMessaggio.Text = "TEST"
+
+
             'AggiornaDati()
 
             Timer1.Enabled = True
