@@ -12,7 +12,7 @@ Public Class Iniziale
 
 
     Private Sub Accedi()
-
+        'DIO BOIA
         Dim indirizzoPC As String = "?"
 
         Try
