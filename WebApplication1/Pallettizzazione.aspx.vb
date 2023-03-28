@@ -57,7 +57,7 @@ Public Class Pallettizzazione
         Dim Connection = New SqlConnection(str)
         Connection.Open()
 
-        Dim cmd As New SqlCommand(String.Format("SELECT * FROM [dbo].[VistaPallettizzatori] WHERE CodiceLinea = '{00}'", Baia.ToString.PadLeft(2, "0")), Connection)
+        Dim cmd As New SqlCommand(String.Format("SELECT * FROM [dbo].[VistaPallettizzatori] WHERE CodiceLinea = '{0}'", Baia.ToString.PadLeft(2, "0")), Connection)
         Dim reader = cmd.ExecuteReader
 
         Dim table As New DataTable

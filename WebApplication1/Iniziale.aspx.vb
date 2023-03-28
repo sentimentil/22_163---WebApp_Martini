@@ -7,7 +7,6 @@ Public Class Iniziale
 
         If IsPostBack Then Exit Sub
 
-
         Accedi()
     End Sub
 
@@ -24,12 +23,11 @@ Public Class Iniziale
             'nomePC = System.Net.Dns.GetHostEntry(Request.UserHostAddress).HostName  'user hostname (è necessario avere un server DNS)
             indirizzoPC = Request.UserHostAddress  'indirizzo IP (sul server è ::1)
             If indirizzoPC = "::1" Then indirizzoPC = "127.0.0.1"
-            'Label1.Text = indirizzoPC
-            'Exit Sub
+
 
             If Session("Terminale") Is Nothing Then    'primo giro
 
-                Dim str = System.Configuration.ConfigurationManager.ConnectionStrings.Item("ConnectionSam").ConnectionString  'ConnectionSam1
+                Dim str = System.Configuration.ConfigurationManager.ConnectionStrings.Item("ConnectionSam1").ConnectionString  'ConnectionSam1
                 Dim Connection = New SqlConnection(str)
                 Connection.Open()
 
