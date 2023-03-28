@@ -23,7 +23,7 @@
 
 
     <asp:ScriptManager ID="ScriptManager1" runat="server" />
-    <asp:Timer ID="Timer1" runat="server" Interval="500" />
+    <asp:Timer ID="Timer1" runat="server" Interval="5000" />
 
     <%--<link href="~/Content/Visualizzazione.css" rel="stylesheet" />--%>
 <%--    <link href="http://UTC-PRG01:85/Content/Visualizzazione.css" rel="stylesheet" />--%>

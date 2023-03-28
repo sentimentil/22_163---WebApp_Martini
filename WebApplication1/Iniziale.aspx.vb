@@ -7,12 +7,13 @@ Public Class Iniziale
 
         If IsPostBack Then Exit Sub
 
+
         Accedi()
     End Sub
 
 
     Private Sub Accedi()
-        'DIO BOIA
+
         Dim indirizzoPC As String = "?"
 
         Try

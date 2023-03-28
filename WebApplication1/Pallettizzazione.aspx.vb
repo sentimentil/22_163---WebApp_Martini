@@ -57,7 +57,7 @@ Public Class Pallettizzazione
         Dim Connection = New SqlConnection(str)
         Connection.Open()
 
-        Dim cmd As New SqlCommand(String.Format("SELECT * FROM [dbo].[VistaPallettizzatori] WHERE CodiceLinea = '{0}'", Linea.ToString("00")), Connection)
+        Dim cmd As New SqlCommand(String.Format("SELECT * FROM [dbo].[VistaPallettizzatori] WHERE CodiceLinea = '{00}'", Baia.ToString.PadLeft(2, "0")), Connection)
         Dim reader = cmd.ExecuteReader
 
         Dim table As New DataTable
@@ -268,7 +268,7 @@ Public Class Pallettizzazione
                 Case "4"
                     PalletImage.ImageUrl = PalletImage.ResolveUrl("~/Immagini/PalletBD.jpeg")
 
-                Case "-1"
+                Case Else
                     PalletImage.ImageUrl = PalletImage.ResolveUrl("~/Immagini/Pallet.jpeg")
 
             End Select
@@ -303,9 +303,10 @@ Public Class Pallettizzazione
 
         Try
             Dim Linea = Session("Linea")
-            Dim Terminale = Session("Terminale")
+            Dim Baia = Session("Baia")
+
+            If Baia Is Nothing Then Throw New Exception("Baia non configurata!")
             If Linea Is Nothing Then Throw New Exception("Linea non configurata!")
-            If Terminale Is Nothing Then Throw New Exception("Terminale non configurato!")
 
             Dim UDS = Session("UDS")
             If UDS Is Nothing Then Throw New Exception("UDS non registrato!")
@@ -314,7 +315,7 @@ Public Class Pallettizzazione
             Dim Connection = New SqlConnection(str)
             Connection.Open()
 
-            Dim cmd As New SqlCommand(String.Format("UPDATE [dbo].[VistaPallettizzatori] WHERE CodiceLinea = '{0}' SET StatoUDS{1} = '2'", Terminale, UDS), Connection)
+            Dim cmd As New SqlCommand(String.Format("UPDATE [dbo].[VistaPallettizzatori] WHERE CodiceLinea = '{0}' SET StatoUDS{1} = '2'", Baia.ToString.PadLeft(2, "0"), UDS), Connection)
             Dim reader = cmd.ExecuteReader
 
             reader.Close()
@@ -332,15 +333,16 @@ Public Class Pallettizzazione
 
         Try
             Dim Linea = Session("Linea")
-            Dim Terminale = Session("Terminale")
+            Dim Baia = Session("Baia")
+
+            If Baia Is Nothing Then Throw New Exception("Baia non configurata!")
             If Linea Is Nothing Then Throw New Exception("Linea non configurata!")
-            If Terminale Is Nothing Then Throw New Exception("Terminale non configurato!")
 
             Dim str = System.Configuration.ConfigurationManager.ConnectionStrings.Item("ConnectionSam" & Linea).ConnectionString  '
             Dim Connection = New SqlConnection(str)
             Connection.Open()
 
-            Dim cmd As New SqlCommand(String.Format("EXEC [dbo].[VistaPallettizzatori_PalletCompleto] '{0}'", Terminale), Connection)
+            Dim cmd As New SqlCommand(String.Format("EXEC [dbo].[VistaPallettizzatori_PalletCompleto] '{0}'", Baia.ToString.PadLeft(2, "0")), Connection)
             Dim reader = cmd.ExecuteReader
 
             Dim table As New DataTable

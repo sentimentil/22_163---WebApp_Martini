@@ -48,9 +48,11 @@ Public Class Depallettizzazione
 
         'Dim Lista As New List(Of Tabella)
 
+        Dim Baia = Session("Baia")
         Dim Linea = Session("Linea")
         Dim Terminale = Session("Terminale")
 
+        If Baia Is Nothing Then Throw New Exception("Baia non configurata!")
         If Linea Is Nothing Then Throw New Exception("Linea non configurata!")
         If Terminale Is Nothing Then Throw New Exception("Terminale non configurato!")
 
@@ -116,6 +118,7 @@ Public Class Depallettizzazione
 
             Connection.Open()
 
+            'Dim cmd1 As New SqlCommand(String.Format("EXEC [dbo].[WebDepal] {0}", Baia), Connection)
             Dim cmd1 As New SqlCommand("EXEC [dbo].[WebDepal]", Connection)
 
             Dim reader1 = cmd1.ExecuteReader
