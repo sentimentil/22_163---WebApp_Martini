@@ -97,7 +97,7 @@ Public Class Depallettizzazione
                 Dim tmpArticoli = row.Where(Function(a) a.Item("UDP") = udp)
 
                 For Each art In tmpArticoli
-                    strArticoli += art.Item("Vincoli_CODICE_ARTICOLO") & " -"
+                    strArticoli += art.Item("Vincoli_CODICE_ARTICOLO") & ","
                     totQtaTotale += art.Item("Vincoli_NUMERO_CASSE_SET_ASSEGNAZIONE")
                     totQtaScaricata += art.Item("CasseScaricate")
                 Next

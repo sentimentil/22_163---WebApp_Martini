@@ -28,8 +28,8 @@ Public Class Pallettizzazione
 
             Timer1.Enabled = False
 
-            DatiTest()
-            'AggiornaDati()
+            'DatiTest()
+            AggiornaDati()
 
             Timer1.Enabled = True
 
@@ -400,7 +400,11 @@ Public Class Pallettizzazione
         'PalletImage.Visible = False
         'LabelAvviso.Text = "CAMBIA PALLET!"
         'LabelAvviso.Visible = True
-        'btnPallet.Visible = True
+        'btnPallet.Visible = False
+
+        'LabelAvviso.Text = String.Format("UDS {0} IN CHIUSURA!", 0)
+        'LabelAvviso.Visible = True
+        'btnUDS.Visible = True
 
 
         Dim Result = New Random().Next(0, 6)
