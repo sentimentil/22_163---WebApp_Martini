@@ -28,8 +28,8 @@ Public Class Pallettizzazione
 
             Timer1.Enabled = False
 
-            'DatiTest()
-            AggiornaDati()
+            DatiTest()
+            'AggiornaDati()
 
             Timer1.Enabled = True
 
@@ -367,8 +367,8 @@ Public Class Pallettizzazione
 
     Private Sub DatiTest()
 
-        PanelMonoUDS.Visible = True
-        PanelMultiUDS.Visible = False
+        PanelMonoUDS.Visible = False
+        PanelMultiUDS.Visible = True
 
         LabelCodiceUDS0.Text = "TEST"
         LabelVolumeUDS0.Text = "TEST"
@@ -390,12 +390,42 @@ Public Class Pallettizzazione
         LabelVolumeUDS4.Text = "TEST"
         LabelCassettePerUDS4.Text = String.Format("{0} di {1}", 12, 30)
 
-        LabelGiro.Text = "TEST"
-        LabelBatch.Text = "TEST"
+        LabelGiro.Text = "154_20230109"
+        LabelBatch.Text = "29_154_20230109"
         LabelnUDS.Text = "MULTI-UDS"
         LabelCodicePallet.Text = "TEST"
         LabelUltimoBarcode.Text = "123456789123456"
         LabelMessaggio.Text = "TEST"
+
+        'PalletImage.Visible = False
+        'LabelAvviso.Text = "CAMBIA PALLET!"
+        'LabelAvviso.Visible = True
+        'btnPallet.Visible = True
+
+
+        Dim Result = New Random().Next(0, 6)
+
+        Select Case Result
+
+            Case "0"
+                PalletImage.ImageUrl = PalletImage.ResolveUrl("~/Immagini/PalletALL.jpeg")
+
+
+            Case "1"
+                PalletImage.ImageUrl = PalletImage.ResolveUrl("~/Immagini/PalletAS.jpeg")
+
+            Case "2"
+                PalletImage.ImageUrl = PalletImage.ResolveUrl("~/Immagini/PalletAD.jpeg")
+
+            Case "3"
+                PalletImage.ImageUrl = PalletImage.ResolveUrl("~/Immagini/PalletBS.jpeg")
+
+            Case "4"
+                PalletImage.ImageUrl = PalletImage.ResolveUrl("~/Immagini/PalletBD.jpeg")
+
+            Case Else
+                PalletImage.ImageUrl = PalletImage.ResolveUrl("~/Immagini/Pallet.jpeg")
+        End Select
 
     End Sub
 

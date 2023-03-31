@@ -60,37 +60,37 @@
 
                 <%--<asp:GridView ID="GridView1" runat="server" AlternatingRowStyle-BackColor="#EEEEEE" HeaderStyle-BackColor ="Yellow" RowStyle-HorizontalAlign="Center" ></asp:GridView>--%>
 
-                <asp:Label ID="Label2" runat="server" Text="Giro: " Font-Size="40" Width="440" Style="text-align: right"></asp:Label>
+                <asp:Label ID="Label2" runat="server" Text="Giro: " Font-Size="40" Width="390" Style="text-align: right"></asp:Label>
                 <asp:Label ID="LabelGiro" runat="server" Text="" Font-Size="46" Font-Bold="true"></asp:Label>
 
                 <br />
 
-                <asp:Label ID="Label5" runat="server" Text="Batch: " Font-Size="40" Width="440" Style="text-align: right"></asp:Label>
+                <asp:Label ID="Label5" runat="server" Text="Batch: " Font-Size="40" Width="390" Style="text-align: right"></asp:Label>
                 <asp:Label ID="LabelBatch" runat="server" Text="" Font-Size="46" Font-Bold="true"></asp:Label>
 
                 <br />
 
-                <asp:Label ID="Label4" runat="server" Text="UDP: " Font-Size="40" Width="440" Style="text-align: right"></asp:Label>
+                <asp:Label ID="Label4" runat="server" Text="UDP: " Font-Size="40" Width="390" Style="text-align: right"></asp:Label>
                 <asp:Label ID="LabelUDP" runat="server" Text="" Font-Size="46"></asp:Label>
 
                 <br />
 
-                <asp:Label ID="Label6" runat="server" Text="Articolo: " Font-Size="40" Width="440" Style="text-align: right"></asp:Label>
+                <asp:Label ID="Label6" runat="server" Text="Articolo: " Font-Size="40" Width="390" Style="text-align: right"></asp:Label>
                 <asp:Label ID="LabelArticolo" runat="server" Text="" Font-Size="46"></asp:Label>
 
                 <br />
 
-                <asp:Label ID="Label7" runat="server" Text="Casse Rimanenti: " Font-Size="40" Width="440" Style="text-align: right"></asp:Label>
+                <asp:Label ID="Label7" runat="server" Text="Casse Rimanenti: " Font-Size="40" Width="430" Style="text-align: right"></asp:Label>
                 <asp:Label ID="LabelQtaRimanente" runat="server" Text="" Font-Size="46" BackColor="LawnGreen"></asp:Label>
 
                 <br />
 
-                <asp:Label ID="Label8" runat="server" Text="Casse Scaricate: " Font-Size="40" Width="440" Style="text-align: right"></asp:Label>
+                <asp:Label ID="Label8" runat="server" Text="Casse Scaricate: " Font-Size="40" Width="430" Style="text-align: right"></asp:Label>
                 <asp:Label ID="LabelQtaScaricata" runat="server" Text="" Font-Size="46" BackColor="Aqua"></asp:Label>
 
                 <br />
 
-                <asp:Label ID="Label9" runat="server" Text="Casse Totali: " Font-Size="40" Width="440" Style="text-align: right"></asp:Label>
+                <asp:Label ID="Label9" runat="server" Text="Casse Totali: " Font-Size="40" Width="430" Style="text-align: right"></asp:Label>
                 <asp:Label ID="LabelQtaTotale" runat="server" Text="" Font-Size="46"></asp:Label>
 
 

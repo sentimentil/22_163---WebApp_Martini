@@ -24,6 +24,7 @@ Public Class Iniziale
             indirizzoPC = Request.UserHostAddress  'indirizzo IP (sul server è ::1)
             If indirizzoPC = "::1" Then indirizzoPC = "127.0.0.1"
 
+            Session.Add("Terminale", "DP201")   'test in locale debug
 
             If Session("Terminale") Is Nothing Then    'primo giro
 
@@ -48,6 +49,8 @@ Public Class Iniziale
             Else
                 terminale = Session("Terminale")
             End If
+
+
 
             If String.IsNullOrWhiteSpace(terminale) Then LabelMessaggio.Text = "CONFIGURARE TERMINALE DAL PROGRAMMA SAM - IndirizzoPC=" & indirizzoPC : btnAccedi.Visible = True : Exit Sub 'Response.Redirect("Configurazione.aspx") : Exit Sub
 

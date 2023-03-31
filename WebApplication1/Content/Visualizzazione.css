@@ -13,10 +13,10 @@
 
 .Destra {
     position: fixed;
-    width: 56%;
+    width: 60%;
     height: 75%;
     top: 12%;
-    left: 40%;
+    left: 39%;
     background: white;
     border-left: 2px solid royalblue;
     border-top: 2px solid royalblue;
@@ -44,10 +44,10 @@
 
 .Alto {
     position: fixed;
-    width: 41%;
-    height: 40%;
-    top: 10%;
-    left: 29%;
+    width: 20%;
+    height: 59%;
+    top: 16%;
+    left: 39%;
     background: white;
     word-wrap: break-word;
     display: block;
@@ -58,10 +58,10 @@
 
 .Alto0 {
     position: fixed;
-    width: 29%;
-    height: 26%;
-    top: 30%;
-    left: 0%;
+    width: 38%;
+    height: 28%;
+    top: 32%;
+    left: 0.5%;
     background: white;
     border-left: 2px solid royalblue;
     border-top: 2px solid royalblue;
@@ -74,10 +74,10 @@
 
 .Alto1 {
     position: fixed;
-    width: 29%;
-    height: 26%;
-    top: 16%;
-    left: 0%;
+    width: 38%;
+    height: 28%;
+    top: 17%;
+    left: 0.5%;
     background: white;
     border-left: 2px solid royalblue;
     border-top: 2px solid royalblue;
@@ -90,10 +90,10 @@
 
 .Alto2 {
     position: fixed;
-    width: 29%;
-    height: 26%;
-    top: 16%;
-    left: 70%;
+    width: 38%;
+    height: 28%;
+    top: 17%;
+    left: 61%;
     background: white;
     border-left: 2px solid royalblue;
     border-top: 2px solid royalblue;
@@ -106,10 +106,10 @@
 
 .Alto3 {
     position: fixed;
-    width: 29%;
-    height: 26%;
-    top: 44%;
-    left: 0%;
+    width: 38%;
+    height: 28%;
+    top: 46%;
+    left: 0.5%;
     background: white;
     border-left: 2px solid royalblue;
     border-top: 2px solid royalblue;
@@ -121,10 +121,10 @@
 
 .Alto4 {
     position: fixed;
-    width: 29%;
-    height: 26%;
-    top: 44%;
-    left: 70%;
+    width: 38%;
+    height: 28%;
+    top: 46%;
+    left: 61%;
     background: white;
     border-left: 2px solid royalblue;
     border-top: 2px solid royalblue;
@@ -163,10 +163,21 @@
 
 .Sinistra1 {
     position: fixed;
-    width: 50%;
+    width: 40%;
+    height: 30%;
+    top: 75%;
+    left: 2%;
+    background: white;
+    /*border-left: 5px solid black;*/
+    word-wrap: break-word;
+}
+
+.Centro1 {
+    position: fixed;
+    width: 30%;
     height: 30%;
     top: 80%;
-    left: 3%;
+    left: 39%;
     background: white;
     /*border-left: 5px solid black;*/
     word-wrap: break-word;
@@ -176,8 +187,8 @@
     position: fixed;
     width: 50%;
     height: 30%;
-    top: 80%;
-    left: 50%;
+    top: 75%;
+    left: 57%;
     background: white;
     /*border-left: 5px solid black;*/
     word-wrap: break-word;

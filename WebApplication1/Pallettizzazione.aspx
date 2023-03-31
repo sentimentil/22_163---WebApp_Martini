@@ -42,8 +42,8 @@
     <asp:Timer ID="Timer1" runat="server" Interval="500" />
 
     <%--<link href="/Content/Visualizzazione.css" rel="stylesheet" />--%>
-    <%--<link href="http://UTC-PRG01:85/Content/Visualizzazione.css" rel="stylesheet" />--%>
-    <link href="http://192.168.0.97:85/Content/Visualizzazione.css" rel="stylesheet"/>
+    <link href="http://UTC-PRG01:85/Content/Visualizzazione.css" rel="stylesheet" />
+    <%--<link href="http://192.168.0.97:85/Content/Visualizzazione.css" rel="stylesheet"/>--%>
 
 
 
@@ -189,8 +189,10 @@
 
         <%--<img alt="" src="Immagini/Pallet.jpeg" id="PalletImage1" width="315" runat="server" />--%>
 
-        <asp:Image ID="PalletImage" runat="server" ImageUrl="~/Immagini/Pallet.jpeg" Width="100%" />
+       
+        <asp:Image ID="PalletImage" runat="server" ImageUrl="~/Immagini/Pallet.jpeg" Height="100%" Width="107%"/>
 
+        <%--<br />
         <br />
         <br />
         <br />
@@ -200,19 +202,24 @@
         <br />
         <br />
         <br />
-        <br />
+        <br />--%>
+
+        
+
         <br />
 
         <asp:Label ID="LabelAvviso" runat="server" Text="" Font-Size="46" Visible="false" Font-Bold="true"></asp:Label>
         <asp:Button ID="btnUDS" runat="server" Text="UDS CHIUSO" Visible="false" BackColor="LawnGreen" OnClick="btnUDS_Click" Font-Size="26" Width="380" />
         <asp:Button ID="btnPallet" runat="server" Text="CAMBIO PALLET" Visible="false" BackColor="LawnGreen" OnClick="btnPallet_Click" Font-Size="26" Width="400" />
+
+        
     </div>
 
 
 
-    <div id="Centro" class="Centro" runat="server">
+    <div id="Centro" class="Centro" runat="server" visible ="false">
 
-        <asp:Label ID="LabelnUDS" runat="server" Text="N° UDS: " Font-Size="46" Font-Underline="true"></asp:Label>
+        <%--<asp:Label ID="LabelnUDS" runat="server" Text="N° UDS: " Font-Size="46" Font-Underline="true"></asp:Label>--%>
 
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
@@ -233,6 +240,15 @@
             <asp:Label ID="Label4" runat="server" Text="Batch: " Font-Size="40" Width="160"></asp:Label>
             <asp:Label ID="LabelBatch" runat="server" Text="" Font-Size="46" Font-Bold="true"></asp:Label>
         </div>
+
+
+        <div id="Div2" class="Centro1" runat="server">
+
+            <%--&nbsp;&nbsp;&nbsp;&nbsp;--%>
+        <asp:Label ID="LabelnUDS" runat="server" Text="N° UDS: " Font-Size="46" Font-Underline="true" BackColor="Aqua"></asp:Label>
+
+        </div>
+
 
 
         <div id="Destra1" class="Destra1" runat="server">

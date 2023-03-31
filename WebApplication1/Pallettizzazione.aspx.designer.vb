@@ -455,15 +455,6 @@ Partial Public Class Pallettizzazione
     Protected WithEvents Centro As Global.System.Web.UI.HtmlControls.HtmlGenericControl
     
     '''<summary>
-    '''Controllo LabelnUDS.
-    '''</summary>
-    '''<remarks>
-    '''Campo generato automaticamente.
-    '''Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
-    '''</remarks>
-    Protected WithEvents LabelnUDS As Global.System.Web.UI.WebControls.Label
-    
-    '''<summary>
     '''Controllo Label1.
     '''</summary>
     '''<remarks>
@@ -534,6 +525,24 @@ Partial Public Class Pallettizzazione
     '''Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
     '''</remarks>
     Protected WithEvents LabelBatch As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''Controllo Div2.
+    '''</summary>
+    '''<remarks>
+    '''Campo generato automaticamente.
+    '''Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+    '''</remarks>
+    Protected WithEvents Div2 As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+    
+    '''<summary>
+    '''Controllo LabelnUDS.
+    '''</summary>
+    '''<remarks>
+    '''Campo generato automaticamente.
+    '''Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+    '''</remarks>
+    Protected WithEvents LabelnUDS As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
     '''Controllo Destra1.
