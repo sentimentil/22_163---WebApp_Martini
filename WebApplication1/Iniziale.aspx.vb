@@ -24,7 +24,7 @@ Public Class Iniziale
             indirizzoPC = Request.UserHostAddress  'indirizzo IP (sul server è ::1)
             If indirizzoPC = "::1" Then indirizzoPC = "127.0.0.1"
 
-            Session.Add("Terminale", "DP201")   'test in locale debug
+            'Session.Add("Terminale", "DP201")   'test in locale debug
 
             If Session("Terminale") Is Nothing Then    'primo giro
 
