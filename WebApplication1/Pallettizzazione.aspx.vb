@@ -68,7 +68,7 @@ Public Class Pallettizzazione
         Connection.Close()
 
         Dim row = table.AsEnumerable.FirstOrDefault
-        If row Is Nothing Then Exit Sub
+        If row Is Nothing Then SvuotaDati() : Exit Sub
 
 
         Dim descrizione = row.Item("Descrizione")
@@ -89,6 +89,7 @@ Public Class Pallettizzazione
 
             LabelAvviso.Text = "CAMBIA PALLET!"
             LabelAvviso.Visible = True
+            btnUDS.Visible = False
             btnPallet.Visible = True
 
 
@@ -216,8 +217,20 @@ Public Class Pallettizzazione
 
                 LabelAvviso.Text = String.Format("UDS {0} IN CHIUSURA!", numeroChiusuraUDS)
                 LabelAvviso.Visible = True
+                btnPallet.Visible = False
                 btnUDS.Visible = True
 
+
+            Else
+
+                If NumeroUDS = "1" Then
+                    PanelMultiUDS.Visible = False
+                    PanelMonoUDS.Visible = True
+
+                Else
+                    PanelMonoUDS.Visible = False
+                    PanelMultiUDS.Visible = True
+                End If
 
             End If
 
@@ -233,14 +246,7 @@ Public Class Pallettizzazione
 
 
 
-        If NumeroUDS = "1" Then
-            PanelMultiUDS.Visible = False
-            PanelMonoUDS.Visible = True
 
-        ElseIf NumeroUDS = "4" Then
-            PanelMonoUDS.Visible = False
-            PanelMultiUDS.Visible = True
-        End If
 
 
         PalletImage.Visible = VisualizzaImmaine
@@ -363,6 +369,48 @@ Public Class Pallettizzazione
         End Try
 
     End Sub
+
+
+    Private Sub SvuotaDati()
+
+        'PanelMonoUDS.Visible = False
+        'PanelMultiUDS.Visible = True
+
+        LabelCodiceUDS0.Text = ""
+        LabelVolumeUDS0.Text = ""
+        LabelCassettePerUDS0.Text = ""
+
+        LabelCodiceUDS1.Text = ""
+        LabelVolumeUDS1.Text = ""
+        LabelCassettePerUDS1.Text = ""
+
+        LabelCodiceUDS2.Text = ""
+        LabelVolumeUDS2.Text = ""
+        LabelCassettePerUDS2.Text = ""
+
+        LabelCodiceUDS3.Text = ""
+        LabelVolumeUDS3.Text = ""
+        LabelCassettePerUDS3.Text = ""
+
+        LabelCodiceUDS4.Text = ""
+        LabelVolumeUDS4.Text = ""
+        LabelCassettePerUDS4.Text = ""
+
+        LabelGiro.Text = ""
+        LabelBatch.Text = ""
+        LabelnUDS.Text = ""
+        LabelCodicePallet.Text = ""
+        LabelUltimoBarcode.Text = ""
+        LabelMessaggio.Text = ""
+
+        LabelAvviso.Text = ""
+        btnUDS.Visible = False
+        btnPallet.Visible = False
+
+        PalletImage.ImageUrl = PalletImage.ResolveUrl("~/Immagini/Pallet.jpeg")
+
+    End Sub
+
 
 
     Private Sub DatiTest()
