@@ -321,7 +321,7 @@ Public Class Pallettizzazione
             Dim Connection = New SqlConnection(str)
             Connection.Open()
 
-            Dim cmd As New SqlCommand(String.Format("UPDATE [dbo].[VistaPallettizzatori] WHERE CodiceLinea = '{0}' SET StatoUDS{1} = '2'", Baia.ToString.PadLeft(2, "0"), UDS), Connection)
+            Dim cmd As New SqlCommand(String.Format("UPDATE [dbo].[VistaPallettizzatori] SET StatoUDS{1} = '2' WHERE CodiceLinea = '{0}'", Baia.ToString.PadLeft(2, "0"), UDS), Connection)
             Dim reader = cmd.ExecuteReader
 
             reader.Close()
