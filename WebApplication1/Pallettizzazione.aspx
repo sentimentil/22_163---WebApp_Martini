@@ -42,17 +42,17 @@
     <asp:Timer ID="Timer1" runat="server" Interval="500" />
 
     <%--<link href="/Content/Visualizzazione.css" rel="stylesheet" />--%>
-<%--    <link href="http://UTC-PRG01:85/Content/Visualizzazione.css" rel="stylesheet" />--%>
-    <link href="http://192.168.0.97:80/Content/Visualizzazione.css" rel="stylesheet"/>
+    <%--<link href="http://UTC-PRG01:85/Content/Visualizzazione.css" rel="stylesheet" />--%>
+    <link href="http://192.168.0.97:85/Content/Visualizzazione.css" rel="stylesheet"/>
 
 
 
     <div class="navbar-inverse navbar-fixed-top" style="background-color: gainsboro; text-align: center">
-        <asp:Label ID="LabelBaia" runat="server" Text="BAIA" Font-Size="30" Font-Bold="true" Height="30px"></asp:Label>
+        <asp:Label ID="LabelBaia" runat="server" Text="BAIA" Font-Size="46" Font-Bold="true" Height="30px"></asp:Label>
 
         <br />
 
-        <asp:Label ID="LabelOperatore" runat="server" Text="RISPETTARE L'ORDINE DI ARRIVO DELLE CASSETTE" Font-Size="25" BackColor="Orange" Font-Bold="true"></asp:Label>
+        <asp:Label ID="LabelOperatore" runat="server" Text="RISPETTARE L'ORDINE DI ARRIVO DELLE CASSETTE" Font-Size="44" BackColor="Orange" Font-Bold="true"></asp:Label>
     </div>
 
 
@@ -69,72 +69,72 @@
 
                 <div id="Alto1" class="Alto1" runat="server">
 
-                    <asp:Label ID="Label9" runat="server" Text="Codice UDS: " Font-Size="28" Width="220"></asp:Label>
-                    <asp:Label ID="LabelCodiceUDS1" runat="server" Text="XX" Font-Size="32"></asp:Label>
+                    <asp:Label ID="Label9" runat="server" Text="Codice UDS: " Font-Size="40" Width="320"></asp:Label>
+                    <asp:Label ID="LabelCodiceUDS1" runat="server" Text="XX" Font-Size="46"></asp:Label>
 
                     <br />
 
-                    <asp:Label ID="Label7" runat="server" Text="Cassette: " Font-Size="28" Width="220"></asp:Label>
-                    <asp:Label ID="LabelCassettePerUDS1" runat="server" Text="" Font-Size="32"></asp:Label>
+                    <asp:Label ID="Label7" runat="server" Text="Cassette: " Font-Size="40" Width="320"></asp:Label>
+                    <asp:Label ID="LabelCassettePerUDS1" runat="server" Text="" Font-Size="46"></asp:Label>
 
                     <br />
 
-                    <asp:Label ID="Label10" runat="server" Text="Volume: " Font-Size="28" Width="220"></asp:Label>
-                    <asp:Label ID="LabelVolumeUDS1" runat="server" Text="" Font-Size="32"></asp:Label>
+                    <asp:Label ID="Label10" runat="server" Text="Volume: " Font-Size="40" Width="320"></asp:Label>
+                    <asp:Label ID="LabelVolumeUDS1" runat="server" Text="" Font-Size="46"></asp:Label>
 
                 </div>
 
 
                 <div id="Alto2" class="Alto2" runat="server">
 
-                    <asp:Label ID="Label11" runat="server" Text="Codice UDS: " Font-Size="28" Width="220"></asp:Label>
-                    <asp:Label ID="LabelCodiceUDS2" runat="server" Text="" Font-Size="32"></asp:Label>
+                    <asp:Label ID="Label11" runat="server" Text="Codice UDS: " Font-Size="40" Width="320"></asp:Label>
+                    <asp:Label ID="LabelCodiceUDS2" runat="server" Text="" Font-Size="46"></asp:Label>
 
                     <br />
 
-                    <asp:Label ID="Label13" runat="server" Text="Cassette: " Font-Size="28" Width="220"></asp:Label>
-                    <asp:Label ID="LabelCassettePerUDS2" runat="server" Text="" Font-Size="32"></asp:Label>
+                    <asp:Label ID="Label13" runat="server" Text="Cassette: " Font-Size="40" Width="320"></asp:Label>
+                    <asp:Label ID="LabelCassettePerUDS2" runat="server" Text="" Font-Size="46"></asp:Label>
 
                     <br />
 
-                    <asp:Label ID="Label15" runat="server" Text="Volume: " Font-Size="28" Width="220"></asp:Label>
-                    <asp:Label ID="LabelVolumeUDS2" runat="server" Text="" Font-Size="32"></asp:Label>
+                    <asp:Label ID="Label15" runat="server" Text="Volume: " Font-Size="40" Width="320"></asp:Label>
+                    <asp:Label ID="LabelVolumeUDS2" runat="server" Text="" Font-Size="46"></asp:Label>
 
                 </div>
 
 
                 <div id="Alto3" class="Alto3" runat="server">
 
-                    <asp:Label ID="Label12" runat="server" Text="Codice UDS: " Font-Size="28" Width="220"></asp:Label>
-                    <asp:Label ID="LabelCodiceUDS3" runat="server" Text="" Font-Size="32"></asp:Label>
+                    <asp:Label ID="Label12" runat="server" Text="Codice UDS: " Font-Size="40" Width="320"></asp:Label>
+                    <asp:Label ID="LabelCodiceUDS3" runat="server" Text="" Font-Size="46"></asp:Label>
 
                     <br />
 
-                    <asp:Label ID="Label16" runat="server" Text="Cassette: " Font-Size="28" Width="220"></asp:Label>
-                    <asp:Label ID="LabelCassettePerUDS3" runat="server" Text="" Font-Size="32"></asp:Label>
+                    <asp:Label ID="Label16" runat="server" Text="Cassette: " Font-Size="40" Width="320"></asp:Label>
+                    <asp:Label ID="LabelCassettePerUDS3" runat="server" Text="" Font-Size="46"></asp:Label>
 
                     <br />
 
-                    <asp:Label ID="Label18" runat="server" Text="Volume: " Font-Size="28" Width="220"></asp:Label>
-                    <asp:Label ID="LabelVolumeUDS3" runat="server" Text="" Font-Size="32"></asp:Label>
+                    <asp:Label ID="Label18" runat="server" Text="Volume: " Font-Size="40" Width="320"></asp:Label>
+                    <asp:Label ID="LabelVolumeUDS3" runat="server" Text="" Font-Size="46"></asp:Label>
 
                 </div>
 
 
                 <div id="Alto4" class="Alto4" runat="server">
 
-                    <asp:Label ID="Label14" runat="server" Text="Codice UDS: " Font-Size="28" Width="220"></asp:Label>
-                    <asp:Label ID="LabelCodiceUDS4" runat="server" Text="" Font-Size="32"></asp:Label>
+                    <asp:Label ID="Label14" runat="server" Text="Codice UDS: " Font-Size="40" Width="320"></asp:Label>
+                    <asp:Label ID="LabelCodiceUDS4" runat="server" Text="" Font-Size="46"></asp:Label>
 
                     <br />
 
-                    <asp:Label ID="Label19" runat="server" Text="Cassette: " Font-Size="28" Width="220"></asp:Label>
-                    <asp:Label ID="LabelCassettePerUDS4" runat="server" Text="" Font-Size="32"></asp:Label>
+                    <asp:Label ID="Label19" runat="server" Text="Cassette: " Font-Size="40" Width="320"></asp:Label>
+                    <asp:Label ID="LabelCassettePerUDS4" runat="server" Text="" Font-Size="46"></asp:Label>
 
                     <br />
 
-                    <asp:Label ID="Label21" runat="server" Text="Volume: " Font-Size="28" Width="220"></asp:Label>
-                    <asp:Label ID="LabelVolumeUDS4" runat="server" Text="" Font-Size="32"></asp:Label>
+                    <asp:Label ID="Label21" runat="server" Text="Volume: " Font-Size="40" Width="320"></asp:Label>
+                    <asp:Label ID="LabelVolumeUDS4" runat="server" Text="" Font-Size="46"></asp:Label>
 
                 </div>
 
@@ -162,18 +162,18 @@
 
                 <div id="Alto0" class="Alto0" runat="server">
 
-                    <asp:Label ID="Label6" runat="server" Text="Codice UDS: " Font-Size="28" Width="220"></asp:Label>
-                    <asp:Label ID="LabelCodiceUDS0" runat="server" Text="" Font-Size="32"></asp:Label>
+                    <asp:Label ID="Label6" runat="server" Text="Codice UDS: " Font-Size="40" Width="320"></asp:Label>
+                    <asp:Label ID="LabelCodiceUDS0" runat="server" Text="" Font-Size="46"></asp:Label>
 
                     <br />
 
-                    <asp:Label ID="Label20" runat="server" Text="Cassette: " Font-Size="28" Width="220"></asp:Label>
-                    <asp:Label ID="LabelCassettePerUDS0" runat="server" Text="" Font-Size="32"></asp:Label>
+                    <asp:Label ID="Label20" runat="server" Text="Cassette: " Font-Size="40" Width="320"></asp:Label>
+                    <asp:Label ID="LabelCassettePerUDS0" runat="server" Text="" Font-Size="46"></asp:Label>
 
                     <br />
 
-                    <asp:Label ID="Label23" runat="server" Text="Volume: " Font-Size="28" Width="220"></asp:Label>
-                    <asp:Label ID="LabelVolumeUDS0" runat="server" Text="" Font-Size="32"></asp:Label>
+                    <asp:Label ID="Label23" runat="server" Text="Volume: " Font-Size="40" Width="320"></asp:Label>
+                    <asp:Label ID="LabelVolumeUDS0" runat="server" Text="" Font-Size="46"></asp:Label>
 
                 </div>
 
@@ -189,35 +189,42 @@
 
         <%--<img alt="" src="Immagini/Pallet.jpeg" id="PalletImage1" width="315" runat="server" />--%>
 
-        <asp:Image ID="PalletImage" runat="server" ImageUrl="~/Immagini/Pallet.jpeg" Width="100%" />
+       
+        <asp:Image ID="PalletImage" runat="server" ImageUrl="~/Immagini/Pallet.jpeg" Height="100%" Width="107%"/>
+
+        <%--<br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />--%>
+
+        
 
         <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
 
-        <asp:Label ID="LabelAvviso" runat="server" Text="" Font-Size="32" Visible="false" Font-Bold="true"></asp:Label>
+        <asp:Label ID="LabelAvviso" runat="server" Text="" Font-Size="46" Visible="false" Font-Bold="true"></asp:Label>
         <asp:Button ID="btnUDS" runat="server" Text="UDS CHIUSO" Visible="false" BackColor="LawnGreen" OnClick="btnUDS_Click" Font-Size="26" Width="380" />
         <asp:Button ID="btnPallet" runat="server" Text="CAMBIO PALLET" Visible="false" BackColor="LawnGreen" OnClick="btnPallet_Click" Font-Size="26" Width="400" />
+
+        
     </div>
 
 
 
-    <div id="Centro" class="Centro" runat="server">
+    <div id="Centro" class="Centro" runat="server" visible ="false">
 
-        <asp:Label ID="LabelnUDS" runat="server" Text="N° UDS: " Font-Size="32" Font-Underline="true"></asp:Label>
+        <%--<asp:Label ID="LabelnUDS" runat="server" Text="N° UDS: " Font-Size="46" Font-Underline="true"></asp:Label>--%>
 
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-        <asp:Label ID="Label1" runat="server" Text="Ultima cassa letta: " Font-Size="28"></asp:Label>
-        <asp:Label ID="LabelUltimoBarcode" runat="server" Text="123456789123456" Font-Size="32" BackColor="Coral"></asp:Label>
+        <asp:Label ID="Label1" runat="server" Text="Ultima cassa letta: " Font-Size="40"></asp:Label>
+        <asp:Label ID="LabelUltimoBarcode" runat="server" Text="123456789123456" Font-Size="46" BackColor="Coral"></asp:Label>
 
     </div>
 
@@ -225,25 +232,34 @@
 
         <div id="Sinistra1" class="Sinistra1" runat="server">
 
-            <asp:Label ID="Label2" runat="server" Text="Giro: " Font-Size="28" Width="120"></asp:Label>
-            <asp:Label ID="LabelGiro" runat="server" Text="" Font-Size="32" Font-Bold="true"></asp:Label>
+            <asp:Label ID="Label2" runat="server" Text="Giro: " Font-Size="40" Width="160"></asp:Label>
+            <asp:Label ID="LabelGiro" runat="server" Text="" Font-Size="46" Font-Bold="true"></asp:Label>
 
             <br />
 
-            <asp:Label ID="Label4" runat="server" Text="Batch: " Font-Size="28" Width="120"></asp:Label>
-            <asp:Label ID="LabelBatch" runat="server" Text="" Font-Size="32" Font-Bold="true"></asp:Label>
+            <asp:Label ID="Label4" runat="server" Text="Batch: " Font-Size="40" Width="160"></asp:Label>
+            <asp:Label ID="LabelBatch" runat="server" Text="" Font-Size="46" Font-Bold="true"></asp:Label>
         </div>
+
+
+        <div id="Div2" class="Centro1" runat="server">
+
+            <%--&nbsp;&nbsp;&nbsp;&nbsp;--%>
+        <asp:Label ID="LabelnUDS" runat="server" Text="N° UDS: " Font-Size="46" Font-Underline="true" BackColor="Aqua"></asp:Label>
+
+        </div>
+
 
 
         <div id="Destra1" class="Destra1" runat="server">
             <%--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--%>
-            <asp:Label ID="Label3" runat="server" Text="Codice Pallet:" Font-Size="28"></asp:Label>
-            <asp:Label ID="LabelCodicePallet" runat="server" Text="" Font-Size="32"></asp:Label>
+            <asp:Label ID="Label3" runat="server" Text="Codice Pallet:" Font-Size="40"></asp:Label>
+            <asp:Label ID="LabelCodicePallet" runat="server" Text="" Font-Size="46"></asp:Label>
 
             <br />
 
-            <asp:Label ID="Label8" runat="server" Text="Messaggio: " Font-Size="28"></asp:Label>
-            <asp:Label ID="LabelMessaggio" runat="server" Text="" Font-Size="32"></asp:Label>
+            <asp:Label ID="Label8" runat="server" Text="Messaggio: " Font-Size="40"></asp:Label>
+            <asp:Label ID="LabelMessaggio" runat="server" Text="" Font-Size="46"></asp:Label>
 
         </div>
 
@@ -265,5 +281,5 @@
 
 
 
-    <asp:Label ID="LabelTERMINALE" runat="server" Text="" Font-Size="28" Visible="false"></asp:Label>
+    <asp:Label ID="LabelTERMINALE" runat="server" Text="" Font-Size="40" Visible="false"></asp:Label>
 </asp:Content>

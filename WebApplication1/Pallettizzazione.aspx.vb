@@ -28,6 +28,7 @@ Public Class Pallettizzazione
 
             Timer1.Enabled = False
 
+            'DatiTest()
             AggiornaDati()
 
             Timer1.Enabled = True
@@ -56,7 +57,7 @@ Public Class Pallettizzazione
         Dim Connection = New SqlConnection(str)
         Connection.Open()
 
-        Dim cmd As New SqlCommand(String.Format("SELECT * FROM [dbo].[VistaPallettizzatori] WHERE CodiceLinea = '{0}'", Terminale), Connection)
+        Dim cmd As New SqlCommand(String.Format("SELECT * FROM [dbo].[VistaPallettizzatori] WHERE CodiceLinea = '{0}'", Baia.ToString.PadLeft(2, "0")), Connection)
         Dim reader = cmd.ExecuteReader
 
         Dim table As New DataTable
@@ -67,7 +68,7 @@ Public Class Pallettizzazione
         Connection.Close()
 
         Dim row = table.AsEnumerable.FirstOrDefault
-        If row Is Nothing Then Exit Sub
+        If row Is Nothing Then SvuotaDati() : Exit Sub
 
 
         Dim descrizione = row.Item("Descrizione")
@@ -88,6 +89,7 @@ Public Class Pallettizzazione
 
             LabelAvviso.Text = "CAMBIA PALLET!"
             LabelAvviso.Visible = True
+            btnUDS.Visible = False
             btnPallet.Visible = True
 
 
@@ -215,8 +217,20 @@ Public Class Pallettizzazione
 
                 LabelAvviso.Text = String.Format("UDS {0} IN CHIUSURA!", numeroChiusuraUDS)
                 LabelAvviso.Visible = True
+                btnPallet.Visible = False
                 btnUDS.Visible = True
 
+
+            Else
+
+                If NumeroUDS = "1" Then
+                    PanelMultiUDS.Visible = False
+                    PanelMonoUDS.Visible = True
+
+                Else
+                    PanelMonoUDS.Visible = False
+                    PanelMultiUDS.Visible = True
+                End If
 
             End If
 
@@ -232,14 +246,7 @@ Public Class Pallettizzazione
 
 
 
-        If NumeroUDS = "1" Then
-            PanelMultiUDS.Visible = False
-            PanelMonoUDS.Visible = True
 
-        ElseIf NumeroUDS = "4" Then
-            PanelMonoUDS.Visible = False
-            PanelMultiUDS.Visible = True
-        End If
 
 
         PalletImage.Visible = VisualizzaImmaine
@@ -267,7 +274,7 @@ Public Class Pallettizzazione
                 Case "4"
                     PalletImage.ImageUrl = PalletImage.ResolveUrl("~/Immagini/PalletBD.jpeg")
 
-                Case "-1"
+                Case Else
                     PalletImage.ImageUrl = PalletImage.ResolveUrl("~/Immagini/Pallet.jpeg")
 
             End Select
@@ -302,9 +309,10 @@ Public Class Pallettizzazione
 
         Try
             Dim Linea = Session("Linea")
-            Dim Terminale = Session("Terminale")
+            Dim Baia = Session("Baia")
+
+            If Baia Is Nothing Then Throw New Exception("Baia non configurata!")
             If Linea Is Nothing Then Throw New Exception("Linea non configurata!")
-            If Terminale Is Nothing Then Throw New Exception("Terminale non configurato!")
 
             Dim UDS = Session("UDS")
             If UDS Is Nothing Then Throw New Exception("UDS non registrato!")
@@ -313,7 +321,7 @@ Public Class Pallettizzazione
             Dim Connection = New SqlConnection(str)
             Connection.Open()
 
-            Dim cmd As New SqlCommand(String.Format("UPDATE [dbo].[VistaPallettizzatori] WHERE CodiceLinea = '{0}' SET StatoUDS{1} = '2'", Terminale, UDS), Connection)
+            Dim cmd As New SqlCommand(String.Format("UPDATE [dbo].[VistaPallettizzatori] SET StatoUDS{1} = '2' WHERE CodiceLinea = '{0}'", Baia.ToString.PadLeft(2, "0"), UDS), Connection)
             Dim reader = cmd.ExecuteReader
 
             reader.Close()
@@ -331,15 +339,16 @@ Public Class Pallettizzazione
 
         Try
             Dim Linea = Session("Linea")
-            Dim Terminale = Session("Terminale")
+            Dim Baia = Session("Baia")
+
+            If Baia Is Nothing Then Throw New Exception("Baia non configurata!")
             If Linea Is Nothing Then Throw New Exception("Linea non configurata!")
-            If Terminale Is Nothing Then Throw New Exception("Terminale non configurato!")
 
             Dim str = System.Configuration.ConfigurationManager.ConnectionStrings.Item("ConnectionSam" & Linea).ConnectionString  '
             Dim Connection = New SqlConnection(str)
             Connection.Open()
 
-            Dim cmd As New SqlCommand(String.Format("EXEC [dbo].[VistaPallettizzatori_PalletCompleto] '{0}'", Terminale), Connection)
+            Dim cmd As New SqlCommand(String.Format("EXEC [dbo].[VistaPallettizzatori_PalletCompleto] '{0}'", Baia.ToString.PadLeft(2, "0")), Connection)
             Dim reader = cmd.ExecuteReader
 
             Dim table As New DataTable
@@ -358,6 +367,117 @@ Public Class Pallettizzazione
             LabelBaia.Text = "ERRORE! " & ex.Message
             LabelBaia.ForeColor = System.Drawing.Color.Red
         End Try
+
+    End Sub
+
+
+    Private Sub SvuotaDati()
+
+        'PanelMonoUDS.Visible = False
+        'PanelMultiUDS.Visible = True
+
+        LabelCodiceUDS0.Text = ""
+        LabelVolumeUDS0.Text = ""
+        LabelCassettePerUDS0.Text = ""
+
+        LabelCodiceUDS1.Text = ""
+        LabelVolumeUDS1.Text = ""
+        LabelCassettePerUDS1.Text = ""
+
+        LabelCodiceUDS2.Text = ""
+        LabelVolumeUDS2.Text = ""
+        LabelCassettePerUDS2.Text = ""
+
+        LabelCodiceUDS3.Text = ""
+        LabelVolumeUDS3.Text = ""
+        LabelCassettePerUDS3.Text = ""
+
+        LabelCodiceUDS4.Text = ""
+        LabelVolumeUDS4.Text = ""
+        LabelCassettePerUDS4.Text = ""
+
+        LabelGiro.Text = ""
+        LabelBatch.Text = ""
+        LabelnUDS.Text = ""
+        LabelCodicePallet.Text = ""
+        LabelUltimoBarcode.Text = ""
+        LabelMessaggio.Text = ""
+
+        LabelAvviso.Text = ""
+        btnUDS.Visible = False
+        btnPallet.Visible = False
+
+        PalletImage.ImageUrl = PalletImage.ResolveUrl("~/Immagini/Pallet.jpeg")
+
+    End Sub
+
+
+
+    Private Sub DatiTest()
+
+        PanelMonoUDS.Visible = False
+        PanelMultiUDS.Visible = True
+
+        LabelCodiceUDS0.Text = "TEST"
+        LabelVolumeUDS0.Text = "TEST"
+        LabelCassettePerUDS0.Text = String.Format("{0} di {1}", 0, 20)
+
+        LabelCodiceUDS1.Text = "TEST"
+        LabelVolumeUDS1.Text = "TEST"
+        LabelCassettePerUDS1.Text = String.Format("{0} di {1}", 0, 10)
+
+        LabelCodiceUDS2.Text = "TEST"
+        LabelVolumeUDS2.Text = "TEST"
+        LabelCassettePerUDS2.Text = String.Format("{0} di {1}", 4, 15)
+
+        LabelCodiceUDS3.Text = "TEST"
+        LabelVolumeUDS3.Text = "TEST"
+        LabelCassettePerUDS3.Text = String.Format("{0} di {1}", 2, 5)
+
+        LabelCodiceUDS4.Text = "TEST"
+        LabelVolumeUDS4.Text = "TEST"
+        LabelCassettePerUDS4.Text = String.Format("{0} di {1}", 12, 30)
+
+        LabelGiro.Text = "154_20230109"
+        LabelBatch.Text = "29_154_20230109"
+        LabelnUDS.Text = "MULTI-UDS"
+        LabelCodicePallet.Text = "TEST"
+        LabelUltimoBarcode.Text = "123456789123456"
+        LabelMessaggio.Text = "TEST"
+
+        'PalletImage.Visible = False
+        'LabelAvviso.Text = "CAMBIA PALLET!"
+        'LabelAvviso.Visible = True
+        'btnPallet.Visible = False
+
+        'LabelAvviso.Text = String.Format("UDS {0} IN CHIUSURA!", 0)
+        'LabelAvviso.Visible = True
+        'btnUDS.Visible = True
+
+
+        Dim Result = New Random().Next(0, 6)
+
+        Select Case Result
+
+            Case "0"
+                PalletImage.ImageUrl = PalletImage.ResolveUrl("~/Immagini/PalletALL.jpeg")
+
+
+            Case "1"
+                PalletImage.ImageUrl = PalletImage.ResolveUrl("~/Immagini/PalletAS.jpeg")
+
+            Case "2"
+                PalletImage.ImageUrl = PalletImage.ResolveUrl("~/Immagini/PalletAD.jpeg")
+
+            Case "3"
+                PalletImage.ImageUrl = PalletImage.ResolveUrl("~/Immagini/PalletBS.jpeg")
+
+            Case "4"
+                PalletImage.ImageUrl = PalletImage.ResolveUrl("~/Immagini/PalletBD.jpeg")
+
+            Case Else
+                PalletImage.ImageUrl = PalletImage.ResolveUrl("~/Immagini/Pallet.jpeg")
+        End Select
 
     End Sub
 

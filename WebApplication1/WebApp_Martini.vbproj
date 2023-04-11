@@ -139,7 +139,6 @@
     <Content Include="Content\Visualizzazione.css" />
     <Content Include="Immagini\logo.jpeg" />
     <Content Include="Immagini\Pallet.jpeg" />
-    <Content Include="Immagini\Pallet.jpg" />
     <Content Include="Immagini\PalletAD.jpeg" />
     <Content Include="Immagini\PalletALL.jpeg" />
     <Content Include="Immagini\PalletAS.jpeg" />

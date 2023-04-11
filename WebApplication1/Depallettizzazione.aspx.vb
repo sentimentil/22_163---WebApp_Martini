@@ -29,6 +29,7 @@ Public Class Depallettizzazione
 
             AggiornaDati()
 
+            Timer1.Interval = 3000
             Timer1.Enabled = True
 
         Catch ex As Exception
@@ -48,9 +49,11 @@ Public Class Depallettizzazione
 
         'Dim Lista As New List(Of Tabella)
 
+        Dim Baia = Session("Baia")
         Dim Linea = Session("Linea")
         Dim Terminale = Session("Terminale")
 
+        If Baia Is Nothing Then Throw New Exception("Baia non configurata!")
         If Linea Is Nothing Then Throw New Exception("Linea non configurata!")
         If Terminale Is Nothing Then Throw New Exception("Terminale non configurato!")
 
@@ -70,25 +73,48 @@ Public Class Depallettizzazione
 
         Dim tmp = table.AsEnumerable.Where(Function(a) a.Item("LocazioneDepallettizzazione").ToString.Trim = Terminale)
         Dim noResults As Boolean = False
+        Dim nextUDP As Boolean = False
 
         If tmp.Count > 0 Then
 
             Dim maxPriorita = tmp.Max(Function(a) a.Item("Priorita"))
-            Dim row = tmp.Where(Function(a) a.Item("Priorita") = maxPriorita).FirstOrDefault
+            Dim row = tmp.Where(Function(a) a.Item("Priorita") = maxPriorita)
 
             If row Is Nothing Then Throw New Exception("ERRORE Max Priorità")
 
-            LabelGiro.Text = row.Item("Giro")
-            LabelBatch.Text = row.Item("BatchDiAttivazione")
-            LabelUDP.Text = row.Item("UDP")
-            LabelArticolo.Text = row.Item("Vincoli_CODICE_ARTICOLO")
+            If tmp.Count > row.Count Then nextUDP = True
 
-            Dim QtaTotale = row.Item("Vincoli_NUMERO_CASSE_SET_ASSEGNAZIONE")
-            Dim QtaScaricata = row.Item("CasseScaricate")
+            Dim udp = row.FirstOrDefault.Item("UDP")
+            LabelGiro.Text = row.FirstOrDefault.Item("Giro")
+            LabelBatch.Text = row.FirstOrDefault.Item("BatchDiAttivazione")
+            LabelUDP.Text = udp
 
-            LabelQtaRimanente.Text = QtaTotale - QtaScaricata
-            LabelQtaScaricata.Text = QtaScaricata
-            LabelQtaTotale.Text = QtaTotale
+            Dim strArticoli As String = ""
+            Dim totQtaTotale = 0
+            Dim totQtaScaricata = 0
+
+            If row.Count > 1 Then
+                Dim tmpArticoli = row.Where(Function(a) a.Item("UDP") = udp)
+
+                For Each art In tmpArticoli
+                    strArticoli += art.Item("Vincoli_CODICE_ARTICOLO") & ","
+                    totQtaTotale += art.Item("Vincoli_NUMERO_CASSE_SET_ASSEGNAZIONE")
+                    totQtaScaricata += art.Item("CasseScaricate")
+                Next
+
+            Else
+                strArticoli = row.FirstOrDefault.Item("Vincoli_CODICE_ARTICOLO")
+            End If
+
+
+            LabelArticolo.Text = strArticoli.Remove(strArticoli.Count - 1).Trim
+
+            'Dim QtaTotale = row.Item("Vincoli_NUMERO_CASSE_SET_ASSEGNAZIONE")
+            'Dim QtaScaricata = row.Item("CasseScaricate")
+
+            LabelQtaRimanente.Text = totQtaTotale - totQtaScaricata
+            LabelQtaScaricata.Text = totQtaScaricata
+            LabelQtaTotale.Text = totQtaTotale
 
 
         Else
@@ -105,7 +131,7 @@ Public Class Depallettizzazione
 
         End If
 
-        LabelNextUDP.Visible = CBool(tmp.Count > 1)
+        LabelNextUDP.Visible = nextUDP  'CBool(tmp.Count > 1)
 
 
 
@@ -116,6 +142,7 @@ Public Class Depallettizzazione
 
             Connection.Open()
 
+            'Dim cmd1 As New SqlCommand(String.Format("EXEC [dbo].[WebDepal] {0},0", Baia), Connection)
             Dim cmd1 As New SqlCommand("EXEC [dbo].[WebDepal]", Connection)
 
             Dim reader1 = cmd1.ExecuteReader

@@ -13,14 +13,18 @@ Public Class Iniziale
 
     Private Sub Accedi()
 
-        Dim nomePC As String = ""
+        Dim indirizzoPC As String = "?"
 
         Try
             LabelMessaggio.Text = ""
             Label1.Text = ""
             Dim terminale = ""
 
-            nomePC = System.Net.Dns.GetHostEntry(Request.UserHostAddress).HostName
+            'nomePC = System.Net.Dns.GetHostEntry(Request.UserHostAddress).HostName  'user hostname (è necessario avere un server DNS)
+            indirizzoPC = Request.UserHostAddress  'indirizzo IP (sul server è ::1)
+            If indirizzoPC = "::1" Then indirizzoPC = "127.0.0.1"
+
+            'Session.Add("Terminale", "DP201")   'test in locale debug
 
             If Session("Terminale") Is Nothing Then    'primo giro
 
@@ -28,7 +32,7 @@ Public Class Iniziale
                 Dim Connection = New SqlConnection(str)
                 Connection.Open()
 
-                Dim cmd As New SqlCommand(String.Format("SELECT * FROM [dbo].[ParametriTerminale] WHERE NomeTerminale = '{0}'", nomePC), Connection)
+                Dim cmd As New SqlCommand(String.Format("SELECT * FROM [dbo].[ParametriTerminale] WHERE NomeTerminale = '{0}'", indirizzoPC), Connection)
                 Dim reader = cmd.ExecuteReader
 
                 Dim table As New DataTable
@@ -46,7 +50,9 @@ Public Class Iniziale
                 terminale = Session("Terminale")
             End If
 
-            If String.IsNullOrWhiteSpace(terminale) Then LabelMessaggio.Text = "CONFIGURARE TERMINALE DAL PROGRAMMA SAM - NomePC=" & nomePC : btnAccedi.Visible = True : Exit Sub 'Response.Redirect("Configurazione.aspx") : Exit Sub
+
+
+            If String.IsNullOrWhiteSpace(terminale) Then LabelMessaggio.Text = "CONFIGURARE TERMINALE DAL PROGRAMMA SAM - IndirizzoPC=" & indirizzoPC : btnAccedi.Visible = True : Exit Sub 'Response.Redirect("Configurazione.aspx") : Exit Sub
 
             Dim linea As String = ""
             Dim baia As String = ""
@@ -56,11 +62,11 @@ Public Class Iniziale
                 linea = terminale.Substring(2, 1)
                 baia = terminale.Substring(terminale.Count - 2, 2)
 
-            ElseIf terminale.StartsWith("D") Then  'Depallettizzazione
+            ElseIf terminale.StartsWith("D") Then  'Depallettizzazione= D(1/2)900(1..6)A0
 
                 linea = terminale.Substring(1, 1)
                 Dim tmp As String = terminale.Split("A")(0)
-                baia = tmp.Substring(tmp.Count - 2, 2)
+                baia = tmp.Substring(tmp.Count - 1, 1)
 
             End If
 
@@ -74,7 +80,7 @@ Public Class Iniziale
             If terminale.StartsWith("D") Then Response.Redirect("Depallettizzazione.aspx") ': btnConfigurazione.Visible = False
 
         Catch ex As Exception
-            LabelMessaggio.Text = "ERRORE! Nome Terminale=" & nomePC
+            LabelMessaggio.Text = "ERRORE! Indirizzo Terminale=" & indirizzoPC
             Label1.Text = ex.Message
             Label1.ForeColor = System.Drawing.Color.Red
             btnAccedi.Visible = True
