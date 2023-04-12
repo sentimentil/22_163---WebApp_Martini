@@ -4,7 +4,7 @@
     height: 100%;
     top: 5%;
     left: 2%;
-    background: white;
+    background: transparent;
     /*border-left: 5px solid black;*/
     word-wrap: break-word;
     display: block;
@@ -17,7 +17,7 @@
     height: 75%;
     top: 12%;
     left: 39%;
-    background: white;
+    background: transparent;
     border-left: 2px solid royalblue;
     border-top: 2px solid royalblue;
     border-right: 2px solid royalblue;
@@ -35,7 +35,7 @@
 }
 
 #navbar1 {
-    background-color: white;
+    background-color: transparent;
     display: block;
     image-rendering: optimizeSpeed;
 }
@@ -48,11 +48,11 @@
     height: 59%;
     top: 16%;
     left: 39%;
-    background: white;
+    background: transparent;
     word-wrap: break-word;
     display: block;
     image-rendering: optimizeSpeed;
-    float:none;
+    float: none;
 }
 
 
@@ -62,7 +62,7 @@
     height: 28%;
     top: 32%;
     left: 0.5%;
-    background: white;
+    background: transparent;
     border-left: 2px solid royalblue;
     border-top: 2px solid royalblue;
     border-right: 2px solid royalblue;
@@ -78,7 +78,7 @@
     height: 28%;
     top: 17%;
     left: 0.5%;
-    background: white;
+    background: transparent;
     border-left: 2px solid royalblue;
     border-top: 2px solid royalblue;
     border-right: 2px solid royalblue;
@@ -94,7 +94,7 @@
     height: 28%;
     top: 17%;
     left: 61%;
-    background: white;
+    background: transparent;
     border-left: 2px solid royalblue;
     border-top: 2px solid royalblue;
     border-right: 2px solid royalblue;
@@ -110,7 +110,7 @@
     height: 28%;
     top: 46%;
     left: 0.5%;
-    background: white;
+    background: transparent;
     border-left: 2px solid royalblue;
     border-top: 2px solid royalblue;
     border-right: 2px solid royalblue;
@@ -125,7 +125,7 @@
     height: 28%;
     top: 46%;
     left: 61%;
-    background: white;
+    background: transparent;
     border-left: 2px solid royalblue;
     border-top: 2px solid royalblue;
     border-right: 2px solid royalblue;
@@ -140,7 +140,7 @@
     height: 10%;
     top: 70%;
     left: 0%;
-    background: white;
+    background: transparent;
     /*border-left: 5px solid black;*/
     word-wrap: break-word;
     text-align: center;
@@ -154,7 +154,7 @@
     height: 8%;
     top: 85%;
     left: 0%;
-    background: white;
+    background: transparent;
     /*border-left: 5px solid black;*/
     word-wrap: break-word;
     text-rendering: optimizeSpeed;
@@ -167,7 +167,7 @@
     height: 30%;
     top: 75%;
     left: 2%;
-    background: white;
+    background: transparent;
     /*border-left: 5px solid black;*/
     word-wrap: break-word;
 }
@@ -176,9 +176,9 @@
     position: fixed;
     width: 30%;
     height: 30%;
-    top: 80%;
+    top: 73%;
     left: 39%;
-    background: white;
+    background: transparent;
     /*border-left: 5px solid black;*/
     word-wrap: break-word;
 }
@@ -189,7 +189,7 @@
     height: 30%;
     top: 75%;
     left: 57%;
-    background: white;
+    background: transparent;
     /*border-left: 5px solid black;*/
     word-wrap: break-word;
 }

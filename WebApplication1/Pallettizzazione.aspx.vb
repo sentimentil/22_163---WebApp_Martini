@@ -17,7 +17,7 @@ Public Class Pallettizzazione
             Response.Redirect("Iniziale.aspx")
         Else
             LabelBaia.Text = "BAIA " & Baia.ToString
-            LabelBaia.ForeColor = System.Drawing.Color.White
+            LabelBaia.ForeColor = System.Drawing.Color.Black
             LabelDateTime.Text = Date.Now.ToString
         End If
 

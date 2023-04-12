@@ -41,9 +41,9 @@
     <asp:ScriptManager ID="ScriptManager1" runat="server" />
     <asp:Timer ID="Timer1" runat="server" Interval="500" />
 
-    <%--<link href="/Content/Visualizzazione.css" rel="stylesheet" />--%>
+    <link href="/Content/Visualizzazione.css" rel="stylesheet" />
     <%--<link href="http://UTC-PRG01:85/Content/Visualizzazione.css" rel="stylesheet" />--%>
-    <link href="http://192.168.0.97:85/Content/Visualizzazione.css" rel="stylesheet"/>
+    <%--<link href="http://192.168.0.97:85/Content/Visualizzazione.css" rel="stylesheet"/>--%>
 
 
 
@@ -217,17 +217,6 @@
 
 
 
-    <div id="Centro" class="Centro" runat="server" visible ="false">
-
-        <%--<asp:Label ID="LabelnUDS" runat="server" Text="N° UDS: " Font-Size="46" Font-Underline="true"></asp:Label>--%>
-
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-        <asp:Label ID="Label1" runat="server" Text="Ultima cassa letta: " Font-Size="40"></asp:Label>
-        <asp:Label ID="LabelUltimoBarcode" runat="server" Text="123456789123456" Font-Size="46" BackColor="Coral"></asp:Label>
-
-    </div>
-
     <div id="Basso" class="Basso" runat="server">
 
         <div id="Sinistra1" class="Sinistra1" runat="server">
@@ -244,6 +233,14 @@
 
         <div id="Div2" class="Centro1" runat="server">
 
+            <asp:Label ID="LabelCodicePallet" runat="server" Text="" Font-Size="46"></asp:Label>
+
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+
             <%--&nbsp;&nbsp;&nbsp;&nbsp;--%>
             <asp:Label ID="LabelnUDS" runat="server" Text="N° UDS: " Font-Size="46" Font-Underline="true" BackColor="Aqua"></asp:Label>
 
@@ -252,13 +249,15 @@
 
 
         <div id="Destra1" class="Destra1" runat="server">
-            <%--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--%>
-            <asp:Label ID="Label3" runat="server" Text="Codice Pallet:" Font-Size="40"></asp:Label>
-            <asp:Label ID="LabelCodicePallet" runat="server" Text="" Font-Size="46"></asp:Label>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:Label ID="Label3" runat="server" Text="Cassa: " Font-Size="40"></asp:Label>
+            
+            <asp:Label ID="LabelUltimoBarcode" runat="server" Text="" Font-Size="46" BackColor="Coral"></asp:Label>
 
             <br />
 
-            <asp:Label ID="Label8" runat="server" Text="Messaggio: " Font-Size="40"></asp:Label>
+            <asp:Label ID="Label8" runat="server" Text="Note: " Font-Size="40"></asp:Label>
             <asp:Label ID="LabelMessaggio" runat="server" Text="" Font-Size="46"></asp:Label>
 
         </div>

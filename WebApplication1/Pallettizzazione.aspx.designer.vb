@@ -446,33 +446,6 @@ Partial Public Class Pallettizzazione
     Protected WithEvents btnPallet As Global.System.Web.UI.WebControls.Button
     
     '''<summary>
-    '''Controllo Centro.
-    '''</summary>
-    '''<remarks>
-    '''Campo generato automaticamente.
-    '''Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
-    '''</remarks>
-    Protected WithEvents Centro As Global.System.Web.UI.HtmlControls.HtmlGenericControl
-    
-    '''<summary>
-    '''Controllo Label1.
-    '''</summary>
-    '''<remarks>
-    '''Campo generato automaticamente.
-    '''Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
-    '''</remarks>
-    Protected WithEvents Label1 As Global.System.Web.UI.WebControls.Label
-    
-    '''<summary>
-    '''Controllo LabelUltimoBarcode.
-    '''</summary>
-    '''<remarks>
-    '''Campo generato automaticamente.
-    '''Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
-    '''</remarks>
-    Protected WithEvents LabelUltimoBarcode As Global.System.Web.UI.WebControls.Label
-    
-    '''<summary>
     '''Controllo Basso.
     '''</summary>
     '''<remarks>
@@ -536,6 +509,15 @@ Partial Public Class Pallettizzazione
     Protected WithEvents Div2 As Global.System.Web.UI.HtmlControls.HtmlGenericControl
     
     '''<summary>
+    '''Controllo LabelCodicePallet.
+    '''</summary>
+    '''<remarks>
+    '''Campo generato automaticamente.
+    '''Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+    '''</remarks>
+    Protected WithEvents LabelCodicePallet As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
     '''Controllo LabelnUDS.
     '''</summary>
     '''<remarks>
@@ -563,13 +545,13 @@ Partial Public Class Pallettizzazione
     Protected WithEvents Label3 As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
-    '''Controllo LabelCodicePallet.
+    '''Controllo LabelUltimoBarcode.
     '''</summary>
     '''<remarks>
     '''Campo generato automaticamente.
     '''Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
     '''</remarks>
-    Protected WithEvents LabelCodicePallet As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents LabelUltimoBarcode As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
     '''Controllo Label8.
