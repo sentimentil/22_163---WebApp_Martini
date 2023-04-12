@@ -70,7 +70,7 @@
                 <div id="Alto1" class="Alto1" runat="server">
 
                     <asp:Label ID="Label9" runat="server" Text="Codice UDS: " Font-Size="40" Width="320"></asp:Label>
-                    <asp:Label ID="LabelCodiceUDS1" runat="server" Text="XX" Font-Size="46"></asp:Label>
+                    <asp:Label ID="LabelCodiceUDS1" runat="server" Text="" Font-Size="46"></asp:Label>
 
                     <br />
 
@@ -245,7 +245,7 @@
         <div id="Div2" class="Centro1" runat="server">
 
             <%--&nbsp;&nbsp;&nbsp;&nbsp;--%>
-        <asp:Label ID="LabelnUDS" runat="server" Text="N° UDS: " Font-Size="46" Font-Underline="true" BackColor="Aqua"></asp:Label>
+            <asp:Label ID="LabelnUDS" runat="server" Text="N° UDS: " Font-Size="46" Font-Underline="true" BackColor="Aqua"></asp:Label>
 
         </div>
 

@@ -14,8 +14,10 @@ Public Class Pallettizzazione
         If Baia Is Nothing Then
             LabelBaia.Text = "BAIA NON TROVATA!"
             LabelBaia.ForeColor = System.Drawing.Color.Red
+            Response.Redirect("Iniziale.aspx")
         Else
             LabelBaia.Text = "BAIA " & Baia.ToString
+            LabelBaia.ForeColor = System.Drawing.Color.White
             LabelDateTime.Text = Date.Now.ToString
         End If
 
@@ -31,12 +33,13 @@ Public Class Pallettizzazione
             'DatiTest()
             AggiornaDati()
 
-            Timer1.Enabled = True
-
 
         Catch ex As Exception
             LabelBaia.Text = "ERRORE! " & ex.Message
             LabelBaia.ForeColor = System.Drawing.Color.Red
+
+        Finally
+            Timer1.Enabled = True
         End Try
 
     End Sub
@@ -48,9 +51,9 @@ Public Class Pallettizzazione
         Dim Linea = Session("Linea")
         Dim Terminale = Session("Terminale")
 
-        If Baia Is Nothing Then Throw New Exception("Baia non configurata!")
-        If Linea Is Nothing Then Throw New Exception("Linea non configurata!")
-        If Terminale Is Nothing Then Throw New Exception("Terminale non configurato!")
+        If Baia Is Nothing Then Response.Redirect("Iniziale.aspx") ': Throw New Exception("Baia non configurata!")  'perdita di connessione
+        If Linea Is Nothing Then Response.Redirect("Iniziale.aspx") ': Throw New Exception("Linea non configurata!")  'perdita di connessione
+        If Terminale Is Nothing Then Response.Redirect("Iniziale.aspx") ': Throw New Exception("Terminale non configurato!")  'perdita di connessione
 
 
         Dim str = System.Configuration.ConfigurationManager.ConnectionStrings.Item("ConnectionSam" & Linea).ConnectionString  ' & Linea
@@ -237,7 +240,18 @@ Public Class Pallettizzazione
 
             LabelGiro.Text = Giro
             LabelBatch.Text = Batch
-            LabelnUDS.Text = If(NumeroUDS = "1", "MONO-UDS", "MULTI-UDS")
+
+            Select Case NumeroUDS
+                Case "1"
+                    LabelnUDS.Text = "MONO-UDS"
+
+                Case "2", "3", "4"
+                    LabelnUDS.Text = "MULTI-UDS"
+
+                Case Else
+                    LabelnUDS.Text = ""
+            End Select
+
             LabelCodicePallet.Text = CodicePallet
             LabelUltimoBarcode.Text = UltimoBarcode
             LabelMessaggio.Text = Messaggio

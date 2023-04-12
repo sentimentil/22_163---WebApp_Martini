@@ -13,8 +13,10 @@ Public Class Depallettizzazione
         If Baia Is Nothing Then
             LabelBaia.Text = "BAIA NON TROVATA!"
             LabelBaia.ForeColor = System.Drawing.Color.Red
+            Response.Redirect("Iniziale.aspx")
         Else
             LabelBaia.Text = "BAIA " & Baia.ToString
+            LabelBaia.ForeColor = System.Drawing.Color.White
             LabelDateTime.Text = Date.Now.ToString
         End If
 
@@ -29,12 +31,13 @@ Public Class Depallettizzazione
 
             AggiornaDati()
 
-            Timer1.Interval = 3000
-            Timer1.Enabled = True
-
         Catch ex As Exception
             LabelBaia.Text = "ERRORE! " & ex.Message
             LabelBaia.ForeColor = System.Drawing.Color.Red
+
+        Finally
+            Timer1.Interval = 3000
+            Timer1.Enabled = True
         End Try
 
     End Sub
@@ -53,9 +56,9 @@ Public Class Depallettizzazione
         Dim Linea = Session("Linea")
         Dim Terminale = Session("Terminale")
 
-        If Baia Is Nothing Then Throw New Exception("Baia non configurata!")
-        If Linea Is Nothing Then Throw New Exception("Linea non configurata!")
-        If Terminale Is Nothing Then Throw New Exception("Terminale non configurato!")
+        If Baia Is Nothing Then Response.Redirect("Iniziale.aspx") ': Throw New Exception("Baia non configurata!")  'perdita di connessione
+        If Linea Is Nothing Then Response.Redirect("Iniziale.aspx") ': Throw New Exception("Linea non configurata!")  'perdita di connessione
+        If Terminale Is Nothing Then Response.Redirect("Iniziale.aspx") ': Throw New Exception("Terminale non configurato!")  'perdita di connessione
 
         Dim str = System.Configuration.ConfigurationManager.ConnectionStrings.Item("ConnectionSam" & Linea).ConnectionString  ' & Linea
         Dim Connection = New SqlConnection(str)
