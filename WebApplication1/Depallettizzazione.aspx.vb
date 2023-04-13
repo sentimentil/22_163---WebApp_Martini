@@ -190,7 +190,8 @@ Public Class Depallettizzazione
 
 
         LabelDateTime.Text = Date.Now.ToString
-
+        LabelBaia.Text = "BAIA " & Baia.ToString
+        LabelBaia.ForeColor = System.Drawing.Color.Black
 
 
 

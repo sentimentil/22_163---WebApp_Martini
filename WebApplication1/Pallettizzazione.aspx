@@ -231,22 +231,6 @@
         </div>
 
 
-        <div id="Div2" class="Centro1" runat="server">
-
-            <asp:Label ID="LabelCodicePallet" runat="server" Text="" Font-Size="46"></asp:Label>
-
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-
-            <%--&nbsp;&nbsp;&nbsp;&nbsp;--%>
-            <asp:Label ID="LabelnUDS" runat="server" Text="N° UDS: " Font-Size="46" Font-Underline="true" BackColor="Aqua"></asp:Label>
-
-        </div>
-
-
 
         <div id="Destra1" class="Destra1" runat="server">
 
@@ -265,6 +249,22 @@
 
 
     </div>
+
+
+    <div id="Div2" class="Centro1" runat="server">
+
+            <asp:Label ID="LabelCodicePallet" runat="server" Text="" Font-Size="46"></asp:Label>
+
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+
+            <%--&nbsp;&nbsp;&nbsp;&nbsp;--%>
+            <asp:Label ID="LabelnUDS" runat="server" Text="N° UDS: " Font-Size="46" Font-Underline="true" BackColor="Aqua"></asp:Label>
+
+        </div>
 
 
 

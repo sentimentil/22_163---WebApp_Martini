@@ -87,6 +87,11 @@ Public Class Pallettizzazione
         PanelMultiUDS.Visible = False
         PanelMonoUDS.Visible = False
 
+        LabelAvviso.Text = ""
+        LabelAvviso.Visible = False
+        btnPallet.Visible = False
+        btnUDS.Visible = False
+
 
 
         Dim Giro = row.Item("Giro")
@@ -289,7 +294,8 @@ Public Class Pallettizzazione
 
 
         LabelDateTime.Text = Date.Now.ToString
-
+        LabelBaia.Text = "BAIA " & Baia.ToString
+        LabelBaia.ForeColor = System.Drawing.Color.Black
 
 
 
