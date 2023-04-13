@@ -209,8 +209,8 @@
         <br />
 
         <asp:Label ID="LabelAvviso" runat="server" Text="" Font-Size="46" Visible="false" Font-Bold="true"></asp:Label>
-        <asp:Button ID="btnUDS" runat="server" Text="UDS CHIUSO" Visible="false" BackColor="LawnGreen" OnClick="btnUDS_Click" Font-Size="26" Width="380" />
-        <asp:Button ID="btnPallet" runat="server" Text="CAMBIO PALLET" Visible="false" BackColor="LawnGreen" OnClick="btnPallet_Click" Font-Size="26" Width="400" />
+        <asp:Button ID="btnUDS" runat="server" Text="UDS CHIUSO" Visible="false" BackColor="LawnGreen" OnClick="btnUDS_Click" Font-Size="26" Width="380" Height="140px"/>
+        <asp:Button ID="btnPallet" runat="server" Text="CAMBIO PALLET" Visible="false" BackColor="LawnGreen" OnClick="btnPallet_Click" Font-Size="26" Width="400" Height="140px" />
 
 
     </div>

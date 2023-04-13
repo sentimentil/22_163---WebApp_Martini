@@ -211,6 +211,9 @@ Public Class Pallettizzazione
 
             End If
 
+        ElseIf NumeroUDS = 0 Then
+
+            SvuotaDati()
         End If
 
 
@@ -264,17 +267,18 @@ Public Class Pallettizzazione
         LabelUltimoBarcode.Text = UltimoBarcode
         LabelMessaggio.Text = Messaggio
 
-        Dim oldStatus = Session("ImmagineVisibile")
-        If oldStatus IsNot Nothing AndAlso lampeggio Then
-            VisualizzaImmaine = Not CBool(oldStatus)
-        End If
 
         PalletImage.Visible = VisualizzaImmaine
-        Session.Add("ImmagineVisibile", VisualizzaImmaine)
 
         If VisualizzaImmaine Then
 
             Dim result = row.Item("DestinazioneUltimaCassa")
+
+            Dim oldStatus = Session("StatoImmagine")
+            If oldStatus IsNot Nothing AndAlso lampeggio Then
+                result = If(oldStatus <> "99", "99", result)
+            End If
+            Session.Add("StatoImmagine", result)
 
             '0=tutto; 1,2,3,4 = gli angoli
             Select Case result
