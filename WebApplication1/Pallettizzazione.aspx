@@ -43,7 +43,7 @@
 
     <%--<link href="/Content/Visualizzazione.css" rel="stylesheet" />--%>
     <%--<link href="http://UTC-PRG01:85/Content/Visualizzazione.css" rel="stylesheet" />--%>
-    <link href="http://192.168.0.97:85/Content/Visualizzazione.css" rel="stylesheet"/>
+    <link href="http://192.168.0.97:85/Content/Visualizzazione.css" rel="stylesheet" />
 
 
 
@@ -189,8 +189,8 @@
 
         <%--<img alt="" src="Immagini/Pallet.jpeg" id="PalletImage1" width="315" runat="server" />--%>
 
-       
-        <asp:Image ID="PalletImage" runat="server" ImageUrl="~/Immagini/Pallet.jpeg" Height="100%" Width="107%"/>
+
+        <asp:Image ID="PalletImage" runat="server" ImageUrl="~/Immagini/Pallet.jpeg" Height="100%" Width="107%" />
 
         <%--<br />
         <br />
@@ -204,7 +204,7 @@
         <br />
         <br />--%>
 
-        
+
 
         <br />
 
@@ -212,7 +212,7 @@
         <asp:Button ID="btnUDS" runat="server" Text="UDS CHIUSO" Visible="false" BackColor="LawnGreen" OnClick="btnUDS_Click" Font-Size="26" Width="380" />
         <asp:Button ID="btnPallet" runat="server" Text="CAMBIO PALLET" Visible="false" BackColor="LawnGreen" OnClick="btnPallet_Click" Font-Size="26" Width="400" />
 
-        
+
     </div>
 
 
@@ -236,7 +236,7 @@
 
             <%--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--%>
             <asp:Label ID="Label3" runat="server" Text="Cassa: " Font-Size="40"></asp:Label>
-            
+
             <asp:Label ID="LabelUltimoBarcode" runat="server" Text="" Font-Size="46" BackColor="Coral"></asp:Label>
 
             <br />
@@ -253,18 +253,18 @@
 
     <div id="Div2" class="Centro1" runat="server">
 
-            <asp:Label ID="LabelCodicePallet" runat="server" Text="" Font-Size="46"></asp:Label>
+        <asp:Label ID="LabelCodicePallet" runat="server" Text="" Font-Size="46"></asp:Label>
 
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
 
-            <%--&nbsp;&nbsp;&nbsp;&nbsp;--%>
-            <asp:Label ID="LabelnUDS" runat="server" Text="N° UDS: " Font-Size="46" Font-Underline="true" BackColor="Aqua"></asp:Label>
+        <%--&nbsp;&nbsp;&nbsp;&nbsp;--%>
+        <asp:Label ID="LabelnUDS" runat="server" Text="N° UDS: " Font-Size="46" Font-Underline="true" BackColor="Aqua"></asp:Label>
 
-        </div>
+    </div>
 
 
 
@@ -275,7 +275,7 @@
     <div id="navbar" class="navbar-inverse navbar-fixed-bottom">
         <%--<asp:Button ID="btnConfigurazione" runat="server" Text="Configurazione" Font-Size="16" Height="34px" />--%>
         <%--&nbsp;&nbsp;&nbsp;--%>
-                <asp:Label ID="LabelDateTime" runat="server" Font-Size="26pt" ForeColor="Black" Font-Italic="true" Text="00/00/0000 00:00:00" Style="text-align: right"></asp:Label>
+        <asp:Label ID="LabelDateTime" runat="server" Font-Size="26pt" ForeColor="Black" Font-Italic="true" Text="00/00/0000 00:00:00" Style="text-align: right"></asp:Label>
     </div>
 
 

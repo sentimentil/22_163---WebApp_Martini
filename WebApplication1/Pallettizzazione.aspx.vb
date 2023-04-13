@@ -77,6 +77,11 @@ Public Class Pallettizzazione
         Dim descrizione = row.Item("Descrizione")
         LabelBaia.Text = String.Format("BAIA {0} - {1}", Baia, descrizione)
 
+        Dim lampeggio As Boolean = False
+        Dim oraLettura As Date = row.Item("DataOraLettura")
+        If oraLettura <> Nothing AndAlso (Now - oraLettura).TotalMilliseconds <= 4000 Then lampeggio = True
+
+
 
         Dim VisualizzaImmaine As Boolean = False
         Dim NumeroUDS = row.Item("nUDS")
@@ -259,8 +264,13 @@ Public Class Pallettizzazione
         LabelUltimoBarcode.Text = UltimoBarcode
         LabelMessaggio.Text = Messaggio
 
+        Dim oldStatus = Session("ImmagineVisibile")
+        If oldStatus IsNot Nothing AndAlso lampeggio Then
+            VisualizzaImmaine = Not CBool(oldStatus)
+        End If
 
         PalletImage.Visible = VisualizzaImmaine
+        Session.Add("ImmagineVisibile", VisualizzaImmaine)
 
         If VisualizzaImmaine Then
 
@@ -294,7 +304,6 @@ Public Class Pallettizzazione
 
 
         LabelDateTime.Text = Date.Now.ToString
-        LabelBaia.Text = "BAIA " & Baia.ToString
         LabelBaia.ForeColor = System.Drawing.Color.Black
 
 
