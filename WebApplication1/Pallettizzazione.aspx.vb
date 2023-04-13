@@ -354,7 +354,7 @@ Public Class Pallettizzazione
             Dim Connection = New SqlConnection(str)
             Connection.Open()
 
-            Dim cmd As New SqlCommand(String.Format("EXEC [dbo].[VistaPallettizzatori_PalletCompleto] '{0}'", Baia.ToString.PadLeft(2, "0")), Connection)
+            Dim cmd As New SqlCommand(String.Format("EXEC [dbo].[VistaPallettizzatori_PalletCompleto] '{0}','0'", Baia.ToString.PadLeft(2, "0")), Connection)
             Dim reader = cmd.ExecuteReader
 
             Dim table As New DataTable
