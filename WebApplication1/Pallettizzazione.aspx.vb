@@ -88,179 +88,171 @@ Public Class Pallettizzazione
         PanelMonoUDS.Visible = False
 
 
-        If row.Item("ChiusuraPallet") = "1" Then
+
+        Dim Giro = row.Item("Giro")
+        Dim Batch = row.Item("BatchDiAttivazione")
+        Dim CodicePallet = row.Item("CodicePallet")
+        Dim UltimoBarcode = row.Item("UltimoBarcodeLetto")
+        Dim Messaggio = row.Item("Messaggio")
+
+
+
+        If NumeroUDS = 1 Then
+
+            If row.Item("StatoUDS0") = 1 Then  'uds in chiusura
+
+                ChiusuraUDS = True
+                numeroChiusuraUDS = 0
+                Session.Add("UDS", 0)
+
+            Else
+
+                Dim CodiceUDS = row.Item("UDS0")
+                Dim Volume = row.Item("VolUDS0")
+                Dim CassePallettizzate = row.Item("CassePalletizzate0")
+                Dim TotCasse = row.Item("CasseAttese0")
+
+                VisualizzaImmaine = True
+
+
+                LabelCodiceUDS0.Text = CodiceUDS
+                LabelVolumeUDS0.Text = Volume
+                LabelCassettePerUDS0.Text = String.Format("{0} di {1}", CassePallettizzate, TotCasse)
+
+            End If
+
+
+
+
+        ElseIf NumeroUDS = 4 Then
+
+
+            If row.Item("StatoUDS1") = 1 Then
+                'uds in chiusura
+                ChiusuraUDS = True
+                numeroChiusuraUDS = 1
+                Session.Add("UDS", 1)
+
+
+            ElseIf row.Item("StatoUDS2") = 1 Then
+                'uds in chiusura
+                ChiusuraUDS = True
+                numeroChiusuraUDS = 2
+                Session.Add("UDS", 2)
+
+
+            ElseIf row.Item("StatoUDS3") = 1 Then
+                'uds in chiusura
+                ChiusuraUDS = True
+                numeroChiusuraUDS = 3
+                Session.Add("UDS", 3)
+
+
+            ElseIf row.Item("StatoUDS4") = 1 Then
+                'uds in chiusura
+                ChiusuraUDS = True
+                numeroChiusuraUDS = 4
+                Session.Add("UDS", 4)
+
+
+            Else
+
+
+                Dim CodiceUDS1 = row.Item("UDS1")
+                Dim Volume1 = row.Item("VolUDS1")
+                Dim CassePallettizzate1 = row.Item("CassePalletizzate1")
+                Dim TotCasse1 = row.Item("CasseAttese1")
+
+                Dim CodiceUDS2 = row.Item("UDS2")
+                Dim Volume2 = row.Item("VolUDS2")
+                Dim CassePallettizzate2 = row.Item("CassePalletizzate2")
+                Dim TotCasse2 = row.Item("CasseAttese2")
+
+                Dim CodiceUDS3 = row.Item("UDS3")
+                Dim Volume3 = row.Item("VolUDS3")
+                Dim CassePallettizzate3 = row.Item("CassePalletizzate3")
+                Dim TotCasse3 = row.Item("CasseAttese3")
+
+                Dim CodiceUDS4 = row.Item("UDS4")
+                Dim Volume4 = row.Item("VolUDS4")
+                Dim CassePallettizzate4 = row.Item("CassePalletizzate4")
+                Dim TotCasse4 = row.Item("CasseAttese4")
+
+                VisualizzaImmaine = True
+
+
+                LabelCodiceUDS1.Text = CodiceUDS1
+                LabelVolumeUDS1.Text = Volume1
+                LabelCassettePerUDS1.Text = String.Format("{0} di {1}", CassePallettizzate1, TotCasse1)
+
+                LabelCodiceUDS2.Text = CodiceUDS2
+                LabelVolumeUDS2.Text = Volume2
+                LabelCassettePerUDS2.Text = String.Format("{0} di {1}", CassePallettizzate2, TotCasse2)
+
+                LabelCodiceUDS3.Text = CodiceUDS3
+                LabelVolumeUDS3.Text = Volume3
+                LabelCassettePerUDS3.Text = String.Format("{0} di {1}", CassePallettizzate3, TotCasse3)
+
+                LabelCodiceUDS4.Text = CodiceUDS4
+                LabelVolumeUDS4.Text = Volume4
+                LabelCassettePerUDS4.Text = String.Format("{0} di {1}", CassePallettizzate4, TotCasse4)
+
+
+
+            End If
+
+        End If
+
+
+
+        If ChiusuraUDS Then
+
+            LabelAvviso.Text = String.Format("UDS {0} IN CHIUSURA!", numeroChiusuraUDS)
+            LabelAvviso.Visible = True
+            btnPallet.Visible = False
+            btnUDS.Visible = True
+
+
+        ElseIf row.Item("ChiusuraPallet") = "1" Then
 
             LabelAvviso.Text = "CAMBIA PALLET!"
             LabelAvviso.Visible = True
             btnUDS.Visible = False
             btnPallet.Visible = True
 
-
         Else
 
 
-            Dim Giro = row.Item("Giro")
-            Dim Batch = row.Item("BatchDiAttivazione")
-            Dim CodicePallet = row.Item("CodicePallet")
-            Dim UltimoBarcode = row.Item("UltimoBarcodeLetto")
-            Dim Messaggio = row.Item("Messaggio")
-
-
-
-            If NumeroUDS = 1 Then
-
-                If row.Item("StatoUDS0") = 1 Then  'uds in chiusura
-
-                    ChiusuraUDS = True
-                    numeroChiusuraUDS = 0
-                    Session.Add("UDS", 0)
-
-                Else
-
-                    Dim CodiceUDS = row.Item("UDS0")
-                    Dim Volume = row.Item("VolUDS0")
-                    Dim CassePallettizzate = row.Item("CassePalletizzate0")
-                    Dim TotCasse = row.Item("CasseAttese0")
-
-                    VisualizzaImmaine = True
-
-
-                    LabelCodiceUDS0.Text = CodiceUDS
-                    LabelVolumeUDS0.Text = Volume
-                    LabelCassettePerUDS0.Text = String.Format("{0} di {1}", CassePallettizzate, TotCasse)
-
-                End If
-
-
-
-
-            ElseIf NumeroUDS = 4 Then
-
-
-                If row.Item("StatoUDS1") = 1 Then
-                    'uds in chiusura
-                    ChiusuraUDS = True
-                    numeroChiusuraUDS = 1
-                    Session.Add("UDS", 1)
-
-
-                ElseIf row.Item("StatoUDS2") = 1 Then
-                    'uds in chiusura
-                    ChiusuraUDS = True
-                    numeroChiusuraUDS = 2
-                    Session.Add("UDS", 2)
-
-
-                ElseIf row.Item("StatoUDS3") = 1 Then
-                    'uds in chiusura
-                    ChiusuraUDS = True
-                    numeroChiusuraUDS = 3
-                    Session.Add("UDS", 3)
-
-
-                ElseIf row.Item("StatoUDS4") = 1 Then
-                    'uds in chiusura
-                    ChiusuraUDS = True
-                    numeroChiusuraUDS = 4
-                    Session.Add("UDS", 4)
-
-
-                Else
-
-
-                    Dim CodiceUDS1 = row.Item("UDS1")
-                    Dim Volume1 = row.Item("VolUDS1")
-                    Dim CassePallettizzate1 = row.Item("CassePalletizzate1")
-                    Dim TotCasse1 = row.Item("CasseAttese1")
-
-                    Dim CodiceUDS2 = row.Item("UDS2")
-                    Dim Volume2 = row.Item("VolUDS2")
-                    Dim CassePallettizzate2 = row.Item("CassePalletizzate2")
-                    Dim TotCasse2 = row.Item("CasseAttese2")
-
-                    Dim CodiceUDS3 = row.Item("UDS3")
-                    Dim Volume3 = row.Item("VolUDS3")
-                    Dim CassePallettizzate3 = row.Item("CassePalletizzate3")
-                    Dim TotCasse3 = row.Item("CasseAttese3")
-
-                    Dim CodiceUDS4 = row.Item("UDS4")
-                    Dim Volume4 = row.Item("VolUDS4")
-                    Dim CassePallettizzate4 = row.Item("CassePalletizzate4")
-                    Dim TotCasse4 = row.Item("CasseAttese4")
-
-                    VisualizzaImmaine = True
-
-
-                    LabelCodiceUDS1.Text = CodiceUDS1
-                    LabelVolumeUDS1.Text = Volume1
-                    LabelCassettePerUDS1.Text = String.Format("{0} di {1}", CassePallettizzate1, TotCasse1)
-
-                    LabelCodiceUDS2.Text = CodiceUDS2
-                    LabelVolumeUDS2.Text = Volume2
-                    LabelCassettePerUDS2.Text = String.Format("{0} di {1}", CassePallettizzate2, TotCasse2)
-
-                    LabelCodiceUDS3.Text = CodiceUDS3
-                    LabelVolumeUDS3.Text = Volume3
-                    LabelCassettePerUDS3.Text = String.Format("{0} di {1}", CassePallettizzate3, TotCasse3)
-
-                    LabelCodiceUDS4.Text = CodiceUDS4
-                    LabelVolumeUDS4.Text = Volume4
-                    LabelCassettePerUDS4.Text = String.Format("{0} di {1}", CassePallettizzate4, TotCasse4)
-
-
-
-                End If
-
-
-
-            End If
-
-
-            If ChiusuraUDS Then
-
-                LabelAvviso.Text = String.Format("UDS {0} IN CHIUSURA!", numeroChiusuraUDS)
-                LabelAvviso.Visible = True
-                btnPallet.Visible = False
-                btnUDS.Visible = True
-
+            If NumeroUDS = "1" Then
+                PanelMultiUDS.Visible = False
+                PanelMonoUDS.Visible = True
 
             Else
-
-                If NumeroUDS = "1" Then
-                    PanelMultiUDS.Visible = False
-                    PanelMonoUDS.Visible = True
-
-                Else
-                    PanelMonoUDS.Visible = False
-                    PanelMultiUDS.Visible = True
-                End If
-
+                PanelMonoUDS.Visible = False
+                PanelMultiUDS.Visible = True
             End If
 
-
-            LabelGiro.Text = Giro
-            LabelBatch.Text = Batch
-
-            Select Case NumeroUDS
-                Case "1"
-                    LabelnUDS.Text = "MONO-UDS"
-
-                Case "2", "3", "4"
-                    LabelnUDS.Text = "MULTI-UDS"
-
-                Case Else
-                    LabelnUDS.Text = ""
-            End Select
-
-            LabelCodicePallet.Text = CodicePallet
-            LabelUltimoBarcode.Text = UltimoBarcode
-            LabelMessaggio.Text = Messaggio
 
         End If
 
 
+        LabelGiro.Text = Giro
+        LabelBatch.Text = Batch
 
+        Select Case NumeroUDS
+            Case "1"
+                LabelnUDS.Text = "MONO-UDS"
 
+            Case "2", "3", "4"
+                LabelnUDS.Text = "MULTI-UDS"
+
+            Case Else
+                LabelnUDS.Text = ""
+        End Select
+
+        LabelCodicePallet.Text = CodicePallet
+        LabelUltimoBarcode.Text = UltimoBarcode
+        LabelMessaggio.Text = Messaggio
 
 
         PalletImage.Visible = VisualizzaImmaine
