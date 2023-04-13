@@ -112,7 +112,7 @@ Public Class Pallettizzazione
                 Dim CassePallettizzate = row.Item("CassePalletizzate0")
                 Dim TotCasse = row.Item("CasseAttese0")
 
-                VisualizzaImmaine = True
+                'VisualizzaImmaine = True
 
 
                 LabelCodiceUDS0.Text = CodiceUDS
@@ -178,7 +178,7 @@ Public Class Pallettizzazione
                 Dim CassePallettizzate4 = row.Item("CassePalletizzate4")
                 Dim TotCasse4 = row.Item("CasseAttese4")
 
-                VisualizzaImmaine = True
+                'VisualizzaImmaine = True
 
 
                 LabelCodiceUDS1.Text = CodiceUDS1
@@ -232,7 +232,7 @@ Public Class Pallettizzazione
                 PanelMultiUDS.Visible = True
             End If
 
-
+            VisualizzaImmaine = True
         End If
 
 

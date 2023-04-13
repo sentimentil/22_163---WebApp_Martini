@@ -250,7 +250,7 @@
 
         <div id="Destra1" class="Destra1" runat="server">
 
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <%--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--%>
             <asp:Label ID="Label3" runat="server" Text="Cassa: " Font-Size="40"></asp:Label>
             
             <asp:Label ID="LabelUltimoBarcode" runat="server" Text="" Font-Size="46" BackColor="Coral"></asp:Label>
