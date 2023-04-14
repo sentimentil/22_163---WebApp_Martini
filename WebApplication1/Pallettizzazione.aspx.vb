@@ -316,18 +316,6 @@ Public Class Pallettizzazione
         LabelBaia.ForeColor = System.Drawing.Color.Black
 
 
-
-        'PalletImage.Visible = False
-        'PalletImage1.Src = "\Immagini/PalletALL.jpeg"
-        'PalletImage.Visible = False
-        'Dim path = "/Immagini/PalletALL.jpeg"
-        'Dim cm = "SetImmagine(" & PalletImage.ID & ")"
-        'Page.ClientScript.RegisterStartupScript(Me.GetType(), "CallMyFunction", "SetImmagine()", True)
-        'PalletImage.ImageUrl = "~/Immagini/PalletALL.jpeg"
-        'PalletImage.DataBind()
-        'PalletImage.Visible = False
-        'PalletImage.Visible = True
-
     End Sub
 
     'Protected Sub btnConfigurazione_Click(sender As Object, e As EventArgs) Handles btnConfigurazione.Click
