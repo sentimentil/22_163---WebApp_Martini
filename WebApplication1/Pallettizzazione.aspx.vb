@@ -79,8 +79,9 @@ Public Class Pallettizzazione
 
         Dim lampeggio As Boolean = False
         Dim oraLettura As Date = row.Item("DataOraLettura")
-        If oraLettura <> Nothing AndAlso (Now - oraLettura).TotalMilliseconds <= 4000 Then lampeggio = True
-
+        Dim presenza As String = row.Item("CassaPresente").ToString
+        If presenza Is Nothing Then presenza = "0"
+        If (oraLettura <> Nothing) AndAlso CBool(presenza) AndAlso ((Now - oraLettura).TotalMilliseconds <= 4000) Then lampeggio = True
 
 
         Dim VisualizzaImmaine As Boolean = False
@@ -122,7 +123,7 @@ Public Class Pallettizzazione
                 Dim CassePallettizzate = row.Item("CassePalletizzate0")
                 Dim TotCasse = row.Item("CasseAttese0")
 
-                'VisualizzaImmaine = True
+                VisualizzaImmaine = True
 
 
                 LabelCodiceUDS0.Text = CodiceUDS
@@ -188,7 +189,7 @@ Public Class Pallettizzazione
                 Dim CassePallettizzate4 = row.Item("CassePalletizzate4")
                 Dim TotCasse4 = row.Item("CasseAttese4")
 
-                'VisualizzaImmaine = True
+                VisualizzaImmaine = True
 
 
                 LabelCodiceUDS1.Text = CodiceUDS1
@@ -225,6 +226,8 @@ Public Class Pallettizzazione
             btnPallet.Visible = False
             btnUDS.Visible = True
 
+            VisualizzaImmaine = False
+
 
         ElseIf row.Item("ChiusuraPallet") = "1" Then
 
@@ -232,6 +235,8 @@ Public Class Pallettizzazione
             LabelAvviso.Visible = True
             btnUDS.Visible = False
             btnPallet.Visible = True
+
+            VisualizzaImmaine = False
 
         Else
 
@@ -505,5 +510,6 @@ Public Class Pallettizzazione
         End Select
 
     End Sub
+
 
 End Class

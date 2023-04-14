@@ -144,6 +144,7 @@
     <Content Include="Immagini\PalletAS.jpeg" />
     <Content Include="Immagini\PalletBD.jpeg" />
     <Content Include="Immagini\PalletBS.jpeg" />
+    <Content Include="Immagini\SemaforoGrigio.png" />
     <Content Include="Pallettizzazione.aspx" />
     <Content Include="Depallettizzazione.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />

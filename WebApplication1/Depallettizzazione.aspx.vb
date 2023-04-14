@@ -138,7 +138,7 @@ Public Class Depallettizzazione
 
 
 
-        Dim result As String = "2"
+        Dim result As String = "0"
 
 
         If Not noResults Then
@@ -173,16 +173,19 @@ Public Class Depallettizzazione
         Select Case result
 
             Case "0"
-                SemaforoImage.ImageUrl = SemaforoImage.ResolveUrl("~/Immagini/SemaforoVerde.png")
+                SemaforoImage.ImageUrl = SemaforoImage.ResolveUrl("~/Immagini/SemaforoGrigio.png")
 
             Case "1"
+                SemaforoImage.ImageUrl = SemaforoImage.ResolveUrl("~/Immagini/SemaforoVerde.png")
+
+            Case "2"
                 SemaforoImage.ImageUrl = SemaforoImage.ResolveUrl("~/Immagini/SemaforoGiallo.png")
 
 
-            Case "2"
+            Case "3"
                 SemaforoImage.ImageUrl = SemaforoImage.ResolveUrl("~/Immagini/SemaforoRosso.png")
 
-            Case "-1"  'ERRORE
+            Case Else  'ERRORE
 
                 Throw New Exception("ERRORE SP WebDepal (-1)")
 
@@ -287,6 +290,8 @@ Public Class Depallettizzazione
 
         'Next
     End Sub
+
+
 
     'Protected Sub btnConfigurazione_Click(sender As Object, e As EventArgs) Handles btnConfigurazione.Click
     '    Timer1.Enabled = False
