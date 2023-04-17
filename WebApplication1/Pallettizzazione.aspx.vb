@@ -24,28 +24,33 @@ Public Class Pallettizzazione
     End Sub
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
-
+        Dim restart As Boolean = True
         Try
 
 
             Timer1.Enabled = False
 
             'DatiTest()
-            AggiornaDati()
+            restart = AggiornaDati()
 
 
         Catch ex As Exception
             LabelBaia.Text = "ERRORE! " & ex.Message
             LabelBaia.ForeColor = System.Drawing.Color.Red
 
+            restart = True
+
         Finally
-            Timer1.Enabled = True
+            Timer1.Interval = 500
+            Timer1.Enabled = restart
         End Try
 
     End Sub
 
 
-    Private Sub AggiornaDati()
+    Private Function AggiornaDati() As Boolean
+
+        Dim returnValue As Boolean = True
 
         Dim Baia = Session("Baia")
         Dim Linea = Session("Linea")
@@ -71,7 +76,7 @@ Public Class Pallettizzazione
         Connection.Close()
 
         Dim row = table.AsEnumerable.FirstOrDefault
-        If row Is Nothing Then SvuotaDati() : Exit Sub
+        If row Is Nothing Then SvuotaDati() : Return returnValue
 
 
         Dim descrizione = row.Item("Descrizione")
@@ -227,6 +232,7 @@ Public Class Pallettizzazione
             btnUDS.Visible = True
 
             VisualizzaImmaine = False
+            returnValue = False
 
 
         ElseIf row.Item("ChiusuraPallet") = "1" Then
@@ -237,18 +243,22 @@ Public Class Pallettizzazione
             btnPallet.Visible = True
 
             VisualizzaImmaine = False
+            returnValue = False
 
         Else
 
+            Select Case NumeroUDS
+                Case "1"
+                    PanelMultiUDS.Visible = False
+                    PanelMonoUDS.Visible = True
 
-            If NumeroUDS = "1" Then
-                PanelMultiUDS.Visible = False
-                PanelMonoUDS.Visible = True
+                Case "2", "3", "4"
+                    PanelMonoUDS.Visible = False
+                    PanelMultiUDS.Visible = True
 
-            Else
-                PanelMonoUDS.Visible = False
-                PanelMultiUDS.Visible = True
-            End If
+                Case Else
+
+            End Select
 
             VisualizzaImmaine = True
         End If
@@ -315,8 +325,8 @@ Public Class Pallettizzazione
         LabelDateTime.Text = Date.Now.ToString
         LabelBaia.ForeColor = System.Drawing.Color.Black
 
-
-    End Sub
+        Return returnValue
+    End Function
 
     'Protected Sub btnConfigurazione_Click(sender As Object, e As EventArgs) Handles btnConfigurazione.Click
     '    Timer1.Enabled = False
@@ -350,7 +360,8 @@ Public Class Pallettizzazione
             LabelBaia.Text = "ERRORE! " & ex.Message
             LabelBaia.ForeColor = System.Drawing.Color.Red
         End Try
-
+        Timer1.Interval = 100
+        Timer1.Enabled = True
     End Sub
 
     Protected Sub btnPallet_Click(sender As Object, e As EventArgs) Handles btnPallet.Click
@@ -385,7 +396,8 @@ Public Class Pallettizzazione
             LabelBaia.Text = "ERRORE! " & ex.Message
             LabelBaia.ForeColor = System.Drawing.Color.Red
         End Try
-
+        Timer1.Interval = 100
+        Timer1.Enabled = True
     End Sub
 
 

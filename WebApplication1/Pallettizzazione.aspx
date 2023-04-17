@@ -4,39 +4,6 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
-    <%--    <script>
-        (function ($) {
-            var cache = [];
-            // Arguments are image paths relative to the current page.
-            $.preLoadImages = function () {
-                var args_len = arguments.length;
-                for (var i = args_len; i--;) {
-                    var cacheImage = document.createElement('img');
-                    cacheImage.src = arguments[i];
-                    cache.push(cacheImage);
-                }
-            }
-        })(jQuery)
-
-
-                function SetImmagine() {
-
-            //document.getElementById('MainContent_PalletImage').setAttribute('src', 'http://localhost:60844/Immagini/PalletALL.jpeg');
-            //$("[id='PalletImage']").attr("src", "http://localhost:60844/Immagini/PalletALL.jpeg");
-
-            var img = document.getElementById("immagine");
-            img.src = "Immagini/PalletALL.jpeg";
-            //$('#sidebar').append(img);
-        }
-
-        function GetVariabileAmbiente() {
-
-            document.getElementById("LabelTERMINALE") = "pino"; //process.env.TERMINALE;
-        }
-    </script>--%>
-
-
-
 
     <asp:ScriptManager ID="ScriptManager1" runat="server" />
     <asp:Timer ID="Timer1" runat="server" Interval="500" />
@@ -59,7 +26,7 @@
 
     <asp:UpdatePanel ID="PanelMultiUDS" runat="server" UpdateMode="Conditional">
         <Triggers>
-            <%--               <asp:AsyncPostBackTrigger ControlID="Timer1" EventName="Tick" />--%>
+            <%--<asp:AsyncPostBackTrigger ControlID="Timer1" EventName="Tick" />--%>
         </Triggers>
         <ContentTemplate>
 
@@ -150,7 +117,7 @@
 
     <asp:UpdatePanel ID="PanelMonoUDS" runat="server" UpdateMode="Conditional" Visible="false">
         <Triggers>
-            <%--               <asp:AsyncPostBackTrigger ControlID="Timer1" EventName="Tick" />--%>
+           <%--<asp:AsyncPostBackTrigger ControlID="Timer1" EventName="Tick" />--%>
         </Triggers>
         <ContentTemplate>
 
@@ -209,8 +176,8 @@
         <br />
 
         <asp:Label ID="LabelAvviso" runat="server" Text="" Font-Size="46" Visible="false" Font-Bold="true"></asp:Label>
-        <asp:Button ID="btnUDS" runat="server" Text="UDS CHIUSO" Visible="false" BackColor="LawnGreen" OnClick="btnUDS_Click" Font-Size="26" Width="380" Height="140px"/>
-        <asp:Button ID="btnPallet" runat="server" Text="CAMBIO PALLET" Visible="false" BackColor="LawnGreen" OnClick="btnPallet_Click" Font-Size="26" Width="400" Height="140px" />
+        <asp:Button ID="btnUDS" runat="server" Text="UDS CHIUSO" Visible="false" BackColor="LawnGreen" OnClick="btnUDS_Click" Font-Size="30" Width="380" Height="140px"/>
+        <asp:Button ID="btnPallet" runat="server" Text="CAMBIO PALLET" Visible="false" BackColor="LawnGreen" OnClick="btnPallet_Click" Font-Size="26" Width="400" Height="140px"/>
 
 
     </div>
