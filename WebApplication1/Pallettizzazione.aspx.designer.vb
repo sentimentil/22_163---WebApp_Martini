@@ -563,6 +563,15 @@ Partial Public Class Pallettizzazione
     Protected WithEvents LabelCodicePallet As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
+    '''Controllo Div4.
+    '''</summary>
+    '''<remarks>
+    '''Campo generato automaticamente.
+    '''Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+    '''</remarks>
+    Protected WithEvents Div4 As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+    
+    '''<summary>
     '''Controllo LabelnUDS.
     '''</summary>
     '''<remarks>

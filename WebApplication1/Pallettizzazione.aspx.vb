@@ -33,7 +33,6 @@ Public Class Pallettizzazione
             'DatiTest()
             restart = AggiornaDati()
 
-
         Catch ex As Exception
             LabelBaia.Text = "ERRORE! " & ex.Message
             LabelBaia.ForeColor = System.Drawing.Color.Red
@@ -226,7 +225,7 @@ Public Class Pallettizzazione
 
         If ChiusuraUDS Then
 
-            LabelAvviso.Text = String.Format("UDS {0} IN CHIUSURA!", numeroChiusuraUDS)
+            LabelAvviso.Text = String.Format("UDS n°{0} IN CHIUSURA!", numeroChiusuraUDS)
             LabelAvviso.Visible = True
             btnPallet.Visible = False
             btnUDS.Visible = True
@@ -292,6 +291,14 @@ Public Class Pallettizzazione
             Dim oldStatus = Session("StatoImmagine")
             If oldStatus IsNot Nothing AndAlso lampeggio Then
                 result = If(oldStatus <> "99", "99", result)
+
+                If result = "99" Then
+                    LabelUltimoBarcode.BackColor = System.Drawing.Color.White
+                    LabelMessaggio.BackColor = System.Drawing.Color.Coral
+                Else
+                    LabelUltimoBarcode.BackColor = System.Drawing.Color.LightGray
+                    LabelMessaggio.BackColor = System.Drawing.Color.White
+                End If
             End If
             Session.Add("StatoImmagine", result)
 

@@ -176,8 +176,8 @@
         <br />
 
         <asp:Label ID="LabelAvviso" runat="server" Text="" Font-Size="46" Visible="false" Font-Bold="true"></asp:Label>
-        <asp:Button ID="btnUDS" runat="server" Text="UDS CHIUSO" Visible="false" BackColor="LawnGreen" OnClick="btnUDS_Click" Font-Size="30" Width="380" Height="140px"/>
-        <asp:Button ID="btnPallet" runat="server" Text="CAMBIO PALLET" Visible="false" BackColor="LawnGreen" OnClick="btnPallet_Click" Font-Size="26" Width="400" Height="140px"/>
+        <asp:Button ID="btnUDS" runat="server" Text="UDS CHIUSO" Visible="false" BackColor="LawnGreen" OnClick="btnUDS_Click" Font-Size="46pt" Width="400" Height="200px" style="white-space:normal"/>
+        <asp:Button ID="btnPallet" runat="server" Text="CAMBIO PALLET" Visible="false" BackColor="LawnGreen" OnClick="btnPallet_Click" Font-Size="46" Width="400" Height="200px" style="white-space:normal"/>
 
 
     </div>
@@ -201,15 +201,15 @@
 
         <div id="Destra1" class="Destra1" runat="server">
 
-            <%--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--%>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:Label ID="Label3" runat="server" Text="Cassa: " Font-Size="40"></asp:Label>
 
-            <asp:Label ID="LabelUltimoBarcode" runat="server" Text="" Font-Size="46" BackColor="Coral"></asp:Label>
+            <asp:Label ID="LabelUltimoBarcode" runat="server" Text="" Font-Size="46" BackColor="LightGray"></asp:Label>
 
             <br />
 
             <asp:Label ID="Label8" runat="server" Text="Note: " Font-Size="40"></asp:Label>
-            <asp:Label ID="LabelMessaggio" runat="server" Text="" Font-Size="46"></asp:Label>
+            <asp:Label ID="LabelMessaggio" runat="server" Text="" Font-Size="46" style="white-space:normal" BackColor="Coral"></asp:Label>
 
         </div>
 
@@ -229,6 +229,12 @@
         <br />
 
         <%--&nbsp;&nbsp;&nbsp;&nbsp;--%>
+        <%--<asp:Label ID="LabelnUDS" runat="server" Text="N° UDS: " Font-Size="46" Font-Underline="true" BackColor="Aqua"></asp:Label>--%>
+
+    </div>
+
+    <div id="Div4" class="Centro11" runat="server">
+
         <asp:Label ID="LabelnUDS" runat="server" Text="N° UDS: " Font-Size="46" Font-Underline="true" BackColor="Aqua"></asp:Label>
 
     </div>
