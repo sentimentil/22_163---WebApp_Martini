@@ -118,7 +118,7 @@ Public Class Pallettizzazione
 
                 ChiusuraUDS = True
                 numeroChiusuraUDS = 0
-                Session.Add("UDS", 0)
+                'Session.Add("UDS", 0)
 
             Else
 
@@ -146,28 +146,28 @@ Public Class Pallettizzazione
                 'uds in chiusura
                 ChiusuraUDS = True
                 numeroChiusuraUDS = 1
-                Session.Add("UDS", 1)
+                'Session.Add("UDS", 1)
 
 
             ElseIf row.Item("StatoUDS2") = 1 Then
                 'uds in chiusura
                 ChiusuraUDS = True
                 numeroChiusuraUDS = 2
-                Session.Add("UDS", 2)
+                'Session.Add("UDS", 2)
 
 
             ElseIf row.Item("StatoUDS3") = 1 Then
                 'uds in chiusura
                 ChiusuraUDS = True
                 numeroChiusuraUDS = 3
-                Session.Add("UDS", 3)
+                'Session.Add("UDS", 3)
 
 
             ElseIf row.Item("StatoUDS4") = 1 Then
                 'uds in chiusura
                 ChiusuraUDS = True
                 numeroChiusuraUDS = 4
-                Session.Add("UDS", 4)
+                'Session.Add("UDS", 4)
 
 
             Else
@@ -232,6 +232,9 @@ Public Class Pallettizzazione
 
             VisualizzaImmaine = False
             returnValue = False
+
+            Session.Add("UDS", numeroChiusuraUDS)
+            Session.Add("Pallet", CodicePallet)
 
 
         ElseIf row.Item("ChiusuraPallet") = "1" Then
@@ -350,18 +353,23 @@ Public Class Pallettizzazione
             If Linea Is Nothing Then Throw New Exception("Linea non configurata!")
 
             Dim UDS = Session("UDS")
+            Dim Pallet = Session("Pallet")
             If UDS Is Nothing Then Throw New Exception("UDS non registrato!")
+            If Pallet Is Nothing Then Throw New Exception("Pallet non registrato!")
 
             Dim str = System.Configuration.ConfigurationManager.ConnectionStrings.Item("ConnectionSam" & Linea).ConnectionString  '
             Dim Connection = New SqlConnection(str)
             Connection.Open()
 
-            Dim cmd As New SqlCommand(String.Format("UPDATE [dbo].[VistaPallettizzatori] SET StatoUDS{1} = '2' WHERE CodiceLinea = '{0}'", Baia.ToString.PadLeft(2, "0"), UDS), Connection)
+            Dim cmd As New SqlCommand(String.Format("EXEC [dbo].[VistaPallettizzatori_UDSCompleto] '{0}','{1}',{2},'0'", Baia.ToString.PadLeft(2, "0"), Pallet, UDS), Connection)
             Dim reader = cmd.ExecuteReader
 
             reader.Close()
             cmd.Dispose()
             Connection.Close()
+
+            Session.Add("UDS", "")
+            Session.Add("Pallet", "")
 
         Catch ex As Exception
             LabelBaia.Text = "ERRORE! " & ex.Message
