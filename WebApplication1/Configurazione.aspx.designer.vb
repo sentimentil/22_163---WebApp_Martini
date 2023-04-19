@@ -59,22 +59,13 @@ Partial Public Class Configurazione
     Protected WithEvents Label3 As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
-    '''Controllo txtLinea.
+    '''Controllo cmbLinea.
     '''</summary>
     '''<remarks>
     '''Campo generato automaticamente.
     '''Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
     '''</remarks>
-    Protected WithEvents txtLinea As Global.System.Web.UI.WebControls.TextBox
-    
-    '''<summary>
-    '''Controllo Label4.
-    '''</summary>
-    '''<remarks>
-    '''Campo generato automaticamente.
-    '''Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
-    '''</remarks>
-    Protected WithEvents Label4 As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents cmbLinea As Global.System.Web.UI.WebControls.DropDownList
     
     '''<summary>
     '''Controllo Label5.
@@ -86,22 +77,13 @@ Partial Public Class Configurazione
     Protected WithEvents Label5 As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
-    '''Controllo txtBaia.
+    '''Controllo cmbBaia.
     '''</summary>
     '''<remarks>
     '''Campo generato automaticamente.
     '''Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
     '''</remarks>
-    Protected WithEvents txtBaia As Global.System.Web.UI.WebControls.TextBox
-    
-    '''<summary>
-    '''Controllo Label2.
-    '''</summary>
-    '''<remarks>
-    '''Campo generato automaticamente.
-    '''Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
-    '''</remarks>
-    Protected WithEvents Label2 As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents cmbBaia As Global.System.Web.UI.WebControls.DropDownList
     
     '''<summary>
     '''Controllo btnConferma.

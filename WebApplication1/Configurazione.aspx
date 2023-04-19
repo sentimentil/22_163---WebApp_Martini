@@ -24,34 +24,30 @@
             <br />
 
             <asp:Label ID="Label6" runat="server" Text="Selezionare che schermata visualizzare: " Font-Size="28"></asp:Label>
-            <asp:DropDownList ID="cmbTipologia" runat="server" Font-Size="34" Style="text-align: center"></asp:DropDownList>
+            <asp:DropDownList ID="cmbTipologia" runat="server" Font-Size="34" Style="text-align: center" AutoPostBack="True"></asp:DropDownList>
 
             <br />
             <br />
 
-            <asp:Label ID="Label3" runat="server" Text="Digitare il numero della Linea: " Font-Size="28"></asp:Label>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:TextBox ID="txtLinea" runat="server" Font-Size="34" Width="50" Style="text-align: center"></asp:TextBox>
-            &nbsp;&nbsp;
-            <asp:Label ID="Label4" runat="server" Text="(1 - 2) " Font-Size="26"></asp:Label>
+            <asp:Label ID="Label3" runat="server" Text="Digitare il numero della Dorsale: " Font-Size="28"></asp:Label>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+            <asp:DropDownList ID="cmbLinea" runat="server" Font-Size="34" Style="text-align: center" Width="100" Height="50"></asp:DropDownList>
 
             <br />
             <br />
 
             <asp:Label ID="Label5" runat="server" Text="Digitare il numero della Baia: " Font-Size="28"></asp:Label>
             &nbsp;
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:TextBox ID="txtBaia" runat="server" Font-Size="34" Width="50" Style="text-align: center"></asp:TextBox>
-            &nbsp;
-            <asp:Label ID="Label2" runat="server" Text="(1 ... 10)" Font-Size="26"></asp:Label>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:DropDownList ID="cmbBaia" runat="server" Font-Size="34" Style="text-align: center" Width="100" Height="50"></asp:DropDownList>
 
             <br />
             <br />
             <br />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Button ID="btnConferma" runat="server" Text="Conferma" Font-Size="32" />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:Button ID="btnConferma" runat="server" Text="Accedi" Font-Size="32" />
 
 
             <br />

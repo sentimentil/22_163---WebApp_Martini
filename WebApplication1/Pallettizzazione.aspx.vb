@@ -247,6 +247,8 @@ Public Class Pallettizzazione
             VisualizzaImmaine = False
             returnValue = False
 
+            Session.Add("Pallet", CodicePallet)
+
         Else
 
             Select Case NumeroUDS
@@ -388,11 +390,14 @@ Public Class Pallettizzazione
             If Baia Is Nothing Then Throw New Exception("Baia non configurata!")
             If Linea Is Nothing Then Throw New Exception("Linea non configurata!")
 
+            Dim Pallet = Session("Pallet")
+            If Pallet Is Nothing Then Throw New Exception("Pallet non registrato!")
+
             Dim str = System.Configuration.ConfigurationManager.ConnectionStrings.Item("ConnectionSam" & Linea).ConnectionString  '
             Dim Connection = New SqlConnection(str)
             Connection.Open()
 
-            Dim cmd As New SqlCommand(String.Format("EXEC [dbo].[VistaPallettizzatori_PalletCompleto] '{0}','0'", Baia.ToString.PadLeft(2, "0")), Connection)
+            Dim cmd As New SqlCommand(String.Format("EXEC [dbo].[VistaPallettizzatori_PalletCompleto] '{0}','{1}','0'", Baia.ToString.PadLeft(2, "0"), Pallet), Connection)
             Dim reader = cmd.ExecuteReader
 
             Dim table As New DataTable
@@ -406,6 +411,8 @@ Public Class Pallettizzazione
             If table.Rows.Count > 0 Then result = table.Rows(0).Item(0).ToString
 
             If Not String.IsNullOrWhiteSpace(result) Then LabelBaia.Text = result
+
+            Session.Add("Pallet", "")
 
         Catch ex As Exception
             LabelBaia.Text = "ERRORE! " & ex.Message
