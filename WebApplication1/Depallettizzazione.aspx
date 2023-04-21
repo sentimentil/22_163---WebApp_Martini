@@ -25,9 +25,9 @@
     <asp:ScriptManager ID="ScriptManager1" runat="server" />
     <asp:Timer ID="Timer1" runat="server" Interval="500" />
 
-    <link href="~/Content/Visualizzazione.css" rel="stylesheet" />
+    <%--<link href="~/Content/Visualizzazione.css" rel="stylesheet" />--%>
     <%--<link href="http://UTC-PRG01:85/Content/Visualizzazione.css" rel="stylesheet" />--%>
-    <%--<link href="http://192.168.0.97:85/Content/Visualizzazione.css" rel="stylesheet"/>--%>
+    <link href="http://192.168.0.97:85/Content/Visualizzazione.css" rel="stylesheet"/>
 
 
 
@@ -53,7 +53,7 @@
             <div id="destra" class="Destra" runat="server">
                 <%--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--%>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:Label ID="LabelNextUDP" runat="server" Text="IN ARRIVO UN NUOVO UPD!" Font-Size="46" BackColor="Magenta" Visible="false"></asp:Label>
+                <asp:Label ID="LabelNextUDP" runat="server" Text="IN ARRIVO UN NUOVO UPD!" Font-Size="46" BackColor="Coral" Visible="false"></asp:Label>
 
                 <br />
                 <br />
