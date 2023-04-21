@@ -64,7 +64,7 @@ Public Class Depallettizzazione
         Dim Connection = New SqlConnection(str)
         Connection.Open()
 
-        Dim cmd As New SqlCommand("SELECT * FROM [dbo].[VistaWebDepal]", Connection)
+        Dim cmd As New SqlCommand("SELECT * FROM [dbo].[VistaWebDepal] ORDER BY Scarico DESC, Sequenza, id", Connection)
         Dim reader = cmd.ExecuteReader
 
         Dim table As New DataTable
@@ -97,7 +97,7 @@ Public Class Depallettizzazione
                     Dim tmpArticoli = row.Where(Function(a) a.Item("UDP") = udp)
 
                     For Each art In tmpArticoli
-                        If Not strArticoli.Contains(art.Item("Vincoli_CODICE_ARTICOLO")) Then strArticoli += art.Item("Vincoli_CODICE_ARTICOLO") & ","
+                        strArticoli += art.Item("Vincoli_CODICE_ARTICOLO") & ","  'If Not strArticoli.Contains(art.Item("Vincoli_CODICE_ARTICOLO")) Then 
                         totQtaTotale += art.Item("Vincoli_NUMERO_CASSE_SET_ASSEGNAZIONE")
                         totQtaScaricata += art.Item("CasseScaricate")
                     Next
