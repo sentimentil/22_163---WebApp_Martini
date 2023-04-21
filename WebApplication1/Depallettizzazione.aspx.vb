@@ -172,7 +172,7 @@ Public Class Depallettizzazione
 
         If table1.Rows.Count > 0 Then
 
-            Dim tmp1 = table1.AsEnumerable.Where(Function(a) a.Item("Depallettizzatore").ToString.Trim = Baia.ToString).FirstOrDefault
+            Dim tmp1 = table1.AsEnumerable.Where(Function(a) a.Item("Id").ToString.Trim = Baia.ToString).FirstOrDefault
             If tmp1 IsNot Nothing Then result = tmp1.Item("Semaforo")
         End If
 
