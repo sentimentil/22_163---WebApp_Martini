@@ -75,11 +75,11 @@ Public Class Depallettizzazione
         Connection.Close()
 
         'scarico=1 visualizzo, scarico=0 ==>> nuovo udp in arrivo
-        Dim tmp = table.AsEnumerable.Where(Function(a) a.Item("LocazioneAttuale").ToString.Trim = Baia)
+        Dim tmp = table.AsEnumerable.Where(Function(a) a.Item("LocazioneAttuale").ToString.Trim = Baia.ToString)
         'Dim noResults As Boolean = False
         Dim nextUDP As Boolean = False
 
-        If tmp.Count > 0 Then
+        If tmp.Any Then
 
             Dim row = tmp.Where(Function(a) a.Item("Scarico") = "1")
 
@@ -90,21 +90,28 @@ Public Class Depallettizzazione
                 LabelUDP.Text = udp
 
                 Dim strArticoli As String = ""
-                Dim totQtaTotale = 0
-                Dim totQtaScaricata = 0
+                Dim totQtaTotale As Integer = 0
+                Dim totQtaScaricata As Integer = 0
 
-                If row.Count > 1 Then
-                    Dim tmpArticoli = row.Where(Function(a) a.Item("UDP") = udp)
+                'If row.Count > 1 Then
+                '    Dim tmpArticoli = row.Where(Function(a) a.Item("UDP") = udp)
 
-                    For Each art In tmpArticoli
-                        strArticoli += art.Item("Vincoli_CODICE_ARTICOLO") & ","  'If Not strArticoli.Contains(art.Item("Vincoli_CODICE_ARTICOLO")) Then 
-                        totQtaTotale += art.Item("Vincoli_NUMERO_CASSE_SET_ASSEGNAZIONE")
-                        totQtaScaricata += art.Item("CasseScaricate")
-                    Next
+                '    For Each art In tmpArticoli
+                '        strArticoli += art.Item("Vincoli_CODICE_ARTICOLO") & ","  'If Not strArticoli.Contains(art.Item("Vincoli_CODICE_ARTICOLO")) Then 
+                '        totQtaTotale += art.Item("Vincoli_NUMERO_CASSE_SET_ASSEGNAZIONE")
+                '        totQtaScaricata += art.Item("CasseScaricate")
+                '    Next
 
-                Else
-                    strArticoli = row.FirstOrDefault.Item("Vincoli_CODICE_ARTICOLO")
-                End If
+                'Else
+                '    strArticoli = row.FirstOrDefault.Item("Vincoli_CODICE_ARTICOLO")
+                'End If
+
+
+                For Each art In row
+                    strArticoli += art.Item("Vincoli_CODICE_ARTICOLO") & ","  'If Not strArticoli.Contains(art.Item("Vincoli_CODICE_ARTICOLO")) Then 
+                    totQtaTotale += art.Item("Vincoli_NUMERO_CASSE_SET_ASSEGNAZIONE")
+                    totQtaScaricata += art.Item("CasseScaricate")
+                Next
 
 
                 LabelArticolo.Text = strArticoli.Remove(strArticoli.Count - 1).Trim
@@ -127,7 +134,7 @@ Public Class Depallettizzazione
             End If
 
             Dim row_nextUDP = tmp.Where(Function(a) a.Item("Scarico") = "0")
-            If row_nextUDP.Count > 0 Then nextUDP = True
+            If row_nextUDP.Any Then nextUDP = True
 
 
 
