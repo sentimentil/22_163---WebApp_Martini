@@ -83,7 +83,7 @@ Public Class Depallettizzazione
 
             Dim row = tmp.Where(Function(a) a.Item("Scarico") = "1")
 
-            If row IsNot Nothing Then
+            If row.Any Then
                 Dim udp = row.FirstOrDefault.Item("UDP")
                 LabelGiro.Text = row.FirstOrDefault.Item("Giro")
                 LabelBatch.Text = row.FirstOrDefault.Item("BatchDiAttivazione")
@@ -172,7 +172,7 @@ Public Class Depallettizzazione
 
         If table1.Rows.Count > 0 Then
 
-            Dim tmp1 = table1.AsEnumerable.Where(Function(a) a.Item("Depallettizzatore").ToString.Trim = Terminale).FirstOrDefault
+            Dim tmp1 = table1.AsEnumerable.Where(Function(a) a.Item("Depallettizzatore").ToString.Trim = Baia.ToString).FirstOrDefault
             If tmp1 IsNot Nothing Then result = tmp1.Item("Semaforo")
         End If
 
