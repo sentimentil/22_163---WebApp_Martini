@@ -74,50 +74,62 @@ Public Class Depallettizzazione
         cmd.Dispose()
         Connection.Close()
 
-        Dim tmp = table.AsEnumerable.Where(Function(a) a.Item("LocazioneDepallettizzazione").ToString.Trim = Terminale)
+        'scarico=1 visualizzo, scarico=0 ==>> nuovo udp in arrivo
+        Dim tmp = table.AsEnumerable.Where(Function(a) a.Item("LocazioneAttuale").ToString.Trim = Baia)
         'Dim noResults As Boolean = False
         Dim nextUDP As Boolean = False
 
         If tmp.Count > 0 Then
 
-            Dim maxPriorita = tmp.Max(Function(a) a.Item("Priorita"))
-            Dim row = tmp.Where(Function(a) a.Item("Priorita") = maxPriorita)
+            Dim row = tmp.Where(Function(a) a.Item("Scarico") = "1")
 
-            If row Is Nothing Then Throw New Exception("ERRORE Max Priorità")
+            If row IsNot Nothing Then
+                Dim udp = row.FirstOrDefault.Item("UDP")
+                LabelGiro.Text = row.FirstOrDefault.Item("Giro")
+                LabelBatch.Text = row.FirstOrDefault.Item("BatchDiAttivazione")
+                LabelUDP.Text = udp
 
-            If tmp.Count > row.Count Then nextUDP = True
+                Dim strArticoli As String = ""
+                Dim totQtaTotale = 0
+                Dim totQtaScaricata = 0
 
-            Dim udp = row.FirstOrDefault.Item("UDP")
-            LabelGiro.Text = row.FirstOrDefault.Item("Giro")
-            LabelBatch.Text = row.FirstOrDefault.Item("BatchDiAttivazione")
-            LabelUDP.Text = udp
+                If row.Count > 1 Then
+                    Dim tmpArticoli = row.Where(Function(a) a.Item("UDP") = udp)
 
-            Dim strArticoli As String = ""
-            Dim totQtaTotale = 0
-            Dim totQtaScaricata = 0
+                    For Each art In tmpArticoli
+                        If Not strArticoli.Contains(art.Item("Vincoli_CODICE_ARTICOLO")) Then strArticoli += art.Item("Vincoli_CODICE_ARTICOLO") & ","
+                        totQtaTotale += art.Item("Vincoli_NUMERO_CASSE_SET_ASSEGNAZIONE")
+                        totQtaScaricata += art.Item("CasseScaricate")
+                    Next
 
-            If row.Count > 1 Then
-                Dim tmpArticoli = row.Where(Function(a) a.Item("UDP") = udp)
+                Else
+                    strArticoli = row.FirstOrDefault.Item("Vincoli_CODICE_ARTICOLO")
+                End If
 
-                For Each art In tmpArticoli
-                    strArticoli += art.Item("Vincoli_CODICE_ARTICOLO") & ","
-                    totQtaTotale += art.Item("Vincoli_NUMERO_CASSE_SET_ASSEGNAZIONE")
-                    totQtaScaricata += art.Item("CasseScaricate")
-                Next
+
+                LabelArticolo.Text = strArticoli.Remove(strArticoli.Count - 1).Trim
+
+
+                LabelQtaRimanente.Text = totQtaTotale - totQtaScaricata
+                LabelQtaScaricata.Text = totQtaScaricata
+                LabelQtaTotale.Text = totQtaTotale
+
 
             Else
-                strArticoli = row.FirstOrDefault.Item("Vincoli_CODICE_ARTICOLO")
+
+                LabelGiro.Text = ""
+                LabelBatch.Text = ""
+                LabelUDP.Text = ""
+                LabelArticolo.Text = ""
+                LabelQtaRimanente.Text = ""
+                LabelQtaScaricata.Text = ""
+                LabelQtaTotale.Text = ""
             End If
 
+            Dim row_nextUDP = tmp.Where(Function(a) a.Item("Scarico") = "0")
+            If row_nextUDP.Count > 0 Then nextUDP = True
 
-            LabelArticolo.Text = strArticoli.Remove(strArticoli.Count - 1).Trim
 
-            'Dim QtaTotale = row.Item("Vincoli_NUMERO_CASSE_SET_ASSEGNAZIONE")
-            'Dim QtaScaricata = row.Item("CasseScaricate")
-
-            LabelQtaRimanente.Text = totQtaTotale - totQtaScaricata
-            LabelQtaScaricata.Text = totQtaScaricata
-            LabelQtaTotale.Text = totQtaTotale
 
 
         Else
