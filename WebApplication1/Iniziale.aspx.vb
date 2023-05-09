@@ -29,18 +29,31 @@ Public Class Iniziale
             If Session("Terminale") Is Nothing Then    'primo giro
 
                 Dim str = System.Configuration.ConfigurationManager.ConnectionStrings.Item("ConnectionSam1").ConnectionString  'ConnectionSam1
-                Dim Connection = New SqlConnection(str)
-                Connection.Open()
-
-                Dim cmd As New SqlCommand(String.Format("SELECT * FROM [dbo].[ParametriTerminale] WHERE NomeTerminale = '{0}'", indirizzoPC), Connection)
-                Dim reader = cmd.ExecuteReader
+                'Dim Connection = New SqlConnection(str)
 
                 Dim table As New DataTable
-                table.Load(reader)
 
-                reader.Close()
-                cmd.Dispose()
-                Connection.Close()
+                Using Connessione As New SqlConnection(str)
+                    Connessione.Open()
+                    Dim cmd As New SqlCommand(String.Format("SELECT * FROM [dbo].[ParametriTerminale] WHERE NomeTerminale = '{0}'", indirizzoPC), Connessione)
+
+                    Dim reader = cmd.ExecuteReader
+
+                    'il reader va sempre chiuso (certe documentazioni di Microsoft dicono si e altre non lo mostrano negli esempi, nel dubbio chiudo)
+                    Try
+                        table.Load(reader)
+                    Catch ex As Exception
+                        Throw New Exception(ex.Message, ex)
+                    Finally
+                        reader.Close()
+                    End Try
+
+
+                End Using
+
+                'reader.Close()
+                'cmd.Dispose()
+                'Connection.Close()
 
                 Dim row = table.AsEnumerable.FirstOrDefault
 

@@ -61,18 +61,30 @@ Public Class Depallettizzazione
         If Terminale Is Nothing Then Response.Redirect("Iniziale.aspx") ': Throw New Exception("Terminale non configurato!")  'perdita di connessione
 
         Dim str = System.Configuration.ConfigurationManager.ConnectionStrings.Item("ConnectionSam" & Linea).ConnectionString  ' & Linea
-        Dim Connection = New SqlConnection(str)
-        Connection.Open()
-
-        Dim cmd As New SqlCommand("SELECT * FROM [dbo].[VistaWebDepal] ORDER BY Scarico DESC, Sequenza, id", Connection)
-        Dim reader = cmd.ExecuteReader
-
         Dim table As New DataTable
-        table.Load(reader)
 
-        reader.Close()
-        cmd.Dispose()
-        Connection.Close()
+        Using Connessione As New SqlConnection(str)
+            Connessione.Open()
+
+            Dim cmd As New SqlCommand("SELECT * FROM [dbo].[VistaWebDepal] ORDER BY Scarico DESC, Sequenza, id", Connessione)
+            Dim reader = cmd.ExecuteReader
+
+            'il reader va sempre chiuso (certe documentazioni di Microsoft dicono si e altre non lo mostrano negli esempi, nel dubbio chiudo)
+            Try
+                table.Load(reader)
+            Catch ex As Exception
+                Throw New Exception(ex.Message, ex)
+            Finally
+                reader.Close()
+            End Try
+
+        End Using
+
+        'Dim Connection = New SqlConnection(str)
+        'reader.Close()
+        'cmd.Dispose()
+        'Connection.Close()
+
 
         'scarico=1 visualizzo, scarico=0 ==>> nuovo udp in arrivo
         Dim tmp = table.AsEnumerable.Where(Function(a) a.Item("LocazioneAttuale").ToString.Trim = Baia.ToString)
@@ -159,16 +171,28 @@ Public Class Depallettizzazione
 
         Dim result As Integer = 0
 
-        Connection.Open()
-        Dim cmd1 As New SqlCommand("SELECT * FROM [dbo].[Depallettizzatori]", Connection)
-        Dim reader1 = cmd1.ExecuteReader
-
         Dim table1 As New DataTable
-        table1.Load(reader1)
 
-        reader1.Close()
-        cmd1.Dispose()
-        Connection.Close()
+        Using Connessione As New SqlConnection(str)
+            Connessione.Open()
+            Dim cmd1 As New SqlCommand("SELECT * FROM [dbo].[Depallettizzatori]", Connessione)
+            Dim reader1 = cmd1.ExecuteReader
+
+            'il reader va sempre chiuso (certe documentazioni di Microsoft dicono si e altre non lo mostrano negli esempi, nel dubbio chiudo)
+            Try
+                table1.Load(reader1)
+            Catch ex As Exception
+                Throw New Exception(ex.Message, ex)
+            Finally
+                reader1.Close()
+            End Try
+
+        End Using
+
+        'reader1.Close()
+        'cmd1.Dispose()
+        'Connection.Close()
+
 
         If table1.Rows.Count > 0 Then
 

@@ -61,18 +61,28 @@ Public Class Pallettizzazione
 
 
         Dim str = System.Configuration.ConfigurationManager.ConnectionStrings.Item("ConnectionSam" & Linea).ConnectionString  ' & Linea
-        Dim Connection = New SqlConnection(str)
-        Connection.Open()
-
-        Dim cmd As New SqlCommand(String.Format("SELECT * FROM [dbo].[VistaPallettizzatori] WHERE CodiceLinea = '{0}'", Baia.ToString.PadLeft(2, "0")), Connection)
-        Dim reader = cmd.ExecuteReader
-
         Dim table As New DataTable
-        table.Load(reader)
 
-        reader.Close()
-        cmd.Dispose()
-        Connection.Close()
+        Using Connessione As New SqlConnection(str)
+            Connessione.Open()
+
+            Dim cmd As New SqlCommand(String.Format("SELECT * FROM [dbo].[VistaPallettizzatori] WHERE CodiceLinea = '{0}'", Baia.ToString.PadLeft(2, "0")), Connessione)
+            Dim reader = cmd.ExecuteReader
+
+            'il reader va sempre chiuso (certe documentazioni di Microsoft dicono si e altre non lo mostrano negli esempi, nel dubbio chiudo)
+            Try
+                table.Load(reader)
+            Catch ex As Exception
+                Throw New Exception(ex.Message, ex)
+            Finally
+                reader.Close()
+            End Try
+
+        End Using
+
+        'reader.Close()
+        'cmd.Dispose()
+        'Connection.Close()
 
         Dim row = table.AsEnumerable.FirstOrDefault
         If row Is Nothing Then SvuotaDati() : Return returnValue
@@ -313,7 +323,6 @@ Public Class Pallettizzazione
                 Case "0"
                     PalletImage.ImageUrl = PalletImage.ResolveUrl("~/Immagini/PalletALL.jpeg")
 
-
                 Case "1"
                     PalletImage.ImageUrl = PalletImage.ResolveUrl("~/Immagini/PalletAS.jpeg")
 
@@ -360,15 +369,39 @@ Public Class Pallettizzazione
             If Pallet Is Nothing Then Throw New Exception("Pallet non registrato!")
 
             Dim str = System.Configuration.ConfigurationManager.ConnectionStrings.Item("ConnectionSam" & Linea).ConnectionString  '
-            Dim Connection = New SqlConnection(str)
-            Connection.Open()
+            Dim table As New DataTable
 
-            Dim cmd As New SqlCommand(String.Format("EXEC [dbo].[VistaPallettizzatori_UDSCompleto] '{0}','{1}',{2},'0'", Baia.ToString.PadLeft(2, "0"), Pallet, UDS), Connection)
-            Dim reader = cmd.ExecuteReader
+            Using Connessione As New SqlConnection(str)
+                Connessione.Open()
 
-            reader.Close()
-            cmd.Dispose()
-            Connection.Close()
+                Dim cmd As New SqlCommand(String.Format("EXEC [dbo].[VistaPallettizzatori_UDSCompleto] '{0}','{1}',{2},''", Baia.ToString.PadLeft(2, "0"), Pallet, UDS), Connessione)
+                Dim reader = cmd.ExecuteReader
+
+                'il reader va sempre chiuso (certe documentazioni di Microsoft dicono si e altre non lo mostrano negli esempi, nel dubbio chiudo)
+                Try
+                    table.Load(reader)
+                Catch ex As Exception
+                    Throw New Exception(ex.Message, ex)
+                Finally
+                    reader.Close()
+                End Try
+
+            End Using
+
+            'Dim Connection = New SqlConnection(str)
+            'Connection.Open()
+
+            'Dim cmd As New SqlCommand(String.Format("EXEC [dbo].[VistaPallettizzatori_UDSCompleto] '{0}','{1}',{2},'0'", Baia.ToString.PadLeft(2, "0"), Pallet, UDS), Connection)
+            'Dim reader = cmd.ExecuteReader
+
+            'reader.Close()
+            'cmd.Dispose()
+            'Connection.Close()
+
+            Dim result = ""
+            If table.Rows.Count > 0 Then result = table.Rows(0).Item(0).ToString
+
+            If Not String.IsNullOrWhiteSpace(result) Then LabelBaia.Text = result
 
             Session.Add("UDS", "")
             Session.Add("Pallet", "")
@@ -394,18 +427,37 @@ Public Class Pallettizzazione
             If Pallet Is Nothing Then Throw New Exception("Pallet non registrato!")
 
             Dim str = System.Configuration.ConfigurationManager.ConnectionStrings.Item("ConnectionSam" & Linea).ConnectionString  '
-            Dim Connection = New SqlConnection(str)
-            Connection.Open()
-
-            Dim cmd As New SqlCommand(String.Format("EXEC [dbo].[VistaPallettizzatori_PalletCompleto] '{0}','{1}','0'", Baia.ToString.PadLeft(2, "0"), Pallet), Connection)
-            Dim reader = cmd.ExecuteReader
-
             Dim table As New DataTable
-            table.Load(reader)
 
-            reader.Close()
-            cmd.Dispose()
-            Connection.Close()
+            Using Connessione As New SqlConnection(str)
+                Connessione.Open()
+
+                Dim cmd As New SqlCommand(String.Format("EXEC [dbo].[VistaPallettizzatori_PalletCompleto] '{0}','{1}',''", Baia.ToString.PadLeft(2, "0"), Pallet), Connessione)
+                Dim reader = cmd.ExecuteReader
+
+                'il reader va sempre chiuso (certe documentazioni di Microsoft dicono si e altre non lo mostrano negli esempi, nel dubbio chiudo)
+                Try
+                    table.Load(reader)
+                Catch ex As Exception
+                    Throw New Exception(ex.Message, ex)
+                Finally
+                    reader.Close()
+                End Try
+
+            End Using
+
+            'Dim Connection = New SqlConnection(str)
+            'Connection.Open()
+
+            'Dim cmd As New SqlCommand(String.Format("EXEC [dbo].[VistaPallettizzatori_PalletCompleto] '{0}','{1}','0'", Baia.ToString.PadLeft(2, "0"), Pallet), Connection)
+            'Dim reader = cmd.ExecuteReader
+
+            'table.Load(reader)
+
+            'reader.Close()
+            'cmd.Dispose()
+            'Connection.Close()
+
 
             Dim result = ""
             If table.Rows.Count > 0 Then result = table.Rows(0).Item(0).ToString
