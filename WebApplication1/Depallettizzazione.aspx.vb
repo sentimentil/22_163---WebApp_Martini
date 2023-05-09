@@ -105,22 +105,12 @@ Public Class Depallettizzazione
                 Dim totQtaTotale As Integer = 0
                 Dim totQtaScaricata As Integer = 0
 
-                'If row.Count > 1 Then
-                '    Dim tmpArticoli = row.Where(Function(a) a.Item("UDP") = udp)
 
-                '    For Each art In tmpArticoli
-                '        strArticoli += art.Item("Vincoli_CODICE_ARTICOLO") & ","  'If Not strArticoli.Contains(art.Item("Vincoli_CODICE_ARTICOLO")) Then 
-                '        totQtaTotale += art.Item("Vincoli_NUMERO_CASSE_SET_ASSEGNAZIONE")
-                '        totQtaScaricata += art.Item("CasseScaricate")
-                '    Next
-
-                'Else
-                '    strArticoli = row.FirstOrDefault.Item("Vincoli_CODICE_ARTICOLO")
-                'End If
-
-
+                Dim ArticoliInseriti As Integer = 0  'faccio vedere solo i primi due articoli della lista
                 For Each art In row
-                    strArticoli += art.Item("Vincoli_CODICE_ARTICOLO") & ","  'If Not strArticoli.Contains(art.Item("Vincoli_CODICE_ARTICOLO")) Then 
+                    If ArticoliInseriti < 3 Then strArticoli += art.Item("Vincoli_CODICE_ARTICOLO") & ","    'If Not strArticoli.Contains(art.Item("Vincoli_CODICE_ARTICOLO")) Then 
+                    ArticoliInseriti += 1
+
                     totQtaTotale += art.Item("Vincoli_NUMERO_CASSE_SET_ASSEGNAZIONE")
                     totQtaScaricata += art.Item("CasseScaricate")
                 Next
