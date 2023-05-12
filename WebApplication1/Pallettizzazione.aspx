@@ -10,7 +10,7 @@
 
     <%--<link href="/Content/Visualizzazione.css" rel="stylesheet" />--%>
     <%--<link href="http://UTC-PRG01:85/Content/Visualizzazione.css" rel="stylesheet" />--%>
-    <link href="http://192.168.0.97:85/Content/Visualizzazione.css" rel="stylesheet" />
+    <link href="http://192.168.13.10:85/Content/Visualizzazione.css" rel="stylesheet"/>
 
 
 

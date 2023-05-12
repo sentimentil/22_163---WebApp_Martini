@@ -27,7 +27,7 @@
 
     <%--<link href="~/Content/Visualizzazione.css" rel="stylesheet" />--%>
     <%--<link href="http://UTC-PRG01:85/Content/Visualizzazione.css" rel="stylesheet" />--%>
-    <link href="http://192.168.0.97:85/Content/Visualizzazione.css" rel="stylesheet"/>
+    <link href="http://192.168.13.10:85/Content/Visualizzazione.css" rel="stylesheet"/>
 
 
 
@@ -53,7 +53,7 @@
             <div id="destra" class="Destra" runat="server">
                 <%--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--%>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:Label ID="LabelNextUDP" runat="server" Text="IN ARRIVO UN NUOVO UPD!" Font-Size="46" BackColor="Coral" Visible="false"></asp:Label>
+                <asp:Label ID="LabelNextUDP" runat="server" Text="IN ARRIVO UN NUOVO UDP!" Font-Size="46" BackColor="Coral" Visible="false"></asp:Label>
 
                 <br />
                 <br />
@@ -74,26 +74,34 @@
                 <asp:Label ID="LabelUDP" runat="server" Text="" Font-Size="46"></asp:Label>
 
                 <br />
-
-                <asp:Label ID="Label6" runat="server" Text="Articolo: " Font-Size="40" Width="390" Style="text-align: right"></asp:Label>
-                <asp:Label ID="LabelArticolo" runat="server" Text="" Font-Size="46"></asp:Label>
-
-                <br />
-
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <asp:Label ID="Label7" runat="server" Text="Casse Rimanenti: " Font-Size="40" Width="430" Style="text-align: right"></asp:Label>
                 <asp:Label ID="LabelQtaRimanente" runat="server" Text="" Font-Size="46" BackColor="LawnGreen"></asp:Label>
 
                 <br />
-
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <asp:Label ID="Label8" runat="server" Text="Casse Scaricate: " Font-Size="40" Width="430" Style="text-align: right"></asp:Label>
                 <asp:Label ID="LabelQtaScaricata" runat="server" Text="" Font-Size="46" BackColor="Aqua"></asp:Label>
 
                 <br />
-
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <asp:Label ID="Label9" runat="server" Text="Casse Totali: " Font-Size="40" Width="430" Style="text-align: right"></asp:Label>
                 <asp:Label ID="LabelQtaTotale" runat="server" Text="" Font-Size="46"></asp:Label>
 
 
+            </div>
+
+            <div id="Destra2" class="Destra2" runat="server">
+                <br />
+                <br />
+                <br />
+                <br />
+                <asp:Label ID="Label6" runat="server" Text="Articoli:" Font-Size="40" Font-Underline="true"></asp:Label>
+                <br />
+                <asp:Label ID="LabelArticolo" runat="server" Text="" Font-Size="46"></asp:Label>
             </div>
 
 

@@ -140,24 +140,6 @@ Partial Public Class Depallettizzazione
     Protected WithEvents LabelUDP As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
-    '''Controllo Label6.
-    '''</summary>
-    '''<remarks>
-    '''Campo generato automaticamente.
-    '''Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
-    '''</remarks>
-    Protected WithEvents Label6 As Global.System.Web.UI.WebControls.Label
-    
-    '''<summary>
-    '''Controllo LabelArticolo.
-    '''</summary>
-    '''<remarks>
-    '''Campo generato automaticamente.
-    '''Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
-    '''</remarks>
-    Protected WithEvents LabelArticolo As Global.System.Web.UI.WebControls.Label
-    
-    '''<summary>
     '''Controllo Label7.
     '''</summary>
     '''<remarks>
@@ -210,6 +192,33 @@ Partial Public Class Depallettizzazione
     '''Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
     '''</remarks>
     Protected WithEvents LabelQtaTotale As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''Controllo Destra2.
+    '''</summary>
+    '''<remarks>
+    '''Campo generato automaticamente.
+    '''Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+    '''</remarks>
+    Protected WithEvents Destra2 As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+    
+    '''<summary>
+    '''Controllo Label6.
+    '''</summary>
+    '''<remarks>
+    '''Campo generato automaticamente.
+    '''Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+    '''</remarks>
+    Protected WithEvents Label6 As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''Controllo LabelArticolo.
+    '''</summary>
+    '''<remarks>
+    '''Campo generato automaticamente.
+    '''Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+    '''</remarks>
+    Protected WithEvents LabelArticolo As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
     '''Controllo LabelDateTime.

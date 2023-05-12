@@ -106,18 +106,22 @@ Public Class Depallettizzazione
                 Dim totQtaScaricata As Integer = 0
 
 
-                Dim ArticoliInseriti As Integer = 0  'faccio vedere solo i primi due articoli della lista
-                For Each art In row
-                    If ArticoliInseriti < 3 Then strArticoli += art.Item("Vincoli_CODICE_ARTICOLO") & ","    'If Not strArticoli.Contains(art.Item("Vincoli_CODICE_ARTICOLO")) Then 
-                    ArticoliInseriti += 1
+                'Dim ArticoliInseriti As Integer = 0  'faccio vedere solo i primi due articoli della lista
+                Dim concat As String = ""
+                Dim last As String = ""
 
-                    totQtaTotale += art.Item("Vincoli_NUMERO_CASSE_SET_ASSEGNAZIONE")
-                    totQtaScaricata += art.Item("CasseScaricate")
+                For Each articolo In row
+                    Dim art = articolo.Item("Vincoli_CODICE_ARTICOLO")
+
+                    If last = art Then Continue For
+                    concat += art & vbCrLf
+                    last = art
+
+                    totQtaTotale += articolo.Item("Vincoli_NUMERO_CASSE_SET_ASSEGNAZIONE")
+                    totQtaScaricata += articolo.Item("CasseScaricate")
                 Next
 
-
-                LabelArticolo.Text = strArticoli.Remove(strArticoli.Count - 1).Trim
-
+                LabelArticolo.Text = concat
 
                 LabelQtaRimanente.Text = totQtaTotale - totQtaScaricata
                 LabelQtaScaricata.Text = totQtaScaricata
