@@ -31,6 +31,7 @@ Public Class Depallettizzazione
 
             AggiornaDati()
 
+
         Catch ex As Exception
             LabelBaia.Text = "ERRORE! " & ex.Message
             LabelBaia.ForeColor = System.Drawing.Color.Red
@@ -101,24 +102,40 @@ Public Class Depallettizzazione
                 LabelBatch.Text = row.FirstOrDefault.Item("BatchDiAttivazione")
                 LabelUDP.Text = udp
 
-                Dim strArticoli As String = ""
                 Dim totQtaTotale As Integer = 0
                 Dim totQtaScaricata As Integer = 0
 
 
                 'Dim ArticoliInseriti As Integer = 0  'faccio vedere solo i primi due articoli della lista
                 Dim concat As String = ""
+                Dim lastQta As Integer = 0
                 Dim last As String = ""
 
                 For Each articolo In row
                     Dim art = articolo.Item("Vincoli_CODICE_ARTICOLO")
+                    Dim qta = articolo.Item("Vincoli_NUMERO_CASSE_SET_ASSEGNAZIONE")
 
-                    If last = art Then Continue For
-                    concat += art & vbCrLf
-                    last = art
-
-                    totQtaTotale += articolo.Item("Vincoli_NUMERO_CASSE_SET_ASSEGNAZIONE")
+                    totQtaTotale += qta     'articolo.Item("Vincoli_NUMERO_CASSE_SET_ASSEGNAZIONE")
                     totQtaScaricata += articolo.Item("CasseScaricate")
+
+                    Dim stringa = String.Format("{0} - {1}{2}", art, qta, vbCrLf)
+
+                    If last.Split("-")(0).Trim = art Then
+                        'aggiorna quantità ed esco
+
+                        lastQta += CInt(qta)
+                        Dim s = String.Format("{0} - {1}{2}", art, lastQta.ToString, vbCrLf)
+
+                        concat = concat.Replace(last, s)
+                        last = s
+
+                        Continue For
+                    End If
+
+
+                    concat += stringa  'stringa & vbCrLf
+                    last = stringa
+                    lastQta = qta
                 Next
 
                 LabelArticolo.Text = concat
@@ -141,8 +158,6 @@ Public Class Depallettizzazione
 
             Dim row_nextUDP = tmp.Where(Function(a) a.Item("Scarico") = "0")
             If row_nextUDP.Any Then nextUDP = True
-
-
 
 
         Else
