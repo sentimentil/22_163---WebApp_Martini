@@ -144,6 +144,44 @@ Public Class Pallettizzazione
                 LabelVolumeUDS0.Text = Volume
                 LabelCassettePerUDS0.Text = String.Format("{0} di {1}", CassePallettizzate, TotCasse)
 
+
+                Dim totQtaTotale As Integer = 0
+                Dim concat As String = ""
+                Dim lastQta As Integer = 0
+                Dim last As String = ""
+
+                'DA SCOMMENTARE TUTTO!!!!!
+                'Dim Articoli = row.Item("Articoli0").ToString
+
+                'For Each articolo In Articoli.Split("!")  'DA DEFINIRE CARATTERE
+                '    Dim art = ""  'split(n)
+                '    Dim qta = ""  'split(n)
+
+                '    totQtaTotale += qta     'articolo.Item("Vincoli_NUMERO_CASSE_SET_ASSEGNAZIONE")
+
+                '    Dim stringa = String.Format("{0} - {1}{2}", art, qta, vbCrLf)
+
+                '    If last.Split("-")(0).Trim = art Then
+                '        'aggiorna quantità ed esco
+
+                '        lastQta += CInt(qta)
+                '        Dim s = String.Format("{0} - {1}{2}", art, lastQta.ToString, vbCrLf)
+
+                '        concat = concat.Replace(last, s)
+                '        last = s
+
+                '        Continue For
+                '    End If
+
+
+                '    concat += stringa  'stringa & vbCrLf
+                '    last = stringa
+                '    lastQta = qta
+                'Next
+
+                LabelArticolo.Text = concat
+                LabelQtaTotale.Text = totQtaTotale  'LA METTO LA QTA TOTALE??? O BASTA DATO A SINISTRA???
+
             End If
 
 

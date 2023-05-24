@@ -39,7 +39,7 @@
 
 
             <div class="navbar-inverse navbar-fixed-top" style="background-color: gainsboro; text-align: center">
-                <asp:Label ID="LabelBaia" runat="server" Text="BAIA" Font-Size="46" Font-Bold="true" Height="30px"></asp:Label>
+                <asp:Label ID="LabelBaia" runat="server" Text="BAIA" Font-Size="44" Font-Bold="true" Height="30px"></asp:Label>
             </div>
 
 
@@ -52,9 +52,10 @@
 
             <div id="destra" class="Destra" runat="server">
                 <%--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--%>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:Label ID="LabelNextUDP" runat="server" Text="IN ARRIVO UN NUOVO UDP!" Font-Size="46" BackColor="Coral" Visible="false"></asp:Label>
+                <%--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--%>
+                <asp:Label ID="LabelNextUDP" runat="server" Text="IN ARRIVO NUOVO UDP!" Font-Size="46" BackColor="Coral" Visible="false"></asp:Label>
 
+                <br />
                 <br />
                 <br />
 
@@ -89,10 +90,10 @@
             </div>
 
             <div id="Destra2" class="Destra2" runat="server">
+                <%--<br />
                 <br />
                 <br />
-                <br />
-                <br />
+                <br />--%>
                 <asp:Label ID="Label6" runat="server" Text="Articoli:" Font-Size="40" Font-Underline="true" Style="text-align: left"></asp:Label>
                 <br />
                 <asp:Label ID="LabelArticolo" runat="server" Text="" Font-Size="46"></asp:Label>

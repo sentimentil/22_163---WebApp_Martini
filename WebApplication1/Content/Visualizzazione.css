@@ -14,8 +14,8 @@
 .Destra {
     position: fixed;
     width: 60%;
-    height: 83%;
-    top: 12%;
+    height: 86%;
+    top: 9%;
     left: 39%;
     background: transparent;
     border-left: 2px solid royalblue;
@@ -30,11 +30,27 @@
 .Destra2 {
     position: fixed;
     width: 18%;
-    height: 83%;
-    top: 12%;
+    height: 86%;
+    top: 9%;
     left: 82%;
     background: transparent;
     /*border-left: 2px solid royalblue;*/
+    border-top: 2px solid royalblue;
+    border-right: 2px solid royalblue;
+    border-bottom: 2px solid royalblue;
+    word-wrap: break-word;
+    text-rendering: optimizeSpeed;
+    /*shape-rendering: optimizeSpeed;*/
+}
+
+.Destra3 {
+    position: fixed;
+    width: 30%;
+    height: 57%;
+    top: 18%;
+    left: 65%;
+    background: transparent;
+    border-left: 2px solid royalblue;
     border-top: 2px solid royalblue;
     border-right: 2px solid royalblue;
     border-bottom: 2px solid royalblue;
@@ -75,7 +91,7 @@
 .Alto0 {
     position: fixed;
     width: 38%;
-    height: 28%;
+    height: 29%;
     top: 32%;
     left: 0.5%;
     background: transparent;

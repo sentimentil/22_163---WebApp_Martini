@@ -15,11 +15,11 @@
 
 
     <div class="navbar-inverse navbar-fixed-top" style="background-color: gainsboro; text-align: center">
-        <asp:Label ID="LabelBaia" runat="server" Text="BAIA" Font-Size="46" Font-Bold="true" Height="30px"></asp:Label>
+        <asp:Label ID="LabelBaia" runat="server" Text="BAIA" Font-Size="44" Font-Bold="true" Height="30px"></asp:Label>
 
         <br />
 
-        <asp:Label ID="LabelOperatore" runat="server" Text="RISPETTARE L'ORDINE DI ARRIVO DELLE CASSETTE" Font-Size="44" BackColor="Orange" Font-Bold="true"></asp:Label>
+        <asp:Label ID="LabelOperatore" runat="server" Text="RISPETTARE L'ORDINE DI ARRIVO DELLE CASSETTE" Font-Size="41" BackColor="Orange" Font-Bold="true"></asp:Label>
     </div>
 
 
@@ -144,6 +144,19 @@
 
                 </div>
 
+            </div>
+
+            <div id="Destra3" class="Destra3" runat="server">
+                <%--<br />
+                <br />
+                <br />
+                <br />--%>
+                <asp:Label ID="Label1" runat="server" Text="Articoli:" Font-Size="40" Font-Underline="true" Style="text-align: left"></asp:Label>
+                <br />
+                <asp:Label ID="LabelArticolo" runat="server" Text="" Font-Size="46"></asp:Label>
+
+                <asp:Label ID="Label5" runat="server" Text="Tot Qtà: " Font-Size="40" Style="text-align: left"></asp:Label>
+                <asp:Label ID="LabelQtaTotale" runat="server" Text="" Font-Size="46"></asp:Label>
             </div>
 
 

@@ -31,7 +31,6 @@ Public Class Depallettizzazione
 
             AggiornaDati()
 
-
         Catch ex As Exception
             LabelBaia.Text = "ERRORE! " & ex.Message
             LabelBaia.ForeColor = System.Drawing.Color.Red
