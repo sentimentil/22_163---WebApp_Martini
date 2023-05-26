@@ -45,12 +45,28 @@
 
 .Destra3 {
     position: fixed;
-    width: 30%;
+    width: 20%;
     height: 57%;
     top: 18%;
-    left: 65%;
+    left: 62%;
     background: transparent;
     border-left: 2px solid royalblue;
+    border-top: 2px solid royalblue;
+    /*border-right: 2px solid royalblue;*/
+    border-bottom: 2px solid royalblue;
+    word-wrap: break-word;
+    text-rendering: optimizeSpeed;
+    /*shape-rendering: optimizeSpeed;*/
+}
+
+.Destra4 {
+    position: fixed;
+    width: 17%;
+    height: 57%;
+    top: 18%;
+    left: 82%;
+    background: transparent;
+    /*border-left: 2px solid royalblue;*/
     border-top: 2px solid royalblue;
     border-right: 2px solid royalblue;
     border-bottom: 2px solid royalblue;

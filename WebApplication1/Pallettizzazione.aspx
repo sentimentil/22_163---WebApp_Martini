@@ -153,10 +153,19 @@
                 <br />--%>
                 <asp:Label ID="Label1" runat="server" Text="Articoli:" Font-Size="40" Font-Underline="true" Style="text-align: left"></asp:Label>
                 <br />
-                <asp:Label ID="LabelArticolo" runat="server" Text="" Font-Size="46"></asp:Label>
+                <asp:Label ID="LabelArticolo1" runat="server" Text="" Font-Size="46"></asp:Label>
 
-                <asp:Label ID="Label5" runat="server" Text="Tot Qtà: " Font-Size="40" Style="text-align: left"></asp:Label>
-                <asp:Label ID="LabelQtaTotale" runat="server" Text="" Font-Size="46"></asp:Label>
+                <%--<asp:Label ID="Label5" runat="server" Text="Tot Qtà: " Font-Size="40" Style="text-align: left"></asp:Label>
+                <asp:Label ID="LabelQtaTotale" runat="server" Text="" Font-Size="46"></asp:Label>--%>
+            </div>
+
+            <div id="Destra4" class="Destra4" runat="server">
+                <asp:Label ID="Label5" runat="server" Text="" Font-Size="40" Font-Underline="true" Style="text-align: left"></asp:Label>
+                <br />
+                <asp:Label ID="LabelArticolo2" runat="server" Text="" Font-Size="46"></asp:Label>
+
+                <%--<asp:Label ID="Label5" runat="server" Text="Tot Qtà: " Font-Size="40" Style="text-align: left"></asp:Label>
+                <asp:Label ID="LabelQtaTotale" runat="server" Text="" Font-Size="46"></asp:Label>--%>
             </div>
 
 

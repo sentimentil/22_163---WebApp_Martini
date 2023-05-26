@@ -117,13 +117,13 @@ Public Class Depallettizzazione
                     totQtaTotale += qta     'articolo.Item("Vincoli_NUMERO_CASSE_SET_ASSEGNAZIONE")
                     totQtaScaricata += articolo.Item("CasseScaricate")
 
-                    Dim stringa = String.Format("{0} - {1}{2}", art, qta, vbCrLf)
+                    Dim stringa = String.Format("{0} - {1}{2}", art, qta, "<br />")
 
                     If last.Split("-")(0).Trim = art Then
                         'aggiorna quantità ed esco
 
                         lastQta += CInt(qta)
-                        Dim s = String.Format("{0} - {1}{2}", art, lastQta.ToString, vbCrLf)
+                        Dim s = String.Format("{0} - {1}{2}", art, lastQta.ToString, "<br />")
 
                         concat = concat.Replace(last, s)
                         last = s
@@ -132,7 +132,7 @@ Public Class Depallettizzazione
                     End If
 
 
-                    concat += stringa  'stringa & vbCrLf
+                    concat += stringa  'stringa & "<br />"
                     last = stringa
                     lastQta = qta
                 Next

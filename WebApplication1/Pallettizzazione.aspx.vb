@@ -33,6 +33,7 @@ Public Class Pallettizzazione
             'DatiTest()
             restart = AggiornaDati()
 
+
         Catch ex As Exception
             LabelBaia.Text = "ERRORE! " & ex.Message
             LabelBaia.ForeColor = System.Drawing.Color.Red
@@ -145,42 +146,63 @@ Public Class Pallettizzazione
                 LabelCassettePerUDS0.Text = String.Format("{0} di {1}", CassePallettizzate, TotCasse)
 
 
-                Dim totQtaTotale As Integer = 0
-                Dim concat As String = ""
-                Dim lastQta As Integer = 0
-                Dim last As String = ""
+                Dim concat1 As String = ""
+                Dim concat2 As String = ""
+                Dim count As Integer = 0
+                'Dim totQtaTotale As Integer = 0
+                'Dim lastQta As Integer = 0
+                'Dim last As String = ""
 
-                'DA SCOMMENTARE TUTTO!!!!!
-                'Dim Articoli = row.Item("Articoli0").ToString
+                Dim Articoli = row.Item("Articoli0").ToString
 
-                'For Each articolo In Articoli.Split("!")  'DA DEFINIRE CARATTERE
-                '    Dim art = ""  'split(n)
-                '    Dim qta = ""  'split(n)
+                If Articoli.Contains("|") Then
 
-                '    totQtaTotale += qta     'articolo.Item("Vincoli_NUMERO_CASSE_SET_ASSEGNAZIONE")
+                    For Each articolo In Articoli.Split("|")
 
-                '    Dim stringa = String.Format("{0} - {1}{2}", art, qta, vbCrLf)
+                        If String.IsNullOrWhiteSpace(articolo) OrElse Not articolo.Contains("_") Then Continue For
 
-                '    If last.Split("-")(0).Trim = art Then
-                '        'aggiorna quantità ed esco
+                        Dim split = articolo.Split("_")
 
-                '        lastQta += CInt(qta)
-                '        Dim s = String.Format("{0} - {1}{2}", art, lastQta.ToString, vbCrLf)
+                        Dim art = split(0)
+                        Dim qta = split(1)
 
-                '        concat = concat.Replace(last, s)
-                '        last = s
+                        Dim stringa = String.Format("{0} - {1}{2}", art, qta, "<br />")
 
-                '        Continue For
-                '    End If
+                        'If last.Split("-")(0).Trim = art Then
+                        '    'aggiorna quantità ed esco
+
+                        '    lastQta += CInt(qta)
+                        '    Dim s = String.Format("{0} - {1}{2}", art, lastQta.ToString, vbCrLf)
+
+                        '    concat = concat.Replace(last, s)
+                        '    last = s
+
+                        '    Continue For
+                        'End If
 
 
-                '    concat += stringa  'stringa & vbCrLf
-                '    last = stringa
-                '    lastQta = qta
-                'Next
+                        If count >= 5 Then
+                            concat2 += stringa
+                        Else
+                            concat1 += stringa
+                        End If
 
-                LabelArticolo.Text = concat
-                LabelQtaTotale.Text = totQtaTotale  'LA METTO LA QTA TOTALE??? O BASTA DATO A SINISTRA???
+                        count += 1
+
+                        'totQtaTotale += qta
+                        'last = stringa
+                        'lastQta = qta
+                    Next
+
+
+                Else
+                    concat1 = Articoli
+                End If
+
+
+                LabelArticolo1.Text = concat1
+                LabelArticolo2.Text = concat2
+                'LabelQtaTotale.Text = totQtaTotale
 
             End If
 

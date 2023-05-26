@@ -419,13 +419,22 @@ Partial Public Class Pallettizzazione
     Protected WithEvents Label1 As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
-    '''Controllo LabelArticolo.
+    '''Controllo LabelArticolo1.
     '''</summary>
     '''<remarks>
     '''Campo generato automaticamente.
     '''Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
     '''</remarks>
-    Protected WithEvents LabelArticolo As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents LabelArticolo1 As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''Controllo Destra4.
+    '''</summary>
+    '''<remarks>
+    '''Campo generato automaticamente.
+    '''Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+    '''</remarks>
+    Protected WithEvents Destra4 As Global.System.Web.UI.HtmlControls.HtmlGenericControl
     
     '''<summary>
     '''Controllo Label5.
@@ -437,13 +446,13 @@ Partial Public Class Pallettizzazione
     Protected WithEvents Label5 As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
-    '''Controllo LabelQtaTotale.
+    '''Controllo LabelArticolo2.
     '''</summary>
     '''<remarks>
     '''Campo generato automaticamente.
     '''Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
     '''</remarks>
-    Protected WithEvents LabelQtaTotale As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents LabelArticolo2 As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
     '''Controllo Div3.
