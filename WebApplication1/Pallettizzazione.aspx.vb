@@ -33,7 +33,6 @@ Public Class Pallettizzazione
             'DatiTest()
             restart = AggiornaDati()
 
-
         Catch ex As Exception
             LabelBaia.Text = "ERRORE! " & ex.Message
             LabelBaia.ForeColor = System.Drawing.Color.Red
@@ -95,7 +94,7 @@ Public Class Pallettizzazione
         Dim lampeggio As Boolean = False
         Dim oraLettura As Date = row.Item("DataOraLettura")
         Dim presenza As String = row.Item("CassaPresente").ToString
-        If presenza Is Nothing Then presenza = "0"
+        If presenza Is Nothing OrElse presenza = "" Then presenza = "0"
         If (oraLettura <> Nothing) AndAlso CBool(presenza) AndAlso ((Now - oraLettura).TotalMilliseconds <= 4000) Then lampeggio = True
 
 
@@ -103,6 +102,7 @@ Public Class Pallettizzazione
         Dim NumeroUDS = row.Item("nUDS")
         Dim ChiusuraUDS As Boolean = False
         Dim numeroChiusuraUDS As String = ""
+        Dim UDSChiusura As String = ""
 
         'rendo visible=false questi oggetti e poi se serve gli cambio stato
         PanelMultiUDS.Visible = False
@@ -125,84 +125,84 @@ Public Class Pallettizzazione
 
         If NumeroUDS = 1 Then
 
+            Dim CodiceUDS = row.Item("UDS0")
+            Dim Volume = row.Item("VolUDS0")
+            Dim CassePallettizzate = row.Item("CassePalletizzate0")
+            Dim TotCasse = row.Item("CasseAttese0")
+
+            VisualizzaImmaine = True
+
+
+            LabelCodiceUDS0.Text = CodiceUDS
+            LabelVolumeUDS0.Text = Volume
+            LabelCassettePerUDS0.Text = String.Format("{0} di {1}", CassePallettizzate, TotCasse)
+
+
+            Dim concat1 As String = ""
+            Dim concat2 As String = ""
+            Dim count As Integer = 0
+            'Dim totQtaTotale As Integer = 0
+            'Dim lastQta As Integer = 0
+            'Dim last As String = ""
+
+            Dim Articoli = row.Item("Articoli0").ToString
+
+            If Articoli.Contains("|") Then
+
+                For Each articolo In Articoli.Split("|")
+
+                    If String.IsNullOrWhiteSpace(articolo) OrElse Not articolo.Contains("_") Then Continue For
+
+                    Dim split = articolo.Split("_")
+
+                    Dim art = split(0)
+                    Dim qta = split(1)
+
+                    Dim stringa = String.Format("{0} - {1}{2}", art, qta, "<br />")
+
+                    'If last.Split("-")(0).Trim = art Then
+                    '    'aggiorna quantità ed esco
+
+                    '    lastQta += CInt(qta)
+                    '    Dim s = String.Format("{0} - {1}{2}", art, lastQta.ToString, vbCrLf)
+
+                    '    concat = concat.Replace(last, s)
+                    '    last = s
+
+                    '    Continue For
+                    'End If
+
+
+                    If count >= 5 Then
+                        concat2 += stringa
+                    Else
+                        concat1 += stringa
+                    End If
+
+                    count += 1
+
+                    'totQtaTotale += qta
+                    'last = stringa
+                    'lastQta = qta
+                Next
+
+
+            Else
+                concat1 = Articoli
+            End If
+
+
+            LabelArticolo1.Text = concat1
+            LabelArticolo2.Text = concat2
+            'LabelQtaTotale.Text = totQtaTotale
+
             If row.Item("StatoUDS0") = 1 Then  'uds in chiusura
 
                 ChiusuraUDS = True
                 numeroChiusuraUDS = 0
+                UDSChiusura = CodiceUDS
                 'Session.Add("UDS", 0)
 
-            Else
-
-                Dim CodiceUDS = row.Item("UDS0")
-                Dim Volume = row.Item("VolUDS0")
-                Dim CassePallettizzate = row.Item("CassePalletizzate0")
-                Dim TotCasse = row.Item("CasseAttese0")
-
-                VisualizzaImmaine = True
-
-
-                LabelCodiceUDS0.Text = CodiceUDS
-                LabelVolumeUDS0.Text = Volume
-                LabelCassettePerUDS0.Text = String.Format("{0} di {1}", CassePallettizzate, TotCasse)
-
-
-                Dim concat1 As String = ""
-                Dim concat2 As String = ""
-                Dim count As Integer = 0
-                'Dim totQtaTotale As Integer = 0
-                'Dim lastQta As Integer = 0
-                'Dim last As String = ""
-
-                Dim Articoli = row.Item("Articoli0").ToString
-
-                If Articoli.Contains("|") Then
-
-                    For Each articolo In Articoli.Split("|")
-
-                        If String.IsNullOrWhiteSpace(articolo) OrElse Not articolo.Contains("_") Then Continue For
-
-                        Dim split = articolo.Split("_")
-
-                        Dim art = split(0)
-                        Dim qta = split(1)
-
-                        Dim stringa = String.Format("{0} - {1}{2}", art, qta, "<br />")
-
-                        'If last.Split("-")(0).Trim = art Then
-                        '    'aggiorna quantità ed esco
-
-                        '    lastQta += CInt(qta)
-                        '    Dim s = String.Format("{0} - {1}{2}", art, lastQta.ToString, vbCrLf)
-
-                        '    concat = concat.Replace(last, s)
-                        '    last = s
-
-                        '    Continue For
-                        'End If
-
-
-                        If count >= 5 Then
-                            concat2 += stringa
-                        Else
-                            concat1 += stringa
-                        End If
-
-                        count += 1
-
-                        'totQtaTotale += qta
-                        'last = stringa
-                        'lastQta = qta
-                    Next
-
-
-                Else
-                    concat1 = Articoli
-                End If
-
-
-                LabelArticolo1.Text = concat1
-                LabelArticolo2.Text = concat2
-                'LabelQtaTotale.Text = totQtaTotale
 
             End If
 
@@ -212,10 +212,80 @@ Public Class Pallettizzazione
         ElseIf NumeroUDS = 4 Then
 
 
+            Dim CodiceUDS1 = row.Item("UDS1")
+            Dim Volume1 = row.Item("VolUDS1")
+            Dim CassePallettizzate1 = row.Item("CassePalletizzate1")
+            Dim TotCasse1 = row.Item("CasseAttese1")
+
+            Dim CodiceUDS2 = row.Item("UDS2")
+            Dim Volume2 = row.Item("VolUDS2")
+            Dim CassePallettizzate2 = row.Item("CassePalletizzate2")
+            Dim TotCasse2 = row.Item("CasseAttese2")
+
+            Dim CodiceUDS3 = row.Item("UDS3")
+            Dim Volume3 = row.Item("VolUDS3")
+            Dim CassePallettizzate3 = row.Item("CassePalletizzate3")
+            Dim TotCasse3 = row.Item("CasseAttese3")
+
+            Dim CodiceUDS4 = row.Item("UDS4")
+            Dim Volume4 = row.Item("VolUDS4")
+            Dim CassePallettizzate4 = row.Item("CassePalletizzate4")
+            Dim TotCasse4 = row.Item("CasseAttese4")
+
+            VisualizzaImmaine = True
+
+
+            LabelCodiceUDS1.Text = CodiceUDS1
+            LabelVolumeUDS1.Text = Volume1
+            LabelCassettePerUDS1.Text = String.Format("{0} di {1}", CassePallettizzate1, TotCasse1)
+
+            LabelCodiceUDS2.Text = CodiceUDS2
+            LabelVolumeUDS2.Text = Volume2
+            LabelCassettePerUDS2.Text = String.Format("{0} di {1}", CassePallettizzate2, TotCasse2)
+
+            LabelCodiceUDS3.Text = CodiceUDS3
+            LabelVolumeUDS3.Text = Volume3
+            LabelCassettePerUDS3.Text = String.Format("{0} di {1}", CassePallettizzate3, TotCasse3)
+
+            LabelCodiceUDS4.Text = CodiceUDS4
+            LabelVolumeUDS4.Text = Volume4
+            LabelCassettePerUDS4.Text = String.Format("{0} di {1}", CassePallettizzate4, TotCasse4)
+
+
+            Dim precedente = row.Item("DestinazionePrecedente")
+
+            Alto1.Style.Item("background-color") = "transparent"
+            Alto2.Style.Item("background-color") = "transparent"
+            Alto3.Style.Item("background-color") = "transparent"
+            Alto4.Style.Item("background-color") = "transparent"
+
+            Select Case precedente
+                Case "0"
+
+                Case "1"
+                    Alto1.Style.Item("background-color") = "LightGray"
+
+                Case "2"
+                    Alto2.Style.Item("background-color") = "LightGray"
+
+                Case "3"
+                    Alto3.Style.Item("background-color") = "LightGray"
+
+                Case "4"
+                    Alto4.Style.Item("background-color") = "LightGray"
+
+                Case Else
+
+            End Select
+            'Alto1.Style.Add("background-color", "transparent")
+
+
+
             If row.Item("StatoUDS1") = 1 Then
                 'uds in chiusura
                 ChiusuraUDS = True
                 numeroChiusuraUDS = 1
+                UDSChiusura = CodiceUDS1
                 'Session.Add("UDS", 1)
 
 
@@ -223,6 +293,7 @@ Public Class Pallettizzazione
                 'uds in chiusura
                 ChiusuraUDS = True
                 numeroChiusuraUDS = 2
+                UDSChiusura = CodiceUDS2
                 'Session.Add("UDS", 2)
 
 
@@ -230,6 +301,7 @@ Public Class Pallettizzazione
                 'uds in chiusura
                 ChiusuraUDS = True
                 numeroChiusuraUDS = 3
+                UDSChiusura = CodiceUDS3
                 'Session.Add("UDS", 3)
 
 
@@ -237,54 +309,12 @@ Public Class Pallettizzazione
                 'uds in chiusura
                 ChiusuraUDS = True
                 numeroChiusuraUDS = 4
+                UDSChiusura = CodiceUDS4
                 'Session.Add("UDS", 4)
 
-
-            Else
-
-
-                Dim CodiceUDS1 = row.Item("UDS1")
-                Dim Volume1 = row.Item("VolUDS1")
-                Dim CassePallettizzate1 = row.Item("CassePalletizzate1")
-                Dim TotCasse1 = row.Item("CasseAttese1")
-
-                Dim CodiceUDS2 = row.Item("UDS2")
-                Dim Volume2 = row.Item("VolUDS2")
-                Dim CassePallettizzate2 = row.Item("CassePalletizzate2")
-                Dim TotCasse2 = row.Item("CasseAttese2")
-
-                Dim CodiceUDS3 = row.Item("UDS3")
-                Dim Volume3 = row.Item("VolUDS3")
-                Dim CassePallettizzate3 = row.Item("CassePalletizzate3")
-                Dim TotCasse3 = row.Item("CasseAttese3")
-
-                Dim CodiceUDS4 = row.Item("UDS4")
-                Dim Volume4 = row.Item("VolUDS4")
-                Dim CassePallettizzate4 = row.Item("CassePalletizzate4")
-                Dim TotCasse4 = row.Item("CasseAttese4")
-
-                VisualizzaImmaine = True
-
-
-                LabelCodiceUDS1.Text = CodiceUDS1
-                LabelVolumeUDS1.Text = Volume1
-                LabelCassettePerUDS1.Text = String.Format("{0} di {1}", CassePallettizzate1, TotCasse1)
-
-                LabelCodiceUDS2.Text = CodiceUDS2
-                LabelVolumeUDS2.Text = Volume2
-                LabelCassettePerUDS2.Text = String.Format("{0} di {1}", CassePallettizzate2, TotCasse2)
-
-                LabelCodiceUDS3.Text = CodiceUDS3
-                LabelVolumeUDS3.Text = Volume3
-                LabelCassettePerUDS3.Text = String.Format("{0} di {1}", CassePallettizzate3, TotCasse3)
-
-                LabelCodiceUDS4.Text = CodiceUDS4
-                LabelVolumeUDS4.Text = Volume4
-                LabelCassettePerUDS4.Text = String.Format("{0} di {1}", CassePallettizzate4, TotCasse4)
-
-
-
             End If
+
+
 
         ElseIf NumeroUDS = 0 Then
 
@@ -295,7 +325,7 @@ Public Class Pallettizzazione
 
         If ChiusuraUDS Then
 
-            LabelAvviso.Text = String.Format("UDS n°{0} IN CHIUSURA!", numeroChiusuraUDS)
+            LabelAvviso.Text = String.Format("CHIUSURA UDS {0}", UDSChiusura)
             LabelAvviso.Visible = True
             btnPallet.Visible = False
             btnUDS.Visible = True
@@ -303,13 +333,26 @@ Public Class Pallettizzazione
             VisualizzaImmaine = False
             returnValue = False
 
+            Select Case NumeroUDS
+                Case "1"
+                    PanelMultiUDS.Visible = False
+                    PanelMonoUDS.Visible = True
+
+                Case "2", "3", "4"
+                    PanelMonoUDS.Visible = False
+                    PanelMultiUDS.Visible = True
+
+                Case Else
+
+            End Select
+
             Session.Add("UDS", numeroChiusuraUDS)
             Session.Add("Pallet", CodicePallet)
 
 
         ElseIf row.Item("ChiusuraPallet") = "1" Then
 
-            LabelAvviso.Text = "CAMBIA PALLET!"
+            LabelAvviso.Text = "CAMBIA PALLET"
             LabelAvviso.Visible = True
             btnUDS.Visible = False
             btnPallet.Visible = True

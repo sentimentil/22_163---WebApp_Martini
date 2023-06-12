@@ -34,7 +34,7 @@
             <div id="Alto" class="Alto" runat="server">
 
 
-                <div id="Alto1" class="Alto1" runat="server">
+                <div id="Alto1" class="Alto1" runat="server" style="background-color:transparent">
 
                     <asp:Label ID="Label9" runat="server" Text="Codice UDS: " Font-Size="40" Width="320"></asp:Label>
                     <asp:Label ID="LabelCodiceUDS1" runat="server" Text="" Font-Size="46"></asp:Label>
@@ -52,7 +52,7 @@
                 </div>
 
 
-                <div id="Alto2" class="Alto2" runat="server">
+                <div id="Alto2" class="Alto2" runat="server" style="background-color:transparent">
 
                     <asp:Label ID="Label11" runat="server" Text="Codice UDS: " Font-Size="40" Width="320"></asp:Label>
                     <asp:Label ID="LabelCodiceUDS2" runat="server" Text="" Font-Size="46"></asp:Label>
@@ -70,7 +70,7 @@
                 </div>
 
 
-                <div id="Alto3" class="Alto3" runat="server">
+                <div id="Alto3" class="Alto3" runat="server" style="background-color:transparent">
 
                     <asp:Label ID="Label12" runat="server" Text="Codice UDS: " Font-Size="40" Width="320"></asp:Label>
                     <asp:Label ID="LabelCodiceUDS3" runat="server" Text="" Font-Size="46"></asp:Label>
@@ -88,7 +88,7 @@
                 </div>
 
 
-                <div id="Alto4" class="Alto4" runat="server">
+                <div id="Alto4" class="Alto4" runat="server" style="background-color:transparent">
 
                     <asp:Label ID="Label14" runat="server" Text="Codice UDS: " Font-Size="40" Width="320"></asp:Label>
                     <asp:Label ID="LabelCodiceUDS4" runat="server" Text="" Font-Size="46"></asp:Label>
@@ -174,7 +174,7 @@
 
 
 
-    <div id="Div3" class="Alto" runat="server">
+    <div id="Div3" class="Alto" runat="server" style="text-align:center">
 
         <%--<img alt="" src="Immagini/Pallet.jpeg" id="PalletImage1" width="315" runat="server" />--%>
 
@@ -200,7 +200,6 @@
         <asp:Label ID="LabelAvviso" runat="server" Text="" Font-Size="46" Visible="false" Font-Bold="true"></asp:Label>
         <asp:Button ID="btnUDS" runat="server" Text="UDS CHIUSO" Visible="false" BackColor="LawnGreen" OnClick="btnUDS_Click" Font-Size="46pt" Width="400" Height="200px" style="white-space:normal"/>
         <asp:Button ID="btnPallet" runat="server" Text="CAMBIO PALLET" Visible="false" BackColor="LawnGreen" OnClick="btnPallet_Click" Font-Size="46" Width="400" Height="200px" style="white-space:normal"/>
-
 
     </div>
 
