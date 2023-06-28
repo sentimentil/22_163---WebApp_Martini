@@ -121,7 +121,7 @@ Public Class Pallettizzazione
         Dim UltimoBarcode = row.Item("UltimoBarcodeLetto")
         Dim Messaggio = row.Item("Messaggio")
 
-
+        Dim precedente = row.Item("DestinazionePrecedente")
 
         If NumeroUDS = 1 Then
 
@@ -136,6 +136,17 @@ Public Class Pallettizzazione
             LabelCodiceUDS0.Text = CodiceUDS
             LabelVolumeUDS0.Text = Volume
             LabelCassettePerUDS0.Text = String.Format("{0} di {1}", CassePallettizzate, TotCasse)
+
+
+            Alto0.Style.Item("background-color") = "transparent"
+
+            Select Case precedente
+                Case "0"
+                    Alto0.Style.Item("background-color") = "LightGray"
+
+                Case Else
+
+            End Select
 
 
             Dim concat1 As String = ""
@@ -252,7 +263,7 @@ Public Class Pallettizzazione
             LabelCassettePerUDS4.Text = String.Format("{0} di {1}", CassePallettizzate4, TotCasse4)
 
 
-            Dim precedente = row.Item("DestinazionePrecedente")
+
 
             Alto1.Style.Item("background-color") = "transparent"
             Alto2.Style.Item("background-color") = "transparent"
@@ -277,7 +288,6 @@ Public Class Pallettizzazione
                 Case Else
 
             End Select
-            'Alto1.Style.Add("background-color", "transparent")
 
 
 
@@ -398,6 +408,37 @@ Public Class Pallettizzazione
         LabelCodicePallet.Text = CodicePallet
         LabelUltimoBarcode.Text = UltimoBarcode
         LabelMessaggio.Text = Messaggio
+
+
+
+        colore.Style.Add("background-color", "transparent")
+        top.Style.Add("background-color", "gainsboro")
+        'Alto0.Style.Add("background-color", "transparent")
+        'Alto1.Style.Add("background-color", "transparent")
+        'Alto2.Style.Add("background-color", "transparent")
+        'Alto3.Style.Add("background-color", "transparent")
+        'Alto4.Style.Add("background-color", "transparent")
+        Sinistra1.Style.Add("background-color", "transparent")
+        Destra1.Style.Add("background-color", "transparent")
+        Div3.Style.Add("background-color", "transparent")
+
+
+        If Not String.IsNullOrWhiteSpace(Messaggio) Then
+
+            colore.Style.Item("background-color") = "Red"
+            top.Style.Item("background-color") = "Red"
+
+            'Alto0.Style.Item("background-color") = "Red"
+            'Alto1.Style.Item("background-color") = "Red"
+            'Alto2.Style.Item("background-color") = "Red"
+            'Alto3.Style.Item("background-color") = "Red"
+            'Alto4.Style.Item("background-color") = "Red"
+
+            Sinistra1.Style.Item("background-color") = "Red"
+            Destra1.Style.Item("background-color") = "Red"
+            Div3.Style.Item("background-color") = "Red"
+
+        End If
 
 
         PalletImage.Visible = VisualizzaImmaine

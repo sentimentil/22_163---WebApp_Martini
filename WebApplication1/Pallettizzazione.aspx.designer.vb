@@ -32,6 +32,15 @@ Partial Public Class Pallettizzazione
     Protected WithEvents Timer1 As Global.System.Web.UI.Timer
     
     '''<summary>
+    '''Controllo top.
+    '''</summary>
+    '''<remarks>
+    '''Campo generato automaticamente.
+    '''Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+    '''</remarks>
+    Protected WithEvents top As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+    
+    '''<summary>
     '''Controllo LabelBaia.
     '''</summary>
     '''<remarks>
@@ -48,6 +57,15 @@ Partial Public Class Pallettizzazione
     '''Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
     '''</remarks>
     Protected WithEvents LabelOperatore As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''Controllo colore.
+    '''</summary>
+    '''<remarks>
+    '''Campo generato automaticamente.
+    '''Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+    '''</remarks>
+    Protected WithEvents colore As Global.System.Web.UI.HtmlControls.HtmlGenericControl
     
     '''<summary>
     '''Controllo PanelMultiUDS.
