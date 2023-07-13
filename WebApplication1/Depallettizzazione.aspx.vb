@@ -86,7 +86,7 @@ Public Class Depallettizzazione
         'Connection.Close()
 
 
-        'scarico=1 visualizzo, scarico=0 ==>> nuovo udp in arrivo
+        'scarico=1 visualizzo, scarico=0 conteggio qta e forse nuovo udp in arrivo se diverso UPD da quello in scarico
         Dim tmp = table.AsEnumerable.Where(Function(a) a.Item("LocazioneAttuale").ToString.Trim = Baia.ToString)
         'Dim noResults As Boolean = False
         Dim nextUDP As Boolean = False
@@ -94,12 +94,16 @@ Public Class Depallettizzazione
         If tmp.Any Then
 
             Dim row = tmp.Where(Function(a) a.Item("Scarico") = "1")
+            Dim udp = ""
 
             If row.Any Then
-                Dim udp = row.FirstOrDefault.Item("UDP")
+                udp = row.FirstOrDefault.Item("UDP")
                 LabelGiro.Text = row.FirstOrDefault.Item("Giro")
                 LabelBatch.Text = row.FirstOrDefault.Item("BatchDiAttivazione")
                 LabelUDP.Text = udp
+
+                Dim lista = tmp.Where(Function(a) a.Item("UDP") = udp)  'righe da analizzare per conteggio e visualizzazione articoli
+
 
                 Dim totQtaTotale As Integer = 0
                 Dim totQtaScaricata As Integer = 0
@@ -110,12 +114,15 @@ Public Class Depallettizzazione
                 Dim lastQta As Integer = 0
                 Dim last As String = ""
 
-                For Each articolo In row
+                For Each articolo In lista   'For Each articolo In row
                     Dim art = articolo.Item("Vincoli_CODICE_ARTICOLO")
                     Dim qta = articolo.Item("Vincoli_NUMERO_CASSE_SET_ASSEGNAZIONE")
 
                     totQtaTotale += qta     'articolo.Item("Vincoli_NUMERO_CASSE_SET_ASSEGNAZIONE")
                     totQtaScaricata += articolo.Item("CasseScaricate")
+
+                    If articolo.Item("Scarico") = "0" Then Continue For  'articolo già caricato, conteggio solo qta
+
 
                     Dim stringa = String.Format("{0} - {1}{2}", art, qta, "<br />")
 
@@ -155,7 +162,7 @@ Public Class Depallettizzazione
                 LabelQtaTotale.Text = ""
             End If
 
-            Dim row_nextUDP = tmp.Where(Function(a) a.Item("Scarico") = "0")
+            Dim row_nextUDP = tmp.Where(Function(a) a.Item("UDP") <> udp AndAlso a.Item("Scarico") = "0")
             If row_nextUDP.Any Then nextUDP = True
 
 
