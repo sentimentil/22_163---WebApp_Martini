@@ -93,8 +93,8 @@ Public Class Pallettizzazione
 
         Dim lampeggio As Boolean = False
         Dim oraLettura As Date = row.Item("DataOraLettura")
-        Dim presenza As String = row.Item("CassaPresente").ToString
-        If presenza Is Nothing OrElse presenza = "" Then presenza = "0"
+        Dim presenza = row.Item("CassaPresente")
+        If IsDBNull(presenza) OrElse presenza = "" Then presenza = "0"
         If (oraLettura <> Nothing) AndAlso CBool(presenza) AndAlso ((Now - oraLettura).TotalMilliseconds <= 4000) Then lampeggio = True
 
 
@@ -128,6 +128,7 @@ Public Class Pallettizzazione
             Dim CodiceUDS = row.Item("UDS0")
             Dim Volume = row.Item("VolUDS0")
             Dim CassePallettizzate = row.Item("CassePalletizzate0")
+            Dim CassePP0 = row.Item("CassePP0")
             Dim TotCasse = row.Item("CasseAttese0")
 
             VisualizzaImmaine = True
@@ -136,6 +137,7 @@ Public Class Pallettizzazione
             LabelCodiceUDS0.Text = CodiceUDS
             LabelVolumeUDS0.Text = Volume
             LabelCassettePerUDS0.Text = String.Format("{0} di {1}", CassePallettizzate, TotCasse)
+            LabelCassePP0.Text = If(IsDBNull(CassePP0), "", CassePP0)
 
 
             Alto0.Style.Item("background-color") = "transparent"
@@ -226,21 +228,25 @@ Public Class Pallettizzazione
             Dim CodiceUDS1 = row.Item("UDS1")
             Dim Volume1 = row.Item("VolUDS1")
             Dim CassePallettizzate1 = row.Item("CassePalletizzate1")
+            Dim CassePP1 = row.Item("CassePP1")
             Dim TotCasse1 = row.Item("CasseAttese1")
 
             Dim CodiceUDS2 = row.Item("UDS2")
             Dim Volume2 = row.Item("VolUDS2")
             Dim CassePallettizzate2 = row.Item("CassePalletizzate2")
+            Dim CassePP2 = row.Item("CassePP2")
             Dim TotCasse2 = row.Item("CasseAttese2")
 
             Dim CodiceUDS3 = row.Item("UDS3")
             Dim Volume3 = row.Item("VolUDS3")
             Dim CassePallettizzate3 = row.Item("CassePalletizzate3")
+            Dim CassePP3 = row.Item("CassePP3")
             Dim TotCasse3 = row.Item("CasseAttese3")
 
             Dim CodiceUDS4 = row.Item("UDS4")
             Dim Volume4 = row.Item("VolUDS4")
             Dim CassePallettizzate4 = row.Item("CassePalletizzate4")
+            Dim CassePP4 = row.Item("CassePP4")
             Dim TotCasse4 = row.Item("CasseAttese4")
 
             VisualizzaImmaine = True
@@ -249,18 +255,22 @@ Public Class Pallettizzazione
             LabelCodiceUDS1.Text = CodiceUDS1
             LabelVolumeUDS1.Text = Volume1
             LabelCassettePerUDS1.Text = String.Format("{0} di {1}", CassePallettizzate1, TotCasse1)
+            LabelCassePP1.Text = If(IsDBNull(CassePP1), "", CassePP1)
 
             LabelCodiceUDS2.Text = CodiceUDS2
             LabelVolumeUDS2.Text = Volume2
             LabelCassettePerUDS2.Text = String.Format("{0} di {1}", CassePallettizzate2, TotCasse2)
+            LabelCassePP2.Text = If(IsDBNull(CassePP2), "", CassePP2)
 
             LabelCodiceUDS3.Text = CodiceUDS3
             LabelVolumeUDS3.Text = Volume3
             LabelCassettePerUDS3.Text = String.Format("{0} di {1}", CassePallettizzate3, TotCasse3)
+            LabelCassePP3.Text = If(IsDBNull(CassePP3), "", CassePP3)
 
             LabelCodiceUDS4.Text = CodiceUDS4
             LabelVolumeUDS4.Text = Volume4
             LabelCassettePerUDS4.Text = String.Format("{0} di {1}", CassePallettizzate4, TotCasse4)
+            LabelCassePP4.Text = If(IsDBNull(CassePP4), "", CassePP4)
 
 
 

@@ -50,8 +50,12 @@
 
                         <br />
 
-                        <asp:Label ID="Label10" runat="server" Text="Volume: " Font-Size="40" Width="320"></asp:Label>
-                        <asp:Label ID="LabelVolumeUDS1" runat="server" Text="" Font-Size="46"></asp:Label>
+                        <asp:Label ID="Label10" runat="server" Text="Volume: " Font-Size="35"></asp:Label>
+                        <asp:Label ID="LabelVolumeUDS1" runat="server" Text="" Font-Size="40"></asp:Label>
+
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <asp:Label ID="Label17" runat="server" Text="CassePP: " Font-Size="35"></asp:Label>
+                        <asp:Label ID="LabelCassePP1" runat="server" Text="" Font-Size="40"></asp:Label>
 
                     </div>
 
@@ -68,8 +72,12 @@
 
                         <br />
 
-                        <asp:Label ID="Label15" runat="server" Text="Volume: " Font-Size="40" Width="320"></asp:Label>
-                        <asp:Label ID="LabelVolumeUDS2" runat="server" Text="" Font-Size="46"></asp:Label>
+                        <asp:Label ID="Label15" runat="server" Text="Volume: " Font-Size="35"></asp:Label>
+                        <asp:Label ID="LabelVolumeUDS2" runat="server" Text="" Font-Size="40"></asp:Label>
+
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <asp:Label ID="Label22" runat="server" Text="CassePP: " Font-Size="35"></asp:Label>
+                        <asp:Label ID="LabelCassePP2" runat="server" Text="" Font-Size="40"></asp:Label>
 
                     </div>
 
@@ -86,8 +94,12 @@
 
                         <br />
 
-                        <asp:Label ID="Label18" runat="server" Text="Volume: " Font-Size="40" Width="320"></asp:Label>
-                        <asp:Label ID="LabelVolumeUDS3" runat="server" Text="" Font-Size="46"></asp:Label>
+                        <asp:Label ID="Label18" runat="server" Text="Volume: " Font-Size="35"></asp:Label>
+                        <asp:Label ID="LabelVolumeUDS3" runat="server" Text="" Font-Size="40"></asp:Label>
+
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <asp:Label ID="Label24" runat="server" Text="CassePP: " Font-Size="35"></asp:Label>
+                        <asp:Label ID="LabelCassePP3" runat="server" Text="" Font-Size="40"></asp:Label>
 
                     </div>
 
@@ -104,8 +116,12 @@
 
                         <br />
 
-                        <asp:Label ID="Label21" runat="server" Text="Volume: " Font-Size="40" Width="320"></asp:Label>
-                        <asp:Label ID="LabelVolumeUDS4" runat="server" Text="" Font-Size="46"></asp:Label>
+                        <asp:Label ID="Label21" runat="server" Text="Volume: " Font-Size="35"></asp:Label>
+                        <asp:Label ID="LabelVolumeUDS4" runat="server" Text="" Font-Size="40"></asp:Label>
+
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <asp:Label ID="Label25" runat="server" Text="CassePP: " Font-Size="35"></asp:Label>
+                        <asp:Label ID="LabelCassePP4" runat="server" Text="" Font-Size="40"></asp:Label>
 
                     </div>
 
@@ -143,8 +159,12 @@
 
                         <br />
 
-                        <asp:Label ID="Label23" runat="server" Text="Volume: " Font-Size="40" Width="320"></asp:Label>
-                        <asp:Label ID="LabelVolumeUDS0" runat="server" Text="" Font-Size="46"></asp:Label>
+                        <asp:Label ID="Label23" runat="server" Text="Volume: " Font-Size="35"></asp:Label>
+                        <asp:Label ID="LabelVolumeUDS0" runat="server" Text="" Font-Size="40"></asp:Label>
+
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <asp:Label ID="Label26" runat="server" Text="CassePP: " Font-Size="35"></asp:Label>
+                        <asp:Label ID="LabelCassePP0" runat="server" Text="" Font-Size="40"></asp:Label>
 
                     </div>
 

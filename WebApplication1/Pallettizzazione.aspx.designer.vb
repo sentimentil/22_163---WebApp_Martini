@@ -149,6 +149,24 @@ Partial Public Class Pallettizzazione
     Protected WithEvents LabelVolumeUDS1 As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
+    '''Controllo Label17.
+    '''</summary>
+    '''<remarks>
+    '''Campo generato automaticamente.
+    '''Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+    '''</remarks>
+    Protected WithEvents Label17 As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''Controllo LabelCassePP1.
+    '''</summary>
+    '''<remarks>
+    '''Campo generato automaticamente.
+    '''Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+    '''</remarks>
+    Protected WithEvents LabelCassePP1 As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
     '''Controllo Alto2.
     '''</summary>
     '''<remarks>
@@ -210,6 +228,24 @@ Partial Public Class Pallettizzazione
     '''Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
     '''</remarks>
     Protected WithEvents LabelVolumeUDS2 As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''Controllo Label22.
+    '''</summary>
+    '''<remarks>
+    '''Campo generato automaticamente.
+    '''Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+    '''</remarks>
+    Protected WithEvents Label22 As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''Controllo LabelCassePP2.
+    '''</summary>
+    '''<remarks>
+    '''Campo generato automaticamente.
+    '''Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+    '''</remarks>
+    Protected WithEvents LabelCassePP2 As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
     '''Controllo Alto3.
@@ -275,6 +311,24 @@ Partial Public Class Pallettizzazione
     Protected WithEvents LabelVolumeUDS3 As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
+    '''Controllo Label24.
+    '''</summary>
+    '''<remarks>
+    '''Campo generato automaticamente.
+    '''Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+    '''</remarks>
+    Protected WithEvents Label24 As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''Controllo LabelCassePP3.
+    '''</summary>
+    '''<remarks>
+    '''Campo generato automaticamente.
+    '''Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+    '''</remarks>
+    Protected WithEvents LabelCassePP3 As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
     '''Controllo Alto4.
     '''</summary>
     '''<remarks>
@@ -336,6 +390,24 @@ Partial Public Class Pallettizzazione
     '''Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
     '''</remarks>
     Protected WithEvents LabelVolumeUDS4 As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''Controllo Label25.
+    '''</summary>
+    '''<remarks>
+    '''Campo generato automaticamente.
+    '''Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+    '''</remarks>
+    Protected WithEvents Label25 As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''Controllo LabelCassePP4.
+    '''</summary>
+    '''<remarks>
+    '''Campo generato automaticamente.
+    '''Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+    '''</remarks>
+    Protected WithEvents LabelCassePP4 As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
     '''Controllo PanelMonoUDS.
@@ -417,6 +489,24 @@ Partial Public Class Pallettizzazione
     '''Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
     '''</remarks>
     Protected WithEvents LabelVolumeUDS0 As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''Controllo Label26.
+    '''</summary>
+    '''<remarks>
+    '''Campo generato automaticamente.
+    '''Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+    '''</remarks>
+    Protected WithEvents Label26 As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''Controllo LabelCassePP0.
+    '''</summary>
+    '''<remarks>
+    '''Campo generato automaticamente.
+    '''Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+    '''</remarks>
+    Protected WithEvents LabelCassePP0 As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
     '''Controllo Destra3.
