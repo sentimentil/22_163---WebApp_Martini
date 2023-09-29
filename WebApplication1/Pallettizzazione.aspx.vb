@@ -152,7 +152,7 @@ Public Class Pallettizzazione
 
 
             Dim concat1 As String = ""
-            Dim concat2 As String = ""
+            'Dim concat2 As String = ""
             Dim count As Integer = 0
             'Dim totQtaTotale As Integer = 0
             'Dim lastQta As Integer = 0
@@ -162,7 +162,10 @@ Public Class Pallettizzazione
 
             If Articoli.Contains("|") Then
 
-                For Each articolo In Articoli.Split("|")
+                Dim splittato = Articoli.Split("|")
+                Dim qtaArticoli = splittato.Count
+
+                For Each articolo In splittato
 
                     If String.IsNullOrWhiteSpace(articolo) OrElse Not articolo.Contains("_") Then Continue For
 
@@ -172,6 +175,14 @@ Public Class Pallettizzazione
                     Dim qta = split(1)
 
                     Dim stringa = String.Format("{0} - {1}{2}", art, qta, "<br />")
+
+                    If count = 5 AndAlso qtaArticoli > 6 Then stringa = String.Format("{0} - {1}{2}", art, qta, "   ........")  'al massimo inserisco 6 articoli per questioni di spazio
+
+                    concat1 += stringa
+
+                    count += 1
+
+                    If count = 6 Then Exit For
 
                     'If last.Split("-")(0).Trim = art Then
                     '    'aggiorna quantità ed esco
@@ -186,13 +197,13 @@ Public Class Pallettizzazione
                     'End If
 
 
-                    If count >= 5 Then
-                        concat2 += stringa
-                    Else
-                        concat1 += stringa
-                    End If
+                    'If count >= 5 Then
+                    '    concat2 += stringa
+                    'Else
+                    '    concat1 += stringa
+                    'End If
 
-                    count += 1
+                    'count += 1
 
                     'totQtaTotale += qta
                     'last = stringa
@@ -206,7 +217,7 @@ Public Class Pallettizzazione
 
 
             LabelArticolo1.Text = concat1
-            LabelArticolo2.Text = concat2
+            'LabelArticolo2.Text = concat2
             'LabelQtaTotale.Text = totQtaTotale
 
             If row.Item("StatoUDS0") = 1 Then  'uds in chiusura
