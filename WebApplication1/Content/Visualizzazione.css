@@ -264,6 +264,75 @@
 
 
 
+.Depall1 {
+    position: fixed;
+    width: 33%;
+    height: 50%;
+    top: 0%;
+    left: 0%;
+    background: transparent;
+    border-right: 2px solid royalblue;
+    border-bottom: 2px solid royalblue;
+    word-wrap: break-word;
+}
+
+.Depall2 {
+    position: fixed;
+    width: 33%;
+    height: 50%;
+    top: 0%;
+    left: 33%;
+    background: transparent;
+    border-right: 2px solid royalblue;
+    border-bottom: 2px solid royalblue;
+    word-wrap: break-word;
+}
+
+.Depall3 {
+    position: fixed;
+    width: 33%;
+    height: 50%;
+    top: 0%;
+    left: 66%;
+    background: transparent;
+    border-bottom: 2px solid royalblue;
+    word-wrap: break-word;
+}
+
+.Depall4 {
+    position: fixed;
+    width: 33%;
+    height: 50%;
+    top: 45%;
+    left: 0%;
+    background: transparent;
+    border-right: 2px solid royalblue;
+    word-wrap: break-word;
+}
+
+.Depall5 {
+    position: fixed;
+    width: 33%;
+    height: 50%;
+    top: 45%;
+    left: 33%;
+    background: transparent;
+    border-right: 2px solid royalblue;
+    word-wrap: break-word;
+}
+
+.Depall6 {
+    position: fixed;
+    width: 33%;
+    height: 50%;
+    top: 45%;
+    left: 66%;
+    background: transparent;
+    word-wrap: break-word;
+}
+
+
+
 
 /*.U13 {
     position: fixed;

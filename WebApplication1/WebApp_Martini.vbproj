@@ -137,6 +137,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\Visualizzazione.css" />
+    <Content Include="DepallettizzazioneALL.aspx" />
     <Content Include="Immagini\logo.jpeg" />
     <Content Include="Immagini\Pallet.jpeg" />
     <Content Include="Immagini\PalletAD.jpeg" />
@@ -209,6 +210,13 @@
     </Compile>
     <Compile Include="Configurazione.aspx.vb">
       <DependentUpon>Configurazione.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="DepallettizzazioneALL.aspx.designer.vb">
+      <DependentUpon>DepallettizzazioneALL.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DepallettizzazioneALL.aspx.vb">
+      <DependentUpon>DepallettizzazioneALL.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Pallettizzazione.aspx.designer.vb">

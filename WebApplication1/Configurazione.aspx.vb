@@ -59,6 +59,14 @@
 
 
             Dim tipo = cmbTipologia.Text.Substring(0, 1)
+
+            If tipo = "D" AndAlso cmbBaia.Text = "TUTTE" Then
+                Session.Add("Linea", cmbLinea.Text)
+                Response.Redirect("DepallettizzazioneALL.aspx")
+                Exit Sub
+            End If
+
+
             Dim baia = CInt(cmbBaia.Text).ToString("00")
 
             Dim terminale = ""
@@ -122,6 +130,7 @@
                 cmbBaia.Items.Add("4")
                 cmbBaia.Items.Add("5")
                 cmbBaia.Items.Add("6")
+                cmbBaia.Items.Add("TUTTE")
         End Select
 
     End Sub
