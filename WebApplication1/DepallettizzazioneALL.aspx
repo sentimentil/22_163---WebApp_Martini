@@ -25,62 +25,80 @@
 
             <div id="Div1" class="Depall1" runat="server">
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp&nbsp;
-                <asp:Image ID="Image1" runat="server" ImageUrl="~/Immagini/SemaforoRosso.png" Height="90%"/>
+                <asp:Image ID="Image1" runat="server" ImageUrl="~/Immagini/SemaforoRosso.png" Height="80%"/>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp&nbsp;
                 <asp:Label ID="Label7" runat="server" Text="BAIA 1" Font-Size="40" Font-Bold="true"></asp:Label>
                 <br />
                 <asp:Label ID="Label13" runat="server" Text="BATCH: " Font-Size="30" Font-Bold="true"></asp:Label>
                 <asp:Label ID="Label1" runat="server" Text="" Font-Size="30" Font-Bold="true"></asp:Label>
+                <br />
+                <asp:Label ID="Label19" runat="server" Text="Qtà Rimanente: " Font-Size="30" Font-Bold="true"></asp:Label>
+                <asp:Label ID="Label1Qta" runat="server" Text="" Font-Size="30" Font-Bold="true"></asp:Label>
             </div>
 
             <div id="Div2" class="Depall2" runat="server">
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp&nbsp;
-                <asp:Image ID="Image2" runat="server" ImageUrl="~/Immagini/SemaforoRosso.png" Height="90%"/>
+                <asp:Image ID="Image2" runat="server" ImageUrl="~/Immagini/SemaforoRosso.png" Height="80%"/>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp&nbsp;
                 <asp:Label ID="Label8" runat="server" Text="BAIA 2" Font-Size="40" Font-Bold="true"></asp:Label>                
                 <br />
                 <asp:Label ID="Label14" runat="server" Text="BATCH: " Font-Size="30" Font-Bold="true"></asp:Label>
                 <asp:Label ID="Label2" runat="server" Text="" Font-Size="30" Font-Bold="true"></asp:Label>
+                <br />
+                <asp:Label ID="Label20" runat="server" Text="Qtà Rimanente: " Font-Size="30" Font-Bold="true"></asp:Label>
+                <asp:Label ID="Label2Qta" runat="server" Text="" Font-Size="30" Font-Bold="true"></asp:Label>
             </div>
 
             <div id="Div3" class="Depall3" runat="server">
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp&nbsp;
-                <asp:Image ID="Image3" runat="server" ImageUrl="~/Immagini/SemaforoRosso.png" Height="90%"/>
+                <asp:Image ID="Image3" runat="server" ImageUrl="~/Immagini/SemaforoRosso.png" Height="80%"/>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp&nbsp;
                 <asp:Label ID="Label9" runat="server" Text="BAIA 3" Font-Size="40" Font-Bold="true"></asp:Label>
                 <br />
                 <asp:Label ID="Label15" runat="server" Text="BATCH: " Font-Size="30" Font-Bold="true"></asp:Label>
                 <asp:Label ID="Label3" runat="server" Text="" Font-Size="30" Font-Bold="true"></asp:Label>
+                <br />
+                <asp:Label ID="Label21" runat="server" Text="Qtà Rimanente: " Font-Size="30" Font-Bold="true"></asp:Label>
+                <asp:Label ID="Label3Qta" runat="server" Text="" Font-Size="30" Font-Bold="true"></asp:Label>
             </div>
 
             <div id="Div4" class="Depall4" runat="server">
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp&nbsp;
-                <asp:Image ID="Image4" runat="server" ImageUrl="~/Immagini/SemaforoRosso.png" Height="90%" />
+                <asp:Image ID="Image4" runat="server" ImageUrl="~/Immagini/SemaforoRosso.png" Height="80%" />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp&nbsp;
                 <asp:Label ID="Label10" runat="server" Text="BAIA 4" Font-Size="40" Font-Bold="true"></asp:Label>
                 <br />
                 <asp:Label ID="Label16" runat="server" Text="BATCH: " Font-Size="30" Font-Bold="true"></asp:Label>
                 <asp:Label ID="Label4" runat="server" Text="" Font-Size="30" Font-Bold="true"></asp:Label>
+                <br />
+                <asp:Label ID="Label22" runat="server" Text="Qtà Rimanente: " Font-Size="30" Font-Bold="true"></asp:Label>
+                <asp:Label ID="Label4Qta" runat="server" Text="" Font-Size="30" Font-Bold="true"></asp:Label>
             </div>
 
             <div id="Div5" class="Depall5" runat="server">
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp&nbsp;
-                <asp:Image ID="Image5" runat="server" ImageUrl="~/Immagini/SemaforoRosso.png" Height="90%" />
+                <asp:Image ID="Image5" runat="server" ImageUrl="~/Immagini/SemaforoRosso.png" Height="80%" />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp&nbsp;
                 <asp:Label ID="Label11" runat="server" Text="BAIA 5" Font-Size="40" Font-Bold="true"></asp:Label>                
                 <br />
                 <asp:Label ID="Label17" runat="server" Text="BATCH: " Font-Size="30" Font-Bold="true"></asp:Label>
                 <asp:Label ID="Label5" runat="server" Text="" Font-Size="30" Font-Bold="true"></asp:Label>
+                <br />
+                <asp:Label ID="Label23" runat="server" Text="Qtà Rimanente: " Font-Size="30" Font-Bold="true"></asp:Label>
+                <asp:Label ID="Label5Qta" runat="server" Text="" Font-Size="30" Font-Bold="true"></asp:Label>
             </div>
 
             <div id="Div6" class="Depall6" runat="server">
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp&nbsp;
-                <asp:Image ID="Image6" runat="server" ImageUrl="~/Immagini/SemaforoRosso.png" Height="90%" />
+                <asp:Image ID="Image6" runat="server" ImageUrl="~/Immagini/SemaforoRosso.png" Height="80%" />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp&nbsp;
                 <asp:Label ID="Label12" runat="server" Text="BAIA 6" Font-Size="40" Font-Bold="true"></asp:Label>                
                 <br />
                 <asp:Label ID="Label18" runat="server" Text="BATCH: " Font-Size="30" Font-Bold="true"></asp:Label>
                 <asp:Label ID="Label6" runat="server" Text="" Font-Size="30" Font-Bold="true"></asp:Label>
+                <br />
+                <asp:Label ID="Label24" runat="server" Text="Qtà Rimanente: " Font-Size="30" Font-Bold="true"></asp:Label>
+                <asp:Label ID="Label6Qta" runat="server" Text="" Font-Size="30" Font-Bold="true"></asp:Label>
             </div>
 
 

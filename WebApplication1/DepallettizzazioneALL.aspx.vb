@@ -72,12 +72,29 @@ Public Class DepallettizzazioneALL
         For i = 1 To 6
 
             Dim index = i
-            Dim record = table.AsEnumerable.Where(Function(a) a.Item("Scarico") = "1" AndAlso a.Item("LocazioneAttuale").ToString.Trim = index).FirstOrDefault
+            Dim record = table.AsEnumerable.Where(Function(a) a.Item("Scarico") = "1" AndAlso a.Item("LocazioneAttuale").ToString.Trim = index)
             Dim s = tableSemafori.AsEnumerable.Where(Function(a) a.Item("Id").ToString.Trim = index).FirstOrDefault
 
-            Dim batch = If(record IsNot Nothing, record.Item("BatchDiAttivazione"), "")
+            Dim batch = "" 'If(record IsNot Nothing, record.Item("BatchDiAttivazione"), "")
             Dim semaforo = If(s IsNot Nothing, s.Item("Semaforo"), 0)
 
+            Dim qtaRimanente = 0
+
+            If record.Any Then
+
+                batch = record.FirstOrDefault.Item("BatchDiAttivazione")
+                Dim udp = record.FirstOrDefault.Item("UDP")
+
+                Dim righe = record.Where(Function(a) a.Item("UDP") = udp)
+
+                For Each r In righe
+                    Dim qtaTot = r.Item("Vincoli_NUMERO_CASSE_SET_ASSEGNAZIONE")
+                    Dim qtaScaricate = r.Item("CasseScaricate")
+                    qtaRimanente += (qtaTot - qtaScaricate)
+                Next
+
+
+            End If
 
             Select Case i
 
@@ -100,6 +117,7 @@ Public Class DepallettizzazioneALL
                     End If
 
                     Label1.Text = batch
+                    Label1Qta.Text = qtaRimanente
 
 
                 Case 2
@@ -121,6 +139,7 @@ Public Class DepallettizzazioneALL
                     End If
 
                     Label2.Text = batch
+                    Label2Qta.Text = qtaRimanente
 
 
                 Case 3
@@ -142,6 +161,7 @@ Public Class DepallettizzazioneALL
                     End If
 
                     Label3.Text = batch
+                    Label3Qta.Text = qtaRimanente
 
 
                 Case 4
@@ -163,6 +183,7 @@ Public Class DepallettizzazioneALL
                     End If
 
                     Label4.Text = batch
+                    Label4Qta.Text = qtaRimanente
 
 
                 Case 5
@@ -184,6 +205,7 @@ Public Class DepallettizzazioneALL
                     End If
 
                     Label5.Text = batch
+                    Label5Qta.Text = qtaRimanente
 
 
                 Case 6
@@ -205,11 +227,11 @@ Public Class DepallettizzazioneALL
                     End If
 
                     Label6.Text = batch
+                    Label6Qta.Text = qtaRimanente
 
             End Select
 
         Next
-
 
         LabelDateTime.Text = Date.Now.ToString
         LabelBaia.ForeColor = System.Drawing.Color.Black

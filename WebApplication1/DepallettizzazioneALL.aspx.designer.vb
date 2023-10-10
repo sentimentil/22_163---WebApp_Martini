@@ -95,6 +95,24 @@ Partial Public Class DepallettizzazioneALL
     Protected WithEvents Label1 As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
+    '''Controllo Label19.
+    '''</summary>
+    '''<remarks>
+    '''Campo generato automaticamente.
+    '''Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+    '''</remarks>
+    Protected WithEvents Label19 As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''Controllo Label1Qta.
+    '''</summary>
+    '''<remarks>
+    '''Campo generato automaticamente.
+    '''Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+    '''</remarks>
+    Protected WithEvents Label1Qta As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
     '''Controllo Div2.
     '''</summary>
     '''<remarks>
@@ -138,6 +156,24 @@ Partial Public Class DepallettizzazioneALL
     '''Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
     '''</remarks>
     Protected WithEvents Label2 As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''Controllo Label20.
+    '''</summary>
+    '''<remarks>
+    '''Campo generato automaticamente.
+    '''Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+    '''</remarks>
+    Protected WithEvents Label20 As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''Controllo Label2Qta.
+    '''</summary>
+    '''<remarks>
+    '''Campo generato automaticamente.
+    '''Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+    '''</remarks>
+    Protected WithEvents Label2Qta As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
     '''Controllo Div3.
@@ -185,6 +221,24 @@ Partial Public Class DepallettizzazioneALL
     Protected WithEvents Label3 As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
+    '''Controllo Label21.
+    '''</summary>
+    '''<remarks>
+    '''Campo generato automaticamente.
+    '''Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+    '''</remarks>
+    Protected WithEvents Label21 As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''Controllo Label3Qta.
+    '''</summary>
+    '''<remarks>
+    '''Campo generato automaticamente.
+    '''Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+    '''</remarks>
+    Protected WithEvents Label3Qta As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
     '''Controllo Div4.
     '''</summary>
     '''<remarks>
@@ -228,6 +282,24 @@ Partial Public Class DepallettizzazioneALL
     '''Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
     '''</remarks>
     Protected WithEvents Label4 As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''Controllo Label22.
+    '''</summary>
+    '''<remarks>
+    '''Campo generato automaticamente.
+    '''Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+    '''</remarks>
+    Protected WithEvents Label22 As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''Controllo Label4Qta.
+    '''</summary>
+    '''<remarks>
+    '''Campo generato automaticamente.
+    '''Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+    '''</remarks>
+    Protected WithEvents Label4Qta As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
     '''Controllo Div5.
@@ -275,6 +347,24 @@ Partial Public Class DepallettizzazioneALL
     Protected WithEvents Label5 As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
+    '''Controllo Label23.
+    '''</summary>
+    '''<remarks>
+    '''Campo generato automaticamente.
+    '''Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+    '''</remarks>
+    Protected WithEvents Label23 As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''Controllo Label5Qta.
+    '''</summary>
+    '''<remarks>
+    '''Campo generato automaticamente.
+    '''Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+    '''</remarks>
+    Protected WithEvents Label5Qta As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
     '''Controllo Div6.
     '''</summary>
     '''<remarks>
@@ -318,6 +408,24 @@ Partial Public Class DepallettizzazioneALL
     '''Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
     '''</remarks>
     Protected WithEvents Label6 As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''Controllo Label24.
+    '''</summary>
+    '''<remarks>
+    '''Campo generato automaticamente.
+    '''Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+    '''</remarks>
+    Protected WithEvents Label24 As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''Controllo Label6Qta.
+    '''</summary>
+    '''<remarks>
+    '''Campo generato automaticamente.
+    '''Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+    '''</remarks>
+    Protected WithEvents Label6Qta As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
     '''Controllo LabelDateTime.
