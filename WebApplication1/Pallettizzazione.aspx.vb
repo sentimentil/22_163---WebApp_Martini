@@ -96,7 +96,9 @@ Public Class Pallettizzazione
         Dim presenza = row.Item("CassaPresente")
         If IsDBNull(presenza) OrElse presenza = "" Then presenza = "0"
         If (oraLettura <> Nothing) AndAlso CBool(presenza) AndAlso ((Now - oraLettura).TotalMilliseconds <= 4000) Then lampeggio = True
-
+        Dim TimoutMinutiSenzaCasse = Session("minutiSenzaCasse")
+        Dim BoolTimoutSenzaCasse As Boolean = False
+        If TimoutMinutiSenzaCasse IsNot Nothing AndAlso TimoutMinutiSenzaCasse <> 0 AndAlso (oraLettura <> Nothing) AndAlso ((Now - oraLettura).TotalMinutes >= TimoutMinutiSenzaCasse) Then BoolTimoutSenzaCasse = True
 
         Dim VisualizzaImmaine As Boolean = False
         Dim NumeroUDS = row.Item("nUDS")
@@ -352,7 +354,9 @@ Public Class Pallettizzazione
             SvuotaDati()
         End If
 
-
+        LabelOperatore.BackColor = Drawing.Color.Orange
+        LabelOperatore.ForeColor = Drawing.Color.Black
+        LabelOperatore.Text = "RISPETTARE L'ORDINE DI ARRIVO DELLE CASSETTE"
 
         If ChiusuraUDS Then
 
@@ -394,19 +398,27 @@ Public Class Pallettizzazione
             Session.Add("Pallet", CodicePallet)
 
         Else
-
+            Dim UDSpresente As Boolean = False
             Select Case NumeroUDS
                 Case "1"
                     PanelMultiUDS.Visible = False
                     PanelMonoUDS.Visible = True
+                    UDSpresente = True
 
                 Case "2", "3", "4"
                     PanelMonoUDS.Visible = False
                     PanelMultiUDS.Visible = True
+                    UDSpresente = True
 
                 Case Else
-
+                    UDSpresente = False
             End Select
+
+            If UDSpresente AndAlso BoolTimoutSenzaCasse Then
+                LabelOperatore.BackColor = Drawing.Color.Black
+                LabelOperatore.ForeColor = Drawing.Color.Yellow
+                LabelOperatore.Text = "RITARDO NELL'ARRIVO DELLE CASSE MANCANTI"
+            End If
 
             VisualizzaImmaine = True
         End If

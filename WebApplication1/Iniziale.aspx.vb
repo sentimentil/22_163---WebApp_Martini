@@ -26,12 +26,14 @@ Public Class Iniziale
 
             'Session.Add("Terminale", "D29001A0")   'test in locale debug
 
+            Dim str = System.Configuration.ConfigurationManager.ConnectionStrings.Item("ConnectionSam1").ConnectionString  'ConnectionSam1
+
             If Session("Terminale") Is Nothing Then    'primo giro
 
-                Dim str = System.Configuration.ConfigurationManager.ConnectionStrings.Item("ConnectionSam1").ConnectionString  'ConnectionSam1
                 'Dim Connection = New SqlConnection(str)
 
                 Dim table As New DataTable
+
 
                 Using Connessione As New SqlConnection(str)
                     Connessione.Open()
@@ -48,7 +50,6 @@ Public Class Iniziale
                         reader.Close()
                     End Try
 
-
                 End Using
 
                 'reader.Close()
@@ -56,10 +57,9 @@ Public Class Iniziale
                 'Connection.Close()
 
                 Dim row = table.AsEnumerable.FirstOrDefault
-
                 If row IsNot Nothing Then terminale = row.Item("Terminale")
 
-            Else
+            Else 'è passato dalla configurazione
                 terminale = Session("Terminale")
             End If
 
@@ -74,6 +74,28 @@ Public Class Iniziale
 
                 linea = terminale.Substring(2, 1)
                 baia = terminale.Substring(terminale.Count - 2, 2)
+
+                Dim table1 As New DataTable
+
+                Using Connessione As New SqlConnection(str)
+                    Connessione.Open()
+
+                    Dim cmd = New SqlCommand("SELECT * FROM [dbo].[ParametriGenerali] WHERE CodiceParametro = 'MinutiPallettizzazioneWebMessage'", Connessione)
+                    Dim reader = cmd.ExecuteReader
+
+                    Try
+                        table1.Load(reader)
+                    Catch ex As Exception
+                        Throw New Exception(ex.Message, ex)
+                    Finally
+                        reader.Close()
+                    End Try
+                End Using
+
+                Dim row1 = table1.AsEnumerable.FirstOrDefault
+
+                If row1 IsNot Nothing Then Session.Add("minutiSenzaCasse", row1.Item("DescrizioneParametro"))
+
 
             ElseIf terminale.StartsWith("D") Then  'Depallettizzazione= D(1/2)900(1..6)A0
 

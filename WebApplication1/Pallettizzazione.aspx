@@ -285,7 +285,7 @@
     </div>
 
         <div id="navbar1" class="navbar-inverse navbar-fixed-bottom">
-            <asp:Image runat="server" ImageUrl="~/Immagini/logo.jpeg" Height="30px"></asp:Image>
+            <%--<asp:Image runat="server" ImageUrl="~/Immagini/logo.jpeg" Height="30px"></asp:Image>--%>
         </div>
 
         <div id="navbar" class="navbar-inverse navbar-fixed-bottom">
