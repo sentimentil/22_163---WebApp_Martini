@@ -96,9 +96,9 @@ Public Class Pallettizzazione
         Dim presenza = row.Item("CassaPresente")
         If IsDBNull(presenza) OrElse presenza = "" Then presenza = "0"
         If (oraLettura <> Nothing) AndAlso CBool(presenza) AndAlso ((Now - oraLettura).TotalMilliseconds <= 4000) Then lampeggio = True
-        Dim TimoutMinutiSenzaCasse = Session("minutiSenzaCasse")
+        Dim TimoutMinutiSenzaCasse = CInt(Session("minutiSenzaCasse"))
         Dim BoolTimoutSenzaCasse As Boolean = False
-        If TimoutMinutiSenzaCasse IsNot Nothing AndAlso TimoutMinutiSenzaCasse <> 0 AndAlso (oraLettura <> Nothing) AndAlso ((Now - oraLettura).TotalMinutes >= TimoutMinutiSenzaCasse) Then BoolTimoutSenzaCasse = True
+        If TimoutMinutiSenzaCasse <> Nothing AndAlso TimoutMinutiSenzaCasse <> 0 AndAlso (oraLettura <> Nothing) AndAlso ((Now - oraLettura).TotalMinutes >= TimoutMinutiSenzaCasse) Then BoolTimoutSenzaCasse = True
 
         Dim VisualizzaImmaine As Boolean = False
         Dim NumeroUDS = row.Item("nUDS")

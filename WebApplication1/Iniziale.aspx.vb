@@ -94,7 +94,7 @@ Public Class Iniziale
 
                 Dim row1 = table1.AsEnumerable.FirstOrDefault
 
-                If row1 IsNot Nothing Then Session.Add("minutiSenzaCasse", row1.Item("DescrizioneParametro"))
+                If row1 IsNot Nothing Then Session.Add("minutiSenzaCasse", row1.Item("DescrizioneParametro").ToString)
 
 
             ElseIf terminale.StartsWith("D") Then  'Depallettizzazione= D(1/2)900(1..6)A0
