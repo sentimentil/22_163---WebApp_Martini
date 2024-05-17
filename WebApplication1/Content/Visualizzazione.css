@@ -9,7 +9,7 @@
 
 .Sinistra {
     position: fixed;
-    width: 35%;
+    width: 8%;
     height: 100%;
     top: 5%;
     left: 2%;
@@ -22,10 +22,10 @@
 
 .Destra {
     position: fixed;
-    width: 60%;
+    width: 90%;
     height: 86%;
     top: 9%;
-    left: 39%;
+    left: 12%;
     background: transparent;
     border-left: 2px solid royalblue;
     border-top: 2px solid royalblue;
@@ -38,10 +38,10 @@
 
 .Destra2 {
     position: fixed;
-    width: 18%;
+    width: 40%;
     height: 86%;
     top: 9%;
-    left: 82%;
+    left: 60%;
     background: transparent;
     /*border-left: 2px solid royalblue;*/
     border-top: 2px solid royalblue;

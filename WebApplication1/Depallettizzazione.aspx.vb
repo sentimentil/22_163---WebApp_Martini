@@ -86,7 +86,7 @@ Public Class Depallettizzazione
         'Connection.Close()
 
 
-        'scarico=1 visualizzo, scarico=0 conteggio qta e forse nuovo udp in arrivo se diverso UPD da quello in scarico
+        'scarico=1 visualizzo a prescindere dall'udp, scarico=0 nuovo udp in arrivo
         Dim tmp = table.AsEnumerable.Where(Function(a) a.Item("LocazioneAttuale").ToString.Trim = Baia.ToString)
         'Dim noResults As Boolean = False
         Dim nextUDP As Boolean = False
@@ -102,7 +102,7 @@ Public Class Depallettizzazione
                 LabelBatch.Text = row.FirstOrDefault.Item("BatchDiAttivazione")
                 LabelUDP.Text = udp
 
-                Dim lista = tmp.Where(Function(a) a.Item("UDP") = udp)  'righe da analizzare per conteggio e visualizzazione articoli
+                'Dim lista = tmp.Where(Function(a) a.Item("UDP") = udp)  'righe da analizzare per conteggio e visualizzazione articoli
 
 
                 Dim totQtaTotale As Integer = 0
@@ -114,29 +114,48 @@ Public Class Depallettizzazione
                 Dim lastQta As Integer = 0
                 Dim last As String = ""
 
-                For Each articolo In lista   'For Each articolo In row
+                For Each articolo In row   'For Each articolo In row
                     Dim art = articolo.Item("Vincoli_CODICE_ARTICOLO")
                     Dim qta = articolo.Item("Vincoli_NUMERO_CASSE_SET_ASSEGNAZIONE")
+                    Dim view_udp = articolo.Item("UDP")
 
                     totQtaTotale += qta     'articolo.Item("Vincoli_NUMERO_CASSE_SET_ASSEGNAZIONE")
                     totQtaScaricata += articolo.Item("CasseScaricate")
 
-                    If articolo.Item("Scarico") = "0" Then Continue For  'articolo già caricato, conteggio solo qta
+                    'If articolo.Item("Scarico") = "0" Then Continue For  'articolo già caricato, conteggio solo qta
 
 
-                    Dim stringa = String.Format("{0} - {1}{2}", art, qta, "<br />")
+                    Dim stringa = String.Format("{0}-{1} - {2}{3}", view_udp, art, qta, "<br />")  'String.Format("{0} - {1}{2}", art, qta, "<br />")
 
-                    If last.Split("-")(0).Trim = art Then
-                        'aggiorna quantità ed esco
+                    If last.Trim <> "" Then
+                        Dim spl = last.Split("-")
+                        Dim old_check = String.Format("{0}-{1}", spl(0).Trim, spl(1).Trim)
+                        Dim new_check = String.Format("{0}-{1}", view_udp, art)
 
-                        lastQta += CInt(qta)
-                        Dim s = String.Format("{0} - {1}{2}", art, lastQta.ToString, "<br />")
+                        If old_check = new_check Then
+                            'aggiorna quantità ed esco
 
-                        concat = concat.Replace(last, s)
-                        last = s
+                            lastQta += CInt(qta)
+                            Dim s = String.Format("{0}-{1} - {2}{3}", view_udp, art, lastQta.ToString, "<br />")  'String.Format("{0} - {1}{2}", art, lastQta.ToString, "<br />")
 
-                        Continue For
+                            concat = concat.Replace(last, s)
+                            last = s
+
+                            Continue For
+                        End If
                     End If
+
+                    'If last.Trim <> "" AndAlso last.Split("-")(0).Trim = art Then
+                    '    'aggiorna quantità ed esco
+
+                    '    lastQta += CInt(qta)
+                    '    Dim s = String.Format("{0}-{1} - {2}{3}", view_udp, art, lastQta.ToString, "<br />")  'String.Format("{0} - {1}{2}", art, lastQta.ToString, "<br />")
+
+                    '    concat = concat.Replace(last, s)
+                    '    last = s
+
+                    '    Continue For
+                    'End If
 
 
                     concat += stringa  'stringa & "<br />"

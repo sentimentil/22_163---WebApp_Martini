@@ -94,7 +94,7 @@
                 <br />
                 <br />
                 <br />--%>
-                <asp:Label ID="Label6" runat="server" Text="Articoli:" Font-Size="40" Font-Underline="true" Style="text-align: left"></asp:Label>
+                <asp:Label ID="Label6" runat="server" Text="UDP-ARTICOLO - QTÀ" Font-Size="40" Font-Underline="true" Style="text-align: left"></asp:Label>
                 <br />
                 <asp:Label ID="LabelArticolo" runat="server" Text="" Font-Size="46"></asp:Label>
 
