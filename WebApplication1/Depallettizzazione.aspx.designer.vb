@@ -176,6 +176,24 @@ Partial Public Class Depallettizzazione
     Protected WithEvents LabelQtaScaricata As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
+    '''Controllo Label9.
+    '''</summary>
+    '''<remarks>
+    '''Campo generato automaticamente.
+    '''Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+    '''</remarks>
+    Protected WithEvents Label9 As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''Controllo LabelQtaTotale.
+    '''</summary>
+    '''<remarks>
+    '''Campo generato automaticamente.
+    '''Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+    '''</remarks>
+    Protected WithEvents LabelQtaTotale As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
     '''Controllo Destra2.
     '''</summary>
     '''<remarks>
@@ -201,24 +219,6 @@ Partial Public Class Depallettizzazione
     '''Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
     '''</remarks>
     Protected WithEvents LabelArticolo As Global.System.Web.UI.WebControls.Label
-    
-    '''<summary>
-    '''Controllo Label9.
-    '''</summary>
-    '''<remarks>
-    '''Campo generato automaticamente.
-    '''Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
-    '''</remarks>
-    Protected WithEvents Label9 As Global.System.Web.UI.WebControls.Label
-    
-    '''<summary>
-    '''Controllo LabelQtaTotale.
-    '''</summary>
-    '''<remarks>
-    '''Campo generato automaticamente.
-    '''Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
-    '''</remarks>
-    Protected WithEvents LabelQtaTotale As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
     '''Controllo LabelDateTime.

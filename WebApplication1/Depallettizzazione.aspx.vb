@@ -112,20 +112,23 @@ Public Class Depallettizzazione
                 'Dim ArticoliInseriti As Integer = 0  'faccio vedere solo i primi due articoli della lista
                 Dim concat As String = ""
                 Dim lastQta As Integer = 0
+                Dim lastRimanente As Integer = 0
                 Dim last As String = ""
 
                 For Each articolo In row   'For Each articolo In row
                     Dim art = articolo.Item("Vincoli_CODICE_ARTICOLO")
                     Dim qta = articolo.Item("Vincoli_NUMERO_CASSE_SET_ASSEGNAZIONE")
                     Dim view_udp = articolo.Item("UDP")
+                    Dim scaricate = articolo.Item("CasseScaricate")
+                    Dim rimanente = qta - scaricate
 
                     totQtaTotale += qta     'articolo.Item("Vincoli_NUMERO_CASSE_SET_ASSEGNAZIONE")
-                    totQtaScaricata += articolo.Item("CasseScaricate")
+                    totQtaScaricata += scaricate
 
                     'If articolo.Item("Scarico") = "0" Then Continue For  'articolo già caricato, conteggio solo qta
 
 
-                    Dim stringa = String.Format("{0}-{1} - {2}{3}", view_udp, art, qta, "<br />")  'String.Format("{0} - {1}{2}", art, qta, "<br />")
+                    Dim stringa = String.Format("{0}-{1} - {2}-{3}{4}", view_udp, art, qta, rimanente, "<br />")  'String.Format("{0} - {1}{2}", art, qta, "<br />")
 
                     If last.Trim <> "" Then
                         Dim spl = last.Split("-")
@@ -136,8 +139,10 @@ Public Class Depallettizzazione
                             'aggiorna quantità ed esco
 
                             lastQta += CInt(qta)
-                            Dim s = String.Format("{0}-{1} - {2}{3}", view_udp, art, lastQta.ToString, "<br />")  'String.Format("{0} - {1}{2}", art, lastQta.ToString, "<br />")
+                            lastRimanente += CInt(rimanente)
+                            Dim s = String.Format("{0}-{1} - {2}-{3}{4}", view_udp, art, lastQta.ToString, lastRimanente.ToString, "<br />")  'String.Format("{0} - {1}{2}", art, lastQta.ToString, "<br />")
 
+                            If view_udp <> udp Then s = "* " & s
                             concat = concat.Replace(last, s)
                             last = s
 
@@ -157,10 +162,11 @@ Public Class Depallettizzazione
                     '    Continue For
                     'End If
 
-
+                    If view_udp <> udp Then stringa = "* " & stringa
                     concat += stringa  'stringa & "<br />"
                     last = stringa
                     lastQta = qta
+                    lastRimanente = rimanente
                 Next
 
                 LabelArticolo.Text = concat

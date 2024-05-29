@@ -85,7 +85,8 @@
                 <asp:Label ID="LabelQtaScaricata" runat="server" Text="" Font-Size="46" BackColor="Aqua"></asp:Label>
 
                 <br />                
-
+                <asp:Label ID="Label9" runat="server" Text="Totale Quantità: " Font-Size="40" Style="text-align: left"></asp:Label>
+                <asp:Label ID="LabelQtaTotale" runat="server" Text="" Font-Size="46"></asp:Label>
 
             </div>
 
@@ -94,12 +95,11 @@
                 <br />
                 <br />
                 <br />--%>
-                <asp:Label ID="Label6" runat="server" Text="UDP-ARTICOLO - QTÀ" Font-Size="40" Font-Underline="true" Style="text-align: left"></asp:Label>
+                <asp:Label ID="Label6" runat="server" Text="UDP-ARTICOLO - TOT-RIMANE" Font-Size="40" Font-Underline="true" Style="text-align: left"></asp:Label>
                 <br />
                 <asp:Label ID="LabelArticolo" runat="server" Text="" Font-Size="46"></asp:Label>
 
-                <asp:Label ID="Label9" runat="server" Text="Tot Qtà: " Font-Size="40" Style="text-align: left"></asp:Label>
-                <asp:Label ID="LabelQtaTotale" runat="server" Text="" Font-Size="46"></asp:Label>
+                
             </div>
 
 
