@@ -95,9 +95,25 @@
                 <br />
                 <br />
                 <br />--%>
-                <asp:Label ID="Label6" runat="server" Text="UDP-ARTICOLO - TOT-RIMANE" Font-Size="40" Font-Underline="true" Style="text-align: left"></asp:Label>
+                <asp:Label ID="Label6" runat="server" Text="UDP-ARTICOLO - TOT-RIMANENTE" Font-Size="38" Font-Underline="true" Style="text-align: left"></asp:Label>
                 <br />
-                <asp:Label ID="LabelArticolo" runat="server" Text="" Font-Size="46"></asp:Label>
+                <asp:Label ID="LabelArticolo1" runat="server" Text="" Font-Size="45"></asp:Label>
+                <br />
+                <asp:Label ID="LabelArticolo2" runat="server" Text="" Font-Size="45"></asp:Label>
+                <br />
+                <asp:Label ID="LabelArticolo3" runat="server" Text="" Font-Size="45"></asp:Label>
+                <br />
+                <asp:Label ID="LabelArticolo4" runat="server" Text="" Font-Size="45"></asp:Label>
+                <br />
+                <asp:Label ID="LabelArticolo5" runat="server" Text="" Font-Size="45"></asp:Label>
+                <br />
+                <asp:Label ID="LabelArticolo6" runat="server" Text="" Font-Size="45"></asp:Label>
+                <br />
+                <asp:Label ID="LabelArticolo7" runat="server" Text="" Font-Size="45"></asp:Label>
+                <br />
+                <asp:Label ID="LabelArticolo8" runat="server" Text="" Font-Size="45"></asp:Label>
+                <br />
+                <asp:Label ID="LabelArticolo9" runat="server" Text="" Font-Size="45"></asp:Label>
 
                 
             </div>

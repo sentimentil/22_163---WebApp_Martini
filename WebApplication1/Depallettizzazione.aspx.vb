@@ -115,6 +115,9 @@ Public Class Depallettizzazione
                 Dim lastRimanente As Integer = 0
                 Dim last As String = ""
 
+                PulisciLabelArticoli()
+                Dim indiceLabel As Integer = 0
+
                 For Each articolo In row   'For Each articolo In row
                     Dim art = articolo.Item("Vincoli_CODICE_ARTICOLO")
                     Dim qta = articolo.Item("Vincoli_NUMERO_CASSE_SET_ASSEGNAZIONE")
@@ -128,7 +131,7 @@ Public Class Depallettizzazione
                     'If articolo.Item("Scarico") = "0" Then Continue For  'articolo già caricato, conteggio solo qta
 
 
-                    Dim stringa = String.Format("{0}-{1} - {2}-{3}{4}", view_udp, art, qta, rimanente, "<br />")  'String.Format("{0} - {1}{2}", art, qta, "<br />")
+                    Dim stringa = String.Format("{0}-{1} - {2}-{3}", view_udp, art, qta, rimanente)  'String.Format("{0} - {1}{2}", art, qta, "<br />")
 
                     If last.Trim <> "" Then
                         Dim spl = last.Split("-")
@@ -140,10 +143,51 @@ Public Class Depallettizzazione
 
                             lastQta += CInt(qta)
                             lastRimanente += CInt(rimanente)
-                            Dim s = String.Format("{0}-{1} - {2}-{3}{4}", view_udp, art, lastQta.ToString, lastRimanente.ToString, "<br />")  'String.Format("{0} - {1}{2}", art, lastQta.ToString, "<br />")
+                            Dim s = String.Format("{0}-{1} - {2}-{3}", view_udp, art, lastQta.ToString, lastRimanente.ToString)  'String.Format("{0} - {1}{2}", art, lastQta.ToString, "<br />")
 
-                            If view_udp <> udp Then s = "* " & s
-                            concat = concat.Replace(last, s)
+                            'If view_udp <> udp Then s = "* " & s
+
+                            Select Case indiceLabel
+                                Case 1
+                                    LabelArticolo1.Text = s
+                                    If view_udp <> udp Then LabelArticolo1.ForeColor = Drawing.Color.Red
+
+                                Case 2
+                                    LabelArticolo2.Text = s
+                                    If view_udp <> udp Then LabelArticolo2.ForeColor = Drawing.Color.Red
+
+                                Case 3
+                                    LabelArticolo3.Text = s
+                                    If view_udp <> udp Then LabelArticolo3.ForeColor = Drawing.Color.Red
+
+                                Case 4
+                                    LabelArticolo4.Text = s
+                                    If view_udp <> udp Then LabelArticolo4.ForeColor = Drawing.Color.Red
+
+                                Case 5
+                                    LabelArticolo5.Text = s
+                                    If view_udp <> udp Then LabelArticolo5.ForeColor = Drawing.Color.Red
+
+                                Case 6
+                                    LabelArticolo6.Text = s
+                                    If view_udp <> udp Then LabelArticolo6.ForeColor = Drawing.Color.Red
+
+                                Case 7
+                                    LabelArticolo7.Text = s
+                                    If view_udp <> udp Then LabelArticolo7.ForeColor = Drawing.Color.Red
+
+                                Case 8
+                                    LabelArticolo8.Text = s
+                                    If view_udp <> udp Then LabelArticolo8.ForeColor = Drawing.Color.Red
+
+                                Case 9
+                                    LabelArticolo9.Text = s
+                                    If view_udp <> udp Then LabelArticolo9.ForeColor = Drawing.Color.Red
+
+                                Case Else
+                            End Select
+
+                            'concat = concat.Replace(last, s)
                             last = s
 
                             Continue For
@@ -162,14 +206,57 @@ Public Class Depallettizzazione
                     '    Continue For
                     'End If
 
-                    If view_udp <> udp Then stringa = "* " & stringa
-                    concat += stringa  'stringa & "<br />"
+                    'If view_udp <> udp Then stringa = "* " & stringa
+
+                    Select Case indiceLabel
+                        Case 0
+                            LabelArticolo1.Text = stringa
+                            If view_udp <> udp Then LabelArticolo1.ForeColor = Drawing.Color.Red
+
+                        Case 1
+                            LabelArticolo2.Text = stringa
+                            If view_udp <> udp Then LabelArticolo2.ForeColor = Drawing.Color.Red
+
+                        Case 2
+                            LabelArticolo3.Text = stringa
+                            If view_udp <> udp Then LabelArticolo3.ForeColor = Drawing.Color.Red
+
+                        Case 3
+                            LabelArticolo4.Text = stringa
+                            If view_udp <> udp Then LabelArticolo4.ForeColor = Drawing.Color.Red
+
+                        Case 4
+                            LabelArticolo5.Text = stringa
+                            If view_udp <> udp Then LabelArticolo5.ForeColor = Drawing.Color.Red
+
+                        Case 5
+                            LabelArticolo6.Text = stringa
+                            If view_udp <> udp Then LabelArticolo6.ForeColor = Drawing.Color.Red
+
+                        Case 6
+                            LabelArticolo7.Text = stringa
+                            If view_udp <> udp Then LabelArticolo7.ForeColor = Drawing.Color.Red
+
+                        Case 7
+                            LabelArticolo8.Text = stringa
+                            If view_udp <> udp Then LabelArticolo8.ForeColor = Drawing.Color.Red
+
+                        Case 8
+                            LabelArticolo9.Text = stringa
+                            If view_udp <> udp Then LabelArticolo9.ForeColor = Drawing.Color.Red
+
+                        Case Else
+                            'non compilo nulla, continuo ciclo per quantità
+                    End Select
+
+                    indiceLabel += 1
+                    'concat += stringa
                     last = stringa
                     lastQta = qta
                     lastRimanente = rimanente
                 Next
 
-                LabelArticolo.Text = concat
+                'LabelArticolo.Text = concat
 
                 LabelQtaRimanente.Text = totQtaTotale - totQtaScaricata
                 LabelQtaScaricata.Text = totQtaScaricata
@@ -181,7 +268,7 @@ Public Class Depallettizzazione
                 LabelGiro.Text = ""
                 LabelBatch.Text = ""
                 LabelUDP.Text = ""
-                LabelArticolo.Text = ""
+                PulisciLabelArticoli()
                 LabelQtaRimanente.Text = ""
                 LabelQtaScaricata.Text = ""
                 LabelQtaTotale.Text = ""
@@ -196,7 +283,7 @@ Public Class Depallettizzazione
             LabelGiro.Text = ""
             LabelBatch.Text = ""
             LabelUDP.Text = ""
-            LabelArticolo.Text = ""
+            PulisciLabelArticoli()
             LabelQtaRimanente.Text = ""
             LabelQtaScaricata.Text = ""
             LabelQtaTotale.Text = ""
@@ -264,6 +351,30 @@ Public Class Depallettizzazione
 
     End Sub
 
+
+    Private Sub PulisciLabelArticoli()
+
+        LabelArticolo1.Text = ""
+        LabelArticolo2.Text = ""
+        LabelArticolo3.Text = ""
+        LabelArticolo4.Text = ""
+        LabelArticolo5.Text = ""
+        LabelArticolo6.Text = ""
+        LabelArticolo7.Text = ""
+        LabelArticolo8.Text = ""
+        LabelArticolo9.Text = ""
+
+        LabelArticolo1.ForeColor = Drawing.Color.Black
+        LabelArticolo2.ForeColor = Drawing.Color.Black
+        LabelArticolo3.ForeColor = Drawing.Color.Black
+        LabelArticolo4.ForeColor = Drawing.Color.Black
+        LabelArticolo5.ForeColor = Drawing.Color.Black
+        LabelArticolo6.ForeColor = Drawing.Color.Black
+        LabelArticolo7.ForeColor = Drawing.Color.Black
+        LabelArticolo8.ForeColor = Drawing.Color.Black
+        LabelArticolo9.ForeColor = Drawing.Color.Black
+
+    End Sub
 
 
     'Protected Sub btnConfigurazione_Click(sender As Object, e As EventArgs) Handles btnConfigurazione.Click

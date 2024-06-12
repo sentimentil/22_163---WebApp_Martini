@@ -212,13 +212,85 @@ Partial Public Class Depallettizzazione
     Protected WithEvents Label6 As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
-    '''Controllo LabelArticolo.
+    '''Controllo LabelArticolo1.
     '''</summary>
     '''<remarks>
     '''Campo generato automaticamente.
     '''Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
     '''</remarks>
-    Protected WithEvents LabelArticolo As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents LabelArticolo1 As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''Controllo LabelArticolo2.
+    '''</summary>
+    '''<remarks>
+    '''Campo generato automaticamente.
+    '''Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+    '''</remarks>
+    Protected WithEvents LabelArticolo2 As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''Controllo LabelArticolo3.
+    '''</summary>
+    '''<remarks>
+    '''Campo generato automaticamente.
+    '''Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+    '''</remarks>
+    Protected WithEvents LabelArticolo3 As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''Controllo LabelArticolo4.
+    '''</summary>
+    '''<remarks>
+    '''Campo generato automaticamente.
+    '''Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+    '''</remarks>
+    Protected WithEvents LabelArticolo4 As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''Controllo LabelArticolo5.
+    '''</summary>
+    '''<remarks>
+    '''Campo generato automaticamente.
+    '''Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+    '''</remarks>
+    Protected WithEvents LabelArticolo5 As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''Controllo LabelArticolo6.
+    '''</summary>
+    '''<remarks>
+    '''Campo generato automaticamente.
+    '''Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+    '''</remarks>
+    Protected WithEvents LabelArticolo6 As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''Controllo LabelArticolo7.
+    '''</summary>
+    '''<remarks>
+    '''Campo generato automaticamente.
+    '''Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+    '''</remarks>
+    Protected WithEvents LabelArticolo7 As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''Controllo LabelArticolo8.
+    '''</summary>
+    '''<remarks>
+    '''Campo generato automaticamente.
+    '''Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+    '''</remarks>
+    Protected WithEvents LabelArticolo8 As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''Controllo LabelArticolo9.
+    '''</summary>
+    '''<remarks>
+    '''Campo generato automaticamente.
+    '''Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+    '''</remarks>
+    Protected WithEvents LabelArticolo9 As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
     '''Controllo LabelDateTime.
