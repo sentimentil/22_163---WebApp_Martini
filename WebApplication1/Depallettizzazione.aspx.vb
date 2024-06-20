@@ -66,7 +66,7 @@ Public Class Depallettizzazione
         Using Connessione As New SqlConnection(str)
             Connessione.Open()
 
-            Dim cmd As New SqlCommand("SELECT * FROM [dbo].[VistaWebDepal] ORDER BY Scarico DESC, CasseScaricate DESC, Sequenza, id", Connessione)
+            Dim cmd As New SqlCommand("SELECT * FROM [dbo].[VistaWebDepal] ORDER BY Scarico DESC, DataMessaInScarico DESC, Sequenza, id", Connessione)
             Dim reader = cmd.ExecuteReader
 
             'il reader va sempre chiuso (certe documentazioni di Microsoft dicono si e altre non lo mostrano negli esempi, nel dubbio chiudo)
